@@ -1,0 +1,37 @@
+@import "normalize-scss";
+@import "global";
+@import "typo";
+
+
+html {
+  box-sizing: border-box;
+  *, *:before, *:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+  }
+
+  font: normal normal #{$font-size}/1.5 "Plex Sans", sans-serif;
+  color: $color-black;
+
+  @include min-width($medium) {
+    font-size: 1.25rem;
+  }
+
+  #app {
+    margin: $spacing;
+  }
+
+  h1, h2 {
+    font-family: "Plex Mono", sans-serif;
+    color: $color-accent;
+  }
+  h1 {
+    font-size: 2.4em;
+  }
+
+  p {
+    margin: $spacing / 2 0;
+    hyphens: auto;
+  }
+}
