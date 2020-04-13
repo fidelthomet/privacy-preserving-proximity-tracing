@@ -61,8 +61,24 @@ Während die übrigen Kinder schwarzäugige, derbe Kerle waren, sah die schlanke
 
 +++ vis-app 1
 
-Als mein Vater von Mailand zurückkehrte, fand er mich auf dem Vorplatze unserer Villa mit der Kleinen spielend, die schön war wie ein Cherub; ein Wesen, aus dessen Augen wundervolle Strahlen leuchteten und das schlank und beweglich war wie eine Gemse. Die Angelegenheit war bald geregelt. Mit Erlaubnis meines Vaters vermochte die Mutter die armen Leute rasch zu bewegen, ihr die Obhut über das Kind zu überlassen. Sie konnten die arme, süße Waise gut leiden und sie war ihnen immer wie ein Sonnenschein im Hause gewesen; deshalb hätten sie es nicht übers Herz gebracht, sie in Not und Elend zurückzuhalten, während ihr die Vorsehung ein solches Glück bescherte. Sie fragten noch den Priester des Ortes um Rat, und das Resultat dieser Unterredung war, daß Elisabeth Lavenza ihren Einzug in das Haus meiner Eltern hielt. Sie wurde mir lieber als eine Schwester – die liebliche, angebetete Gefährtin meines Schaffens und meiner Erholung.
+Als mein Vater von Mailand zurückkehrte, fand er mich auf dem Vorplatze unserer Villa mit der Kleinen spielend, die schön war wie ein Cherub; ein Wesen, aus dessen Augen wundervolle Strahlen leuchteten und das schlank und beweglich war wie eine Gemse. Die Angelegenheit war bald geregelt. 
 
 +++ vis-app 2
+
+Mit Erlaubnis meines Vaters vermochte die Mutter die armen Leute rasch zu bewegen, ihr die Obhut über das Kind zu überlassen. 
+
++++ vis-app 3
+
+Sie konnten die arme, süße Waise gut leiden und sie war ihnen immer wie ein Sonnenschein im Hause gewesen; deshalb hätten sie es nicht übers Herz gebracht, sie in Not und Elend zurückzuhalten, während ihr die Vorsehung ein solches Glück bescherte. 
+
++++ vis-app 4
+
+Sie fragten noch den Priester des Ortes um Rat, und das Resultat dieser Unterredung war, daß Elisabeth Lavenza ihren Einzug in das Haus meiner Eltern hielt. 
+
++++ vis-app 5
+
+Sie wurde mir lieber als eine Schwester – die liebliche, angebetete Gefährtin meines Schaffens und meiner Erholung.
+
++++ vis-app 6
 
 Jeder hatte Elisabeth gern. Die Liebe und Verehrung, mit der sie alle bedachten, die ihr näher traten, war mein Stolz und meine Freude. Am Vorabend des Tages, an dem Elisabeth zu uns kam, sagte meine Mutter zu mir: »Ich habe ein reizendes Geschenk für meinen Viktor, morgen sollst du es haben.« Und als sie am Morgen das Kind mir als die versprochene Gabe zeigte, faßte ich voll kindlichen Ernstes ihre Worte so auf, daß Elisabeth mein sei, um sie zu schützen, zu lieben und zu verhätscheln. Jedes Lob, das der Kleinen galt, nahm ich so auf, als sei es ein Lob meines Eigentums. Wir nannten einander beim Vornamen. Kein Wort ist imstande zu schildern, was wir uns waren, um so mehr als sie bis zu ihrem Tode meine einzige Schwester sein sollte.

@@ -16,7 +16,6 @@
 
 <script>
 import SectionRenderer from '@/components/SectionRenderer.vue'
-import 'intersection-observer'
 import scrollama from 'scrollama'
 import resize from 'vue-resize-directive'
 export default {
@@ -61,6 +60,7 @@ export default {
     },
     onProgress (step) {
       // console.log(`${this.section}– progress`, step)
+      // console.log(step.progress)
       this.step = step.index
       this.progress = step.progress
     },
@@ -94,6 +94,7 @@ export default {
 
     .fallback {
       width: 100%;
+      overflow: hidden;
       height: 100%;
       font-size: 2.5em;
       background: $color-accent;

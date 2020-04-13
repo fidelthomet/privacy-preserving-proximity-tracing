@@ -60,8 +60,24 @@ Er war so schlecht gekleidet, daß ein anderer, selbst jemand, der die Armut sch
 
 +++ vis-app 1
 
-Er hatte nicht weit zu gehen; er wußte sogar, wieviel Schritte es von seiner Haustür waren: genau siebenhundertunddreißig. Er hatte sie einmal gezählt, als er sich sein Vorhaben schon lebhaft ausmalte. Damals freilich glaubte er selbst noch nicht an diese seine Phantasiegemälde und kitzelte nur sich selbst mit ihrer grauenhaften, aber verführerischen Verwegenheit. Jetzt, einen Monat später, hatte er bereits angefangen, die Sache anders zu betrachten, und trotz aller höhnischen Monologe über seine eigene Schwäche und Unschlüssigkeit hatte er sich unwillkürlich daran gewöhnt, das »grauenhafte« Phantasiegemälde bereits als ein beabsichtigtes Unternehmen zu betrachten, wiewohl er an seinen Entschluß noch immer selbst nicht recht glaubte. Sein jetziger Ausgang hatte sogar den Zweck, eine Probe für sein Vorhaben zu unternehmen, und mit jedem Schritte wuchs seine Aufregung mehr und mehr.
+Er hatte nicht weit zu gehen; er wußte sogar, wieviel Schritte es von seiner Haustür waren: genau siebenhundertunddreißig. Er hatte sie einmal gezählt, als er sich sein Vorhaben schon lebhaft ausmalte.
 
 +++ vis-app 2
 
-Das Herz stand ihm fast still, und ein nervöses Zittern überkam ihn, als er sich einem kolossalen Gebäude näherte, das mit der einen Seite nach dem Kanal, mit der andern nach der . . . straße zu lag. Dieses Haus hatte lauter kleine Wohnungen, in denen allerlei einfache Leute wohnten: Schneider, Schlosser, Köchinnen, Deutsche verschiedenen Berufes, alleinstehende Mädchen, kleine Beamte usw. Durch die beiden Haustore und auf den beiden Höfen des Hauses war ein fortwährendes Kommen und Gehen. Hier gab es drei oder vier Hausknechte zur Aufsicht.
+Damals freilich glaubte er selbst noch nicht an diese seine Phantasiegemälde und kitzelte nur sich selbst mit ihrer grauenhaften, aber verführerischen Verwegenheit.
+
++++ vis-app 3
+
+Jetzt, einen Monat später, hatte er bereits angefangen, die Sache anders zu betrachten, und trotz aller höhnischen Monologe über seine eigene Schwäche und Unschlüssigkeit hatte er sich unwillkürlich daran gewöhnt, das »grauenhafte« Phantasiegemälde bereits als ein beabsichtigtes Unternehmen zu betrachten, wiewohl er an seinen Entschluß noch immer selbst nicht recht glaubte.
+
++++ vis-app 4
+
+Sein jetziger Ausgang hatte sogar den Zweck, eine Probe für sein Vorhaben zu unternehmen, und mit jedem Schritte wuchs seine Aufregung mehr und mehr.
+
++++ vis-app 5
+
+Das Herz stand ihm fast still, und ein nervöses Zittern überkam ihn, als er sich einem kolossalen Gebäude näherte, das mit der einen Seite nach dem Kanal, mit der andern nach der . . . straße zu lag. 
+
++++ vis-app 6
+
+Dieses Haus hatte lauter kleine Wohnungen, in denen allerlei einfache Leute wohnten: Schneider, Schlosser, Köchinnen, Deutsche verschiedenen Berufes, alleinstehende Mädchen, kleine Beamte usw. Durch die beiden Haustore und auf den beiden Höfen des Hauses war ein fortwährendes Kommen und Gehen. Hier gab es drei oder vier Hausknechte zur Aufsicht.

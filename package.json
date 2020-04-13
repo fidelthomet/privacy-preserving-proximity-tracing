@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
-    "intersection-observer": "^0.7.0",
     "markdown-it": "^10.0.0",
     "normalize-scss": "^7.0.1",
     "p5": "^1.0.0",

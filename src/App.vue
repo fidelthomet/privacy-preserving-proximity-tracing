@@ -14,7 +14,11 @@
       <SectionRenderer section="text-tracing"/>
       <ScrollWrapper section="vis-tracing"/>
       <SectionRenderer section="text-app"/>
-      <ScrollWrapper section="vis-app"/>
+      <ScrollWrapper section="vis-app">
+        <template v-slot="props">
+          <VisApp v-bind="props"/>
+        </template>
+      </ScrollWrapper>
     </article>
   </div>
 </template>
@@ -22,13 +26,15 @@
 import SectionRenderer from '@/components/SectionRenderer.vue'
 import ScrollWrapper from '@/components/ScrollWrapper.vue'
 import VisReproduction from '@/components/VisReproduction.vue'
+import VisApp from '@/components/VisApp.vue'
 import { mapState } from 'vuex'
 export default {
   name: 'App',
   components: {
     SectionRenderer,
     ScrollWrapper,
-    VisReproduction
+    VisReproduction,
+    VisApp
   },
   computed: {
     ...mapState(['languages'])

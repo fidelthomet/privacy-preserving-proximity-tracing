@@ -300,6 +300,7 @@ export default {
 @import "@/assets/style/global";
 .vis-reproduction {
   position: relative;
+  width: 100%;
   .text-layer {
     position: absolute;
     width: 100%;
