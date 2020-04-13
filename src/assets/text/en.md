@@ -14,13 +14,21 @@ Tatsächlich hielt sich Beaufort dermaßen sorgfältig verborgen, daß es meinem
 
 +++ vis-reproduction 1
 
-Seine Tochter pflegte ihn mit der äußersten Hingabe, aber sie konnte es sich nicht verhehlen, daß ihr kleines Kapital rapid dahinschwand und daß dann keine Hoffnung auf irgend eine Unterstützung bestand. Aber Karoline Beaufort besaß eine ungewöhnliche Spannkraft und ihr Mut wuchs in diesen Widerwärtigkeiten. Sie versah die ganze Arbeit und vermochte durch Strohflechtereien wenigstens so viel zu verdienen, daß sie beide gerade noch notdürftig ihr Leben zu fristen imstande waren.
+Seine Tochter pflegte ihn mit der äußersten Hingabe, aber sie konnte es sich nicht verhehlen, daß ihr kleines Kapital rapid dahinschwand und daß dann keine Hoffnung auf irgend eine Unterstützung bestand. 
 
 +++ vis-reproduction 2
 
-Einige Monate vergingen in dieser Weise. Ihr Vater wurde immer elender, so daß sie von seiner Pflege ausschließlich in Anspruch genommen wurde. Die letzten Notpfennige waren bald ausgegeben und im zehnten Monat starb ihr Vater in ihren Armen, sie als bettelarme Waise zurücklassend. 
+Aber Karoline Beaufort besaß eine ungewöhnliche Spannkraft und ihr Mut wuchs in diesen Widerwärtigkeiten. 
 
 +++ vis-reproduction 3
+
+Sie versah die ganze Arbeit und vermochte durch Strohflechtereien wenigstens so viel zu verdienen, daß sie beide gerade noch notdürftig ihr Leben zu fristen imstande waren.
+
++++ vis-reproduction 4
+
+Einige Monate vergingen in dieser Weise. Ihr Vater wurde immer elender, so daß sie von seiner Pflege ausschließlich in Anspruch genommen wurde. Die letzten Notpfennige waren bald ausgegeben und im zehnten Monat starb ihr Vater in ihren Armen, sie als bettelarme Waise zurücklassend. 
+
++++ vis-reproduction 5
 
 Dieser letzte Schlag war der härteste für sie; sie kniete gerade bitterlich weinend am Sarge Beauforts, als mein Vater eintrat. 
 

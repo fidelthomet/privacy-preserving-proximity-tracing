@@ -1,11 +1,12 @@
 <template>
   <section class="scroll-wrapper">
-    <figure>
-      <slot>
+    <figure v-resize:debounce.initial="onResize" :class="section" :style="{'max-width': `${maxWidth}px`}">
+      <slot v-bind="{ step, progress, width, height }" >
         <div class="fallback">
           {{ section }} <br>
           {{ step }} <br>
           {{ progress }} <br>
+          {{ width }} × {{ height }}<br>
         </div>
       </slot>
     </figure>
@@ -17,12 +18,20 @@
 import SectionRenderer from '@/components/SectionRenderer.vue'
 import 'intersection-observer'
 import scrollama from 'scrollama'
+import resize from 'vue-resize-directive'
 export default {
   name: 'scroll-wrapper',
   components: { SectionRenderer },
+  directives: {
+    resize
+  },
   props: {
     section: {
       type: String,
+      default: null
+    },
+    maxWidth: {
+      type: Number,
       default: null
     }
   },
@@ -30,7 +39,9 @@ export default {
     return {
       scroller: scrollama(),
       step: 0,
-      progress: 0
+      progress: 0,
+      width: 800,
+      height: 600
     }
   },
   mounted () {
@@ -56,6 +67,11 @@ export default {
     onExit (step) {
       // console.log(`${this.section}– exit`, step)
       this.step = step.index
+    },
+    onResize (el) {
+      const rect = el.getBoundingClientRect()
+      this.width = rect.width
+      this.height = rect.height
     }
   }
 }
@@ -85,8 +101,10 @@ export default {
     }
   }
   .section-renderer {
-    margin-top: -50vh;
+    margin-top: -100vh;
+    margin-bottom: 50vh;
     position: relative;
+    pointer-events: none;
   }
 }
 </style>

@@ -13,15 +13,21 @@ Einer Begegnung mit seiner Wirtin auf der Treppe war er glücklich entgangen. Se
 
 +++ vis-reproduction 1
 
-Nicht daß Schüchternheit und Feigheit in seinem Charakter gelegen hätten; ganz im Gegenteil; aber er befand sich seit einiger Zeit in einem aufgeregten und gereizten Gemütszustande, der große Ähnlichkeit mit Hypochondrie hatte. Er hatte sich derartig in sein eigenes Ich vergraben und sich von allen Menschen abgesondert, daß er sich schlechthin vor jeder Begegnung scheute, nicht nur vor einer Begegnung mit seiner Wirtin.
+Nicht daß Schüchternheit und Feigheit in seinem Charakter gelegen hätten; ganz im Gegenteil; aber er befand sich seit einiger Zeit in einem aufgeregten und gereizten Gemütszustande, der große Ähnlichkeit mit Hypochondrie hatte.
 
 +++ vis-reproduction 2
 
+Er hatte sich derartig in sein eigenes Ich vergraben und sich von allen Menschen abgesondert, daß er sich schlechthin vor jeder Begegnung scheute, nicht nur vor einer Begegnung mit seiner Wirtin.
+
++++ vis-reproduction 3
+
 Die Armut hatte ihn völlig überwältigt; aber selbst diese bedrängte Lage empfand er in der letzten Zeit nicht mehr als lastenden Druck. Auf Brotarbeit hatte er ganz verzichtet; er hatte keine Lust mehr zu irgendwelcher Tätigkeit. In Wahrheit fürchtete er sich vor keiner Wirtin in der Welt, mochte sie gegen ihn im Schilde führen, was sie wollte.
+
++++ vis-reproduction 4
 
 Aber auf der Treppe stehenzubleiben, allerlei Gewäsch über allen möglichen ihm ganz gleichgültigen Alltagskram, all diese Mahnungen ans Bezahlen, die Drohungen und Klagen anzuhören und dabei selbst sich herauszuwinden, sich zu entschuldigen, zu lügen – nein, da war es schon besser, wie eine Katze auf der Treppe vorbeizuschlüpfen und sich, ohne von jemand gesehen zu werden, flink davonzumachen.
 
-+++ vis-reproduction 3
++++ vis-reproduction 5
 
 Übrigens war er diesmal, als er auf die Straße hinaustrat, selbst erstaunt darüber, daß er sich so vor einer Begegnung mit seiner Gläubigerin fürchtete.
 

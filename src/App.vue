@@ -6,7 +6,11 @@
     <article>
       <SectionRenderer section="text-intro"/>
       <SectionRenderer section="text-reproduction"/>
-      <ScrollWrapper section="vis-reproduction"/>
+      <ScrollWrapper section="vis-reproduction">
+        <template v-slot="props">
+          <VisReproduction v-bind="props"/>
+        </template>
+      </ScrollWrapper>
       <SectionRenderer section="text-tracing"/>
       <ScrollWrapper section="vis-tracing"/>
       <SectionRenderer section="text-app"/>
@@ -17,12 +21,14 @@
 <script>
 import SectionRenderer from '@/components/SectionRenderer.vue'
 import ScrollWrapper from '@/components/ScrollWrapper.vue'
+import VisReproduction from '@/components/VisReproduction.vue'
 import { mapState } from 'vuex'
 export default {
   name: 'App',
   components: {
     SectionRenderer,
-    ScrollWrapper
+    ScrollWrapper,
+    VisReproduction
   },
   computed: {
     ...mapState(['languages'])

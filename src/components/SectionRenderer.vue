@@ -2,8 +2,8 @@
   <section v-if="texts.length === 1" class="section-renderer" :class="[section]" v-html="texts[0]"/>
   <section v-else class="section-renderer scrolly" :class="[section]">
     <template div v-for="(t, i) in texts">
-      <div :key="`t-${section}-${i}`" v-html="t"/>
       <div class="step" :key="`p-${section}-${i}`"/>
+      <div class="text blur" :key="`t-${section}-${i}`" v-html="t"/>
     </template>
   </section>
 </template>
@@ -21,15 +21,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'getText'
-    ]),
+    ...mapGetters(['getText']),
     texts () {
       return this.getText(this.section).map(t => md.render(t))
     }
   },
-  methods: {
-  }
+  methods: {}
 }
 </script>
 
@@ -45,9 +42,20 @@ export default {
 
   &.scrolly {
     font-size: 0.8em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     .step {
       height: 50vh;
+      width: 100%;
+    }
+
+    .text {
+      padding: $spacing / 2;
+      max-width: 400px;
+      align-self: flex-end;
+      pointer-events: all;
     }
   }
 }
