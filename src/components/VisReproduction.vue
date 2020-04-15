@@ -98,8 +98,8 @@ export default {
       p.setup = () => {
         p.createCanvas(this.width, this.height)
 
-        const { generateReproductions, lines } = this
-
+        const { generateReproductions, calcRows, lines } = this
+        calcRows()
         this.edges1 = generateReproductions(1, 4)
         this.edges2 = generateReproductions(2, lines)
         this.edges3 = generateReproductions(3, 4)
@@ -152,7 +152,6 @@ export default {
     }
 
     this.sketch = new P5(s, this.$refs.el)
-    console.log(this.sketch)
   },
   methods: {
     resize () {

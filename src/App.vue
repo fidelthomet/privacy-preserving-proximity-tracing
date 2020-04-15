@@ -4,39 +4,65 @@
       <router-link v-for="l in languages" :key="l.path" :to="l.path">{{ l.name }}</router-link>
     </nav>
     <article>
-      <SectionRenderer section="text-intro"/>
-      <SectionRenderer section="text-reproduction"/>
-      <ScrollWrapper section="vis-reproduction">
+      <MdRenderer el="section" :text="getText('text-intro')"/>
+      <MdRenderer el="section" :text="getText('text-reproduction')"/>
+      <ScrollWrapper :text="getText('vis-reproduction')">
         <template v-slot="props">
           <VisReproduction v-bind="props"/>
         </template>
       </ScrollWrapper>
-      <SectionRenderer section="text-tracing"/>
+      <MdRenderer el="section" :text="getText('text-tracing')"/>
       <ScrollWrapper section="vis-tracing"/>
-      <SectionRenderer section="text-app"/>
-      <ScrollWrapper section="vis-app">
+      <MdRenderer el="section" :text="getText('text-app')"/>
+      <ScrollWrapper :text="getText('vis-reproduction')">
         <template v-slot="props">
           <VisApp v-bind="props"/>
         </template>
       </ScrollWrapper>
+      <MdRenderer el="section" :text="getText('text-app')"/>
+      <!-- <LayoutScrollytelling class="full-width">
+        <template v-slot:vis="{ width, height, step }">
+          <VisApp v-bind="{ width, height, step: Math.floor(step), progress: step % 1 }"/>
+        </template>
+        <template v-slot:text="{ width, height, step }">
+          <section class="observers observers-options">
+            <IntersectionObserverFracture :step="0">{{ width }} | {{ height }} | {{ Math.round(step * 100) / 100 }}</IntersectionObserverFracture>
+            <IntersectionObserverFracture :step="1">{{ width }} | {{ height }} | {{ Math.round(step * 100) / 100 }}</IntersectionObserverFracture>
+            <IntersectionObserverFracture :step="2">{{ width }} | {{ height }} | {{ Math.round(step * 100) / 100 }}</IntersectionObserverFracture>
+            <IntersectionObserverFracture :step="3">{{ width }} | {{ height }} | {{ Math.round(step * 100) / 100 }}</IntersectionObserverFracture>
+            <IntersectionObserverFracture :step="4">{{ width }} | {{ height }} | {{ Math.round(step * 100) / 100 }}</IntersectionObserverFracture>
+            <IntersectionObserverFracture :step="5">{{ width }} | {{ height }} | {{ Math.round(step * 100) / 100 }}</IntersectionObserverFracture>
+          </section>
+        </template>
+      </LayoutScrollytelling> -->
+      <!-- <ScrollWrapper section="vis-app">
+        <template v-slot="props">
+          <VisApp v-bind="props"/>
+        </template>
+      </ScrollWrapper> -->
     </article>
   </div>
 </template>
 <script>
-import SectionRenderer from '@/components/SectionRenderer.vue'
+import MdRenderer from '@/components/MdRenderer.vue'
 import ScrollWrapper from '@/components/ScrollWrapper.vue'
 import VisReproduction from '@/components/VisReproduction.vue'
 import VisApp from '@/components/VisApp.vue'
-import { mapState } from 'vuex'
+// import LayoutScrollytelling from '@/components/LayoutScrollytelling.vue'
+// import IntersectionObserverFracture from '@/components/IntersectionObserverFracture.vue'
+import { mapState, mapGetters } from 'vuex'
 export default {
   name: 'App',
   components: {
-    SectionRenderer,
+    MdRenderer,
     ScrollWrapper,
     VisReproduction,
     VisApp
+    // LayoutScrollytelling,
+    // IntersectionObserverFracture
   },
   computed: {
+    ...mapGetters(['getText']),
     ...mapState(['languages'])
   },
   watch: {
@@ -84,6 +110,13 @@ export default {
   article {
     width: 100%;
     max-width: $max-width;
+  }
+
+  .intersection-observer-fracture {
+    padding-top: 50vh;
+    &:last-child {
+      padding-bottom: 50vh;
+    }
   }
 }
 </style>

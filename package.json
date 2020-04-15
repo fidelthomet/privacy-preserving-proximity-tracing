@@ -12,7 +12,6 @@
     "markdown-it": "^10.0.0",
     "normalize-scss": "^7.0.1",
     "p5": "^1.0.0",
-    "scrollama": "^2.2.1",
     "vue": "^2.6.11",
     "vue-resize-directive": "^1.2.0",
     "vue-router": "^3.1.6",

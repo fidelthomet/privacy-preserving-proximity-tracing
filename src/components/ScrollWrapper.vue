@@ -1,6 +1,7 @@
 <template>
-  <section class="scroll-wrapper">
-    <figure v-resize:debounce.initial="onResize" :class="section" :style="{'max-width': `${maxWidth}px`}">
+  <div class="scroll-wrapper">
+    <figure v-resize:debounce.initial="onResize"
+      :class="section" :style="{'max-width': `${maxWidth}px`}">
       <slot v-bind="{ step, progress, width, height }" >
         <div class="fallback">
           {{ section }} <br>
@@ -10,21 +11,35 @@
         </div>
       </slot>
     </figure>
-    <SectionRenderer :section="section"/>
-  </section>
+    <section class="text">
+      <IntersectionObserver v-for="(t, i) in text" :key="`o-${i}`" :step="i">
+        <MdRenderer class="blur" :text="t"/>
+      </IntersectionObserver>
+    </section>
+  </div>
 </template>
 
 <script>
-import SectionRenderer from '@/components/SectionRenderer.vue'
-import scrollama from 'scrollama'
+import IntersectionObserver from '@/components/IntersectionObserver.vue'
+import MdRenderer from '@/components/MdRenderer.vue'
+// import scrollama from 'scrollama'
 import resize from 'vue-resize-directive'
 export default {
   name: 'scroll-wrapper',
-  components: { SectionRenderer },
+  components: {
+    IntersectionObserver,
+    MdRenderer
+  },
   directives: {
     resize
   },
   props: {
+    text: {
+      type: Array,
+      default () {
+        return ['A', 'B', 'C']
+      }
+    },
     section: {
       type: String,
       default: null
@@ -36,7 +51,7 @@ export default {
   },
   data () {
     return {
-      scroller: scrollama(),
+      // scroller: scrollama(),
       step: 0,
       progress: 0,
       width: 800,
@@ -44,14 +59,18 @@ export default {
     }
   },
   mounted () {
-    const { scroller, section, onEnter, onProgress, onExit } = this
-    scroller.setup({
-      step: `.scrolly.${section} .step`,
-      offset: 0.5,
-      progress: true
-    }).onStepEnter(onEnter)
-      .onStepProgress(onProgress)
-      .onStepExit(onExit)
+    // const { scroller, section, onEnter, onProgress, onExit } = this
+    // scroller.setup({
+    //   step: `.scrolly.${section} .step`,
+    //   offset: 0.5,
+    //   progress: true
+    // }).onStepEnter(onEnter)
+    //   .onStepProgress(onProgress)
+    //   .onStepExit(onExit)
+    this.$on('step', ({ step, progress }) => {
+      this.step = step
+      this.progress = progress
+    })
   },
   methods: {
     onEnter (step) {
@@ -91,6 +110,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: -1;
 
     .fallback {
       width: 100%;
@@ -101,11 +121,21 @@ export default {
       color: $color-white;
     }
   }
-  .section-renderer {
+  .text {
     margin-top: -100vh;
-    margin-bottom: 50vh;
-    position: relative;
-    pointer-events: none;
+    padding: 25vh 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    .intersection-observer {
+      padding: 25vh 0;
+      .md-renderer {
+        max-width: 400px;
+        font-size: 0.8em;
+        padding: 0 $spacing / 2;
+      }
+    }
   }
 }
 </style>
