@@ -1,8 +1,10 @@
 <template>
-  <div class="intersection-observer" ref="intersect" :class="{ default: !noStyling }">
-    <slot>
-      <h2>Step {{ step }} – {{ step + stepSize }}</h2>
-    </slot>
+  <div class="intersection-observer" ref="intersect">
+    <div class="intersection-observer-inner blur">
+      <slot>
+        <h2>Step {{ step }} – {{ step + stepSize }}</h2>
+      </slot>
+    </div>
   </div>
 </template>
 
@@ -26,10 +28,10 @@ export default {
         }
       }
     },
-    noStyling: {
-      type: Boolean,
-      default: false
-    },
+    // active: {
+    //   type: Boolean,
+    //   default: false
+    // },
     align: {
       type: String,
       default: 'center'

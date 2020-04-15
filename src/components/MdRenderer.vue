@@ -1,12 +1,19 @@
 <template>
-  <component :is="el" class="md-renderer" v-html="html"/>
+  <div class="md-renderer">
+    <component :is="el" v-html="html"/>
+    <portal-target v-if="portal" :name="portal"/>
+  </div>
 </template>
 
 <script>
 import MarkdownIt from 'markdown-it'
+import { PortalTarget } from 'portal-vue'
 const md = new MarkdownIt()
 export default {
   name: 'md-renderer',
+  components: {
+    PortalTarget
+  },
   props: {
     text: {
       type: [String, Array],
@@ -15,6 +22,10 @@ export default {
     el: {
       type: String,
       default: 'div'
+    },
+    portal: {
+      type: String,
+      default: null
     }
   },
   computed: {
@@ -31,5 +42,9 @@ export default {
 .md-renderer {
   width: 100%;
   max-width: $max-width;
+
+  .vue-portal-target {
+    margin-bottom: $spacing / 2;
+  }
 }
 </style>

@@ -6,7 +6,8 @@
     <article>
       <MdRenderer el="section" :text="getText('text-intro')"/>
       <MdRenderer el="section" :text="getText('text-reproduction')"/>
-      <ScrollWrapper :text="getText('vis-reproduction')">
+      <!-- <portal-target name="vis-reproduction-3"/> -->
+      <ScrollWrapper :text="getText('vis-reproduction')" section="vis-reproduction">
         <template v-slot="props">
           <VisReproduction v-bind="props"/>
         </template>
@@ -14,7 +15,7 @@
       <MdRenderer el="section" :text="getText('text-tracing')"/>
       <ScrollWrapper section="vis-tracing"/>
       <MdRenderer el="section" :text="getText('text-app')"/>
-      <ScrollWrapper :text="getText('vis-reproduction')">
+      <ScrollWrapper :text="getText('vis-app')">
         <template v-slot="props">
           <VisApp v-bind="props"/>
         </template>
@@ -48,6 +49,7 @@ import MdRenderer from '@/components/MdRenderer.vue'
 import ScrollWrapper from '@/components/ScrollWrapper.vue'
 import VisReproduction from '@/components/VisReproduction.vue'
 import VisApp from '@/components/VisApp.vue'
+// import { PortalTarget } from 'portal-vue'
 // import LayoutScrollytelling from '@/components/LayoutScrollytelling.vue'
 // import IntersectionObserverFracture from '@/components/IntersectionObserverFracture.vue'
 import { mapState, mapGetters } from 'vuex'
@@ -58,6 +60,7 @@ export default {
     ScrollWrapper,
     VisReproduction,
     VisApp
+    // PortalTarget
     // LayoutScrollytelling,
     // IntersectionObserverFracture
   },

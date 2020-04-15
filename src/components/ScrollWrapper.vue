@@ -13,7 +13,7 @@
     </figure>
     <section class="text">
       <IntersectionObserver v-for="(t, i) in text" :key="`o-${i}`" :step="i">
-        <MdRenderer class="blur" :class="{active: step === i}" :text="t"/>
+        <MdRenderer :class="{active: step === i}" :text="t" :portal="section != null ? `${section}-${i}` : null"/>
       </IntersectionObserver>
     </section>
   </div>
@@ -135,10 +135,10 @@ export default {
         max-width: 400px;
         font-size: 0.8em;
         padding: 0 $spacing / 2;
-        transition: color $transition;
-        color: transparentize($color-black, 0.75);
+        transition: opacity $transition;
+        opacity: 0.25;
         &.active {
-          color: $color-black;
+          opacity: 1;
         }
       }
     }

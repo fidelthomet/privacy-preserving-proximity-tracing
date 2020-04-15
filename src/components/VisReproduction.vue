@@ -1,18 +1,23 @@
 <template>
   <div class="vis-reproduction" ref="el">
     <div class="text-layer">
-      <transition name="fade">
-      <div class="slider" v-if="step === 3 || step === 4">
-        <div class="blur">
-          <div class="label">
-            <span v-if="step === 3">Immunity</span>
-            <span v-if="step === 4">Isolation</span>
+      <!-- <transition name="fade"> -->
+      <!-- <PortalTarget name="vis-reproduction-3"/> -->
+      <portal to="vis-reproduction-3">
+          <div class="slider-label">
+            <span>Immunity</span>
             <span>{{Math.round(immunity * 100)}}%</span>
           </div>
           <input type="range" min="0" max="1" v-model="immunity" step="0.01"/>
-        </div>
-      </div>
-      </transition>
+      </portal>
+      <portal to="vis-reproduction-4">
+          <div class="slider-label">
+            <span>Isolation</span>
+            <span>{{Math.round(isolation * 100)}}%</span>
+          </div>
+          <input type="range" min="0" max="1" v-model="isolation" step="0.01"/>
+      </portal>
+      <!-- </transition> -->
       <div class="rO-labels">
         <span v-for="(l, i) in r0Labels" :key="`l-${i}`"
           :style="{transform: `translate(${l.x}px, ${l.y}px)`, opacity: l.opacity}">
@@ -25,8 +30,12 @@
 
 <script>
 import P5 from 'p5'
+import { Portal } from 'portal-vue'
 export default {
   name: 'vis-reproduction',
+  components: {
+    Portal
+  },
   props: {
     width: {
       type: Number,
@@ -61,7 +70,8 @@ export default {
       rows: [],
       maxWidth: 720,
       innerWidth: 0,
-      immunity: 0.6
+      immunity: 0.6,
+      isolation: 0.6
     }
   },
   computed: {
@@ -90,8 +100,8 @@ export default {
   },
   watch: {
     width () { this.resize() },
-    height () { this.resize() },
-    step () { this.immunity = 0.6 }
+    height () { this.resize() }
+    // step () { this.immunity = 0.6 }
   },
   mounted () {
     const s = (p) => {
@@ -267,16 +277,16 @@ export default {
                   p.stroke(0xE2, 0x29, 0xA2)
                   p.line(...coords)
                 } else if (row < 6) {
-                  if (immunity <= this.immunity) {
+                  if (immunity <= this.isolation) {
                     p.stroke('#24D9CA')
-                  } else if (branchImmunity <= this.immunity) {
+                  } else if (branchImmunity <= this.isolation) {
                     p.stroke('#BEBEBE')
                   } else {
                     p.stroke(0xE2, 0x29, 0xA2)
                   }
                   p.line(...coords)
                 } else {
-                  if (branchIsolation <= this.immunity) {
+                  if (branchIsolation <= this.isolation) {
                     p.stroke('#EEEEEE')
                   } else {
                     p.stroke(0xE2, 0x29, 0xA2)
@@ -320,33 +330,18 @@ export default {
         transition: opacity $transition;
       }
     }
-    .slider {
-      max-width: $max-width;
-      width: 100%;
-      font-size: 0.8rem;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-      justify-content: flex-start;
-      align-items: flex-end;
-      padding: $spacing * 1.5 0;
-      .blur {
-        width: 100%;
-        max-width: 400px;
-        align-self: flex-end;
-        padding: $spacing / 2;
-
-        .label {
-          display: flex;
-          justify-content: space-between;
-          color: $color-green;
-          margin-bottom: $spacing / 8;
-        }
-      }
-    }
   }
   > canvas {
     display: block;
   }
+}
+</style>
+<style lang="scss">
+@import "@/assets/style/global";
+.slider-label {
+  display: flex;
+  justify-content: space-between;
+  color: $color-green;
+  margin-bottom: $spacing / 8;
 }
 </style>
