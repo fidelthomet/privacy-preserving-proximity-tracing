@@ -13,7 +13,7 @@
     </figure>
     <section class="text">
       <IntersectionObserver v-for="(t, i) in text" :key="`o-${i}`" :step="i">
-        <MdRenderer class="blur" :text="t"/>
+        <MdRenderer class="blur" :class="{active: step === i}" :text="t"/>
       </IntersectionObserver>
     </section>
   </div>
@@ -130,10 +130,16 @@ export default {
     align-items: flex-end;
     .intersection-observer {
       padding: 25vh 0;
+
       .md-renderer {
         max-width: 400px;
         font-size: 0.8em;
         padding: 0 $spacing / 2;
+        transition: color $transition;
+        color: transparentize($color-black, 0.75);
+        &.active {
+          color: $color-black;
+        }
       }
     }
   }
