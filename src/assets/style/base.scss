@@ -83,12 +83,23 @@ html {
     height: $spacing * 0.5;
     width: $spacing;
     border-radius: 0px;
-    background: $color-green;
     cursor: pointer;
     -webkit-appearance: none;
-    // margin-top: -11px;
+    background: $color-accent;
+  }
+  input[type=range].yellow::-webkit-slider-thumb {
+    background: $color-yellow;
+  }
+  input[type=range].green::-webkit-slider-thumb {
+    background: $color-green;
   }
   input[type=range]:focus::-webkit-slider-runnable-track {
+    background: $color-accent;
+  }
+  input[type=range].yellow:focus::-webkit-slider-runnable-track {
+    background: $color-yellow;
+  }
+  input[type=range].green:focus::-webkit-slider-runnable-track {
     background: $color-green;
   }
   input[type=range]::-moz-range-track {
@@ -106,8 +117,14 @@ html {
     height: $spacing * 0.5;
     width: $spacing;
     border-radius: 0px;
-    background: $color-green;
+    background: $color-accent;
     cursor: pointer;
+  }
+  input[type=range].yellow::-moz-range-thumb {
+    background: $color-yellow;
+  }
+  input[type=range].green::-moz-range-thumb {
+    background: $color-green;
   }
   input[type=range]::-ms-track {
     width: 100%;
@@ -135,9 +152,15 @@ html {
     height: $spacing * 0.5;
     width: $spacing;
     border-radius: 0px;
-    background: $color-green;
+    background: $color-accent;
     cursor: pointer;
     height: $spacing * 0.5;
+  }
+  input[type=range].yellow::-ms-thumb {
+    background: $color-yellow;
+  }
+  input[type=range].green::-ms-thumb {
+    background: $color-green;
   }
   input[type=range]:focus::-ms-fill-lower {
     background: #eeeeee;

@@ -42,7 +42,7 @@
           <stop stop-opacity="0" offset="50%"/>
           <stop stop-opacity="0.3" offset="100%"/>
         </radialGradient>
-        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="50%" id="gradient-orange">
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="50%" id="gradient-yellow">
           <stop stop-opacity="0" offset="0%"/>
           <stop stop-opacity="0" offset="50%"/>
           <stop stop-opacity="0.3" offset="100%"/>
@@ -204,8 +204,8 @@ export default {
         color: $color-accent;
       }
       &.traced {
-        background: transparentize($color-orange, 0.8);
-        color: $color-orange;
+        background: transparentize($color-yellow, 0.8);
+        color: $color-yellow;
       }
     }
   }
@@ -226,9 +226,9 @@ export default {
         stop-color: $color-accent;
       }
     }
-    #gradient-orange {
+    #gradient-yellow {
       stop {
-        stop-color: $color-orange;
+        stop-color: $color-yellow;
       }
     }
     circle {
@@ -246,7 +246,7 @@ export default {
           stroke: transparentize($color-accent, 0.8);
         }
         &.traced {
-          stroke: transparentize($color-orange, 0.8);
+          stroke: transparentize($color-yellow, 0.8);
         }
       }
     }
@@ -274,14 +274,14 @@ export default {
             fill: $color-accent;
             &.gradient {
               fill: url(#gradient-accent);
-              // animation-name: broadcast-isolation;
+              animation-name: broadcast-isolation;
             }
           }
           &.traced {
-            fill: $color-orange;
+            fill: $color-yellow;
             &.gradient {
-              fill: url(#gradient-orange);
-              // animation-name: broadcast-isolation;
+              fill: url(#gradient-yellow);
+              animation-name: broadcast-isolation;
             }
           }
           &.isolation {
@@ -291,7 +291,7 @@ export default {
               stroke: transparentize($color-accent, 0.8);
             }
             &.traced {
-              stroke: transparentize($color-orange, 0.8);
+              stroke: transparentize($color-yellow, 0.8);
             }
           }
         }

@@ -4,18 +4,18 @@
       <!-- <transition name="fade"> -->
       <!-- <PortalTarget name="vis-reproduction-3"/> -->
       <portal to="vis-reproduction-3">
-          <div class="slider-label">
+          <div class="slider-label immunity">
             <span>Immunity</span>
             <span>{{Math.round(immunity * 100)}}%</span>
           </div>
-          <input type="range" min="0" max="1" v-model="immunity" step="0.01"/>
+          <input type="range" class="green" min="0" max="1" v-model="immunity" step="0.01"/>
       </portal>
       <portal to="vis-reproduction-4">
-          <div class="slider-label">
+          <div class="slider-label isolation">
             <span>Isolation</span>
             <span>{{Math.round(isolation * 100)}}%</span>
           </div>
-          <input type="range" min="0" max="1" v-model="isolation" step="0.01"/>
+          <input type="range" class="yellow" min="0" max="1" v-model="isolation" step="0.01"/>
       </portal>
       <!-- </transition> -->
       <div class="rO-labels">
@@ -278,7 +278,7 @@ export default {
                   p.line(...coords)
                 } else if (row < 6) {
                   if (immunity <= this.isolation) {
-                    p.stroke('#24D9CA')
+                    p.stroke('#F6BC0D')
                   } else if (branchImmunity <= this.isolation) {
                     p.stroke('#BEBEBE')
                   } else {
@@ -343,5 +343,9 @@ export default {
   justify-content: space-between;
   color: $color-green;
   margin-bottom: $spacing / 8;
+
+  &.isolation {
+    color: $color-yellow;
+  }
 }
 </style>
