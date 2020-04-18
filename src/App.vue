@@ -6,14 +6,17 @@
     <article>
       <MdRenderer el="section" :text="getText('text-intro')"/>
       <MdRenderer el="section" :text="getText('text-reproduction')"/>
-      <!-- <portal-target name="vis-reproduction-3"/> -->
       <ScrollWrapper :text="getText('vis-reproduction')" section="vis-reproduction">
         <template v-slot="props">
           <VisReproduction v-bind="props"/>
         </template>
       </ScrollWrapper>
       <MdRenderer el="section" :text="getText('text-tracing')"/>
-      <ScrollWrapper section="vis-tracing"/>
+      <ScrollWrapper :text="getText('vis-tracing')" :max-width="720">
+        <template v-slot="props">
+          <VisTracing v-bind="props"/>
+        </template>
+      </ScrollWrapper>
       <MdRenderer el="section" :text="getText('text-app')"/>
       <ScrollWrapper :text="getText('vis-app')">
         <template v-slot="props">
@@ -21,26 +24,6 @@
         </template>
       </ScrollWrapper>
       <MdRenderer el="section" :text="getText('text-app')"/>
-      <!-- <LayoutScrollytelling class="full-width">
-        <template v-slot:vis="{ width, height, step }">
-          <VisApp v-bind="{ width, height, step: Math.floor(step), progress: step % 1 }"/>
-        </template>
-        <template v-slot:text="{ width, height, step }">
-          <section class="observers observers-options">
-            <IntersectionObserverFracture :step="0">{{ width }} | {{ height }} | {{ Math.round(step * 100) / 100 }}</IntersectionObserverFracture>
-            <IntersectionObserverFracture :step="1">{{ width }} | {{ height }} | {{ Math.round(step * 100) / 100 }}</IntersectionObserverFracture>
-            <IntersectionObserverFracture :step="2">{{ width }} | {{ height }} | {{ Math.round(step * 100) / 100 }}</IntersectionObserverFracture>
-            <IntersectionObserverFracture :step="3">{{ width }} | {{ height }} | {{ Math.round(step * 100) / 100 }}</IntersectionObserverFracture>
-            <IntersectionObserverFracture :step="4">{{ width }} | {{ height }} | {{ Math.round(step * 100) / 100 }}</IntersectionObserverFracture>
-            <IntersectionObserverFracture :step="5">{{ width }} | {{ height }} | {{ Math.round(step * 100) / 100 }}</IntersectionObserverFracture>
-          </section>
-        </template>
-      </LayoutScrollytelling> -->
-      <!-- <ScrollWrapper section="vis-app">
-        <template v-slot="props">
-          <VisApp v-bind="props"/>
-        </template>
-      </ScrollWrapper> -->
     </article>
   </div>
 </template>
@@ -49,6 +32,7 @@ import MdRenderer from '@/components/MdRenderer.vue'
 import ScrollWrapper from '@/components/ScrollWrapper.vue'
 import VisReproduction from '@/components/VisReproduction.vue'
 import VisApp from '@/components/VisApp.vue'
+import VisTracing from '@/components/VisTracing.vue'
 // import { PortalTarget } from 'portal-vue'
 // import LayoutScrollytelling from '@/components/LayoutScrollytelling.vue'
 // import IntersectionObserverFracture from '@/components/IntersectionObserverFracture.vue'
@@ -59,7 +43,8 @@ export default {
     MdRenderer,
     ScrollWrapper,
     VisReproduction,
-    VisApp
+    VisApp,
+    VisTracing
     // PortalTarget
     // LayoutScrollytelling,
     // IntersectionObserverFracture
@@ -102,7 +87,7 @@ export default {
       color: $color-black;
       text-decoration: none;
       padding: 0 $spacing / 8;
-      transition: color $transition;
+      transition: color $transition / 2;
 
       &.router-link-exact-active, &:hover {
         color: $color-accent;

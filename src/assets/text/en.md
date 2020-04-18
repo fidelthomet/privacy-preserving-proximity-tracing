@@ -43,16 +43,27 @@ Von Italien aus ging dann die Reise nach Deutschland und Frankreich. Ich, das ä
 
 +++ vis-tracing 1
 
-Lange Zeit war ich ihre einzige Sorge. Meine Mutter hatte sich noch ein Töchterchen ersehnt, aber ich blieb das einzige Reis am Baume. Als ich etwa fünf Jahre alt war, machten wir eine Reise nach der italienischen Grenze und verbrachten auch eine Woche an den Gestaden des Comersees. Ihr wohltätiger Sinn führte sie oftmals in die Hütten der Armen. Meine Mutter empfand das nicht nur als eine Pflicht, es war ihr ein Bedürfnis, eine Leidenschaft, den Armen in ihrem Elend ein Engel zu sein, denn sie hatte selbst viel gelitten und wußte, wie weh das tut.
+Lange Zeit war ich ihre einzige Sorge. Meine Mutter hatte sich noch ein Töchterchen ersehnt, aber ich blieb das einzige Reis am Baume. 
 
 +++ vis-tracing 2
 
-Bei einem ihrer Spaziergänge erregte eine kleine Hütte ihre Aufmerksamkeit, die wie verschämt sich in einem Seitentale barg und die, von der Schar armselig gekleideter Kinder zu schließen, die vor der Türe saßen, ein gut Teil Not und Elend zu bergen schien.
+Als ich etwa fünf Jahre alt war, machten wir eine Reise nach der italienischen Grenze und verbrachten auch eine Woche an den Gestaden des Comersees. 
 
 +++ vis-tracing 3
 
-Als mein Vater eines Tages nach Mailand verreist war, besuchte meine Mutter diese Hütte und ich durfte sie begleiten. Wir trafen ein bäuerisches Ehepaar, von Sorge und harter Arbeit niedergebeugt, das gerade ein karges Mahl an die fünf hungernden Kinder verteilte. Unter diesen war eines, das meiner Mutter besonders auffiel, denn es schien von ganz anderem Schlage.
+Ihr wohltätiger Sinn führte sie oftmals in die Hütten der Armen. Meine Mutter empfand das nicht nur als eine Pflicht, es war ihr ein Bedürfnis, eine Leidenschaft, den Armen in ihrem Elend ein Engel zu sein, denn sie hatte selbst viel gelitten und wußte, wie weh das tut.
 
++++ vis-tracing 4
+
+Bei einem ihrer Spaziergänge erregte eine kleine Hütte ihre Aufmerksamkeit, die wie verschämt sich in einem Seitentale barg und die, von der Schar armselig gekleideter Kinder zu schließen, die vor der Türe saßen, ein gut Teil Not und Elend zu bergen schien.
+
++++ vis-tracing 5
+
+Als mein Vater eines Tages nach Mailand verreist war, besuchte meine Mutter diese Hütte und ich durfte sie begleiten. 
+
++++ vis-tracing 6
+
+Wir trafen ein bäuerisches Ehepaar, von Sorge und harter Arbeit niedergebeugt, das gerade ein karges Mahl an die fünf hungernden Kinder verteilte. Unter diesen war eines, das meiner Mutter besonders auffiel, denn es schien von ganz anderem Schlage.
 
 +++ text-app
 ## App

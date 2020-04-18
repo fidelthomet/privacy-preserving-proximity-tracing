@@ -44,11 +44,23 @@ All dies zerrte plötzlich auf das unangenehmste an den ohnehin schon reizbaren 
 
 +++ vis-tracing 2
 
-Ein Ausdruck des tiefsten Ekels spielte einen Augenblick auf den feinen Zügen des jungen Mannes. (Um dies beiläufig zu erwähnen: er hatte ein ungewöhnlich hübsches Äußeres, schöne, dunkle Augen, dunkelblondes Haar, war über Mittelgröße, schlank und wohlgebaut.)
+Ein Ausdruck des tiefsten Ekels spielte einen Augenblick auf den feinen Zügen des jungen Mannes. 
 
 +++ vis-tracing 3
 
-Aber bald versank er in tiefes Nachdenken oder, richtiger gesagt, in eine Art von Geistesabwesenheit und schritt nun einher, ohne seine Umgebung wahrzunehmen; ja, er wollte sie gar nicht wahrnehmen. Nur ab und zu murmelte er etwas vor sich hin, zufolge jener Neigung, mit sich selbst zu reden, die er sich soeben selbst eingestanden hatte. Gleichzeitig kam ihm auch zum Bewußtsein, daß seine Gedanken sich zeitweilig verwirrten und daß er sehr schwach war: dies war schon der zweite Tag, daß er so gut wie nichts gegessen hatte.
+(Um dies beiläufig zu erwähnen: er hatte ein ungewöhnlich hübsches Äußeres, schöne, dunkle Augen, dunkelblondes Haar, war über Mittelgröße, schlank und wohlgebaut.)
+
++++ vis-tracing 4
+
+Aber bald versank er in tiefes Nachdenken oder, richtiger gesagt, in eine Art von Geistesabwesenheit und schritt nun einher, ohne seine Umgebung wahrzunehmen; ja, er wollte sie gar nicht wahrnehmen. 
+
++++ vis-tracing 5
+
+Nur ab und zu murmelte er etwas vor sich hin, zufolge jener Neigung, mit sich selbst zu reden, die er sich soeben selbst eingestanden hatte. 
+
++++ vis-tracing 6
+
+Gleichzeitig kam ihm auch zum Bewußtsein, daß seine Gedanken sich zeitweilig verwirrten und daß er sehr schwach war: dies war schon der zweite Tag, daß er so gut wie nichts gegessen hatte.
 
 
 +++ text-app

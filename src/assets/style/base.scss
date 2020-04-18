@@ -73,7 +73,7 @@ html {
     height: $spacing * 0.5;
     cursor: pointer;
     box-shadow: none;
-    background: #eeeeee;
+    background: $color-pale-gray;
     border-radius: 1px;
     border: 0px solid rgba(0, 0, 0, 0);
   }
@@ -107,7 +107,7 @@ html {
     height: $spacing * 0.5;
     cursor: pointer;
     box-shadow: none;
-    background: #eeeeee;
+    background: $color-pale-gray;
     border-radius: 1px;
     border: 0px solid rgba(0, 0, 0, 0);
   }
@@ -135,13 +135,13 @@ html {
     color: transparent;
   }
   input[type=range]::-ms-fill-lower {
-    background: #eeeeee;
+    background: $color-pale-gray;
     border: 0px solid rgba(0, 0, 0, 0);
     border-radius: 2px;
     box-shadow: none;
   }
   input[type=range]::-ms-fill-upper {
-    background: #eeeeee;
+    background: $color-pale-gray;
     border: 0px solid rgba(0, 0, 0, 0);
     border-radius: 2px;
     box-shadow: none;
@@ -163,9 +163,9 @@ html {
     background: $color-green;
   }
   input[type=range]:focus::-ms-fill-lower {
-    background: #eeeeee;
+    background: $color-pale-gray;
   }
   input[type=range]:focus::-ms-fill-upper {
-    background: #eeeeee;
+    background: $color-pale-gray;
   }  
 }
