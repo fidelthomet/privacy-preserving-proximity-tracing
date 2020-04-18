@@ -2,14 +2,17 @@
 
 # Privacy-Preserving Proximity Tracing
 
-***Fjodr Dostojewski – Schuld und Sühne →**  
-An einem der ersten Tage des Juli – es herrschte eine gewaltige Hitze – verließ gegen Abend ein junger Mann seine Wohnung, ein möbliertes Kämmerchen in der S . . . gasse, und trat auf die Straße hinaus; langsam, wie unentschlossen, schlug er die Richtung nach der K . . . brücke ein.*
+*Wie können wir die Ausbreitung des Coronavirus verlangsamen, ohne unsere Grundgesetze und die Wirtschaft langfristig zu schädigen? Verschiedene Teams aus WissenschaftlerInnen scheinen darauf eine Antwort gefunden zu haben. So funktioniert die Tracing-App PEPP-PT.*
+
+Weil die Ausbreitung des Coronavirus europa- und weltweit weiter rasant ansteigt, ergreifen viele Staaten einschneidende Maßnahmen, um Infektionszahlen zu verringern und damit eine Überlastung der Gesundheitssysteme zu vermeiden. Leider spüren immer größere Teile der Bevölkerung die signifikanten Nebenwirkungen von Lockdowns, Ausgangssperren und Kontaktverboten. Die Verordnungen bedeuten tiefe Einschnitte in unsere Grundrechte, stellen viele Unternehmen und Selbstständige vor existenzielle wirtschaftliche Herausforderungen und sind sozial ungerecht. Bleiben die gegenwärtigen Interventionen bestehen, spitzt sich dieser Interessenkonflikt weiter zu. Ein Szenario, das wir alle unbedingt vermeiden möchten.
+
+Die Alternative könnte laut verschiedenen ForscherInnen-Teams eine frei zugängliche App sein, die unsere physischen Kontakte aufzeichnet und uns im Fall einer möglichen Ansteckung direkt  benachrichtigt. Um unsere Privatsphäre brauchen wir uns aber nicht zu sorgen. Es werden weder Bewegungsprofile noch persönliche Kontaktprotokolle gespeichert. Wir erklären Schritt für Schritt die Grundlagen und die Funktionsweise von PEPP-PT.
 
 +++ text-reproduction
 
-## Reproduction 
+## R₀ 
 
-Einer Begegnung mit seiner Wirtin auf der Treppe war er glücklich entgangen. Seine Kammer lag unmittelbar unter dem Dache des hohen, vierstöckigen Hauses und hatte in der Größe mehr Ähnlichkeit mit einem Schranke als mit einer Wohnung. Seine Wirtin, die ihm diese Kammer vermietet hatte und ihm auch das Mittagessen lieferte und die Bedienung besorgte, wohnte selbst eine Treppe tiefer, und jedesmal, wenn er das Haus verlassen wollte, mußte er notwendig auf der Treppe an ihrer Küche vorbeigehen, deren Tür fast immer weit offen stand. Und jedesmal, wenn der junge Mann vorbeikam, ergriff ihn ein peinliches Gefühl der Feigheit, dessen er sich stirnrunzelnd schämte. Er steckte bei der Wirtin tief in Schulden und fürchtete sich deshalb davor, mit ihr zusammenzutreffen.
+Verschiedene Teams aus europäischen WissenschaftlerInnen plädieren deshalb dafür, diese Maßnahmen schrittweise durch digitale Tracing-Apps zu ersetzen. Die Vorschläge tragen kompliziert klingende Namen wie "Pan European Privacy Protecting Proximity Tracing" (PEPP-PT) oder "Decentralized Privacy-Preserving Proximity Tracing" (DP^3T), basieren aber auf einem einfachen Prinzip: dem Tracing. Statt flächendeckender Massenisolation sollen Infektionsketten durch das Smartphone extrem präzise nachverfolgt und isoliert werden. Die notwendigen Daten liefert eine App, die alle unmittelbaren physischen Kontakte eines Users mit anderen App-Usern nachvollzieht. Sobald Kontakt zu einer infizierten Person bestand, warnt die App die BenutzerIn schnell und anonym. 
 
 +++ vis-reproduction 1
 
@@ -34,9 +37,9 @@ Aber auf der Treppe stehenzubleiben, allerlei Gewäsch über allen möglichen ih
 +++ text-tracing
 ## Tracing 
 
-»Eine so große Sache plane ich, und dabei fürchte ich mich vor solchen Kleinigkeiten!« dachte er mit einem eigentümlichen Lächeln. »Hm . . . ja . . . alles hat der Mensch in seiner Hand, und doch läßt man sich alles an der Nase vorbeigehen, einzig und allein aus Feigheit . . . das ist schon so die allgemeine Regel . . . Merkwürdig: wovor fürchten die Menschen sich am meisten? Am meisten fürchten sie sich vor einem neuen Schritte, vor einem eignen neuen Worte . . . Übrigens schwatze ich viel zuviel. Darum handle ich auch nicht, weil ich soviel schwatze. Vielleicht aber liegt die Sache auch so: weil ich nicht handle, darum schwatze ich. Da habe ich nun in diesem letzten Monat das Schwatzen gelernt, wenn ich so ganze Tage lang im Winkel lag und an weiß Gott was dachte. Nun also: wozu gehe ich jetzt aus? Bin ich etwa imstande, das auszuführen? Ist es mir etwa Ernst damit? Ganz und gar nicht. Ich amüsiere mich nur mit einem müßigen Spiel der Gedanken; Tändelei! Ja, weiter nichts als Tändelei!«
+Verschiedene Teams aus europäischen WissenschaftlerInnen plädieren deshalb dafür, diese Maßnahmen schrittweise durch digitale Tracing-Apps zu ersetzen. Die Vorschläge tragen kompliziert klingende Namen wie "Pan European Privacy Protecting Proximity Tracing" (PEPP-PT) oder "Decentralized Privacy-Preserving Proximity Tracing" (DP^3T), basieren aber auf einem einfachen Prinzip: dem Tracing. Statt flächendeckender Massenisolation sollen Infektionsketten durch das Smartphone extrem präzise nachverfolgt und isoliert werden. Die notwendigen Daten liefert eine App, die alle unmittelbaren physischen Kontakte eines Users mit anderen App-Usern nachvollzieht. Sobald Kontakt zu einer infizierten Person bestand, warnt die App die BenutzerIn schnell und anonym.
 
-Auf der Straße war eine furchtbare Hitze; dazu noch die drückende Schwüle und das Gedränge; überall Kalkhaufen, Baugerüste, Ziegelsteine, Staub und jener besondere Sommergestank, den jeder Petersburger, soweit er nicht in der Lage ist, in die Sommerfrische zu gehen, so gut kennt.
+Die WissenschafterInnen sind optimistisch, die Basis­reproduktions­zahl R0  so auf einen Wert < 1 verringern zu können. 
 
 +++ vis-tracing 1
 
@@ -64,11 +67,13 @@ Gleichzeitig kam ihm auch zum Bewußtsein, daß seine Gedanken sich zeitweilig v
 
 
 +++ text-app
-## App
+## PEPP-PT
 
-Er war so schlecht gekleidet, daß ein anderer, selbst jemand, der die Armut schon gewohnt war, sich geschämt hätte, bei Tage in solchen Lumpen auf die Straße zu gehen. Übrigens war dieser Stadtteil von der Art, daß es schwer war, durch die Kleidung hier jemand in Verwunderung zu versetzen. Die Nähe des Heumarktes, die übergroße Zahl gewisser Häuser und ganz besonders die Fabrikarbeiter- und Handwerkerbevölkerung, die sich in diesen inneren Straßen und Gassen von Petersburg zusammendrängte, brachten mitunter in das Gesamtbild einen so starken Prozentsatz derartiger Gestalten hinein, daß es sonderbar gewesen wäre, wenn man sich bei der Begegnung mit einer einzelnen solchen Figur hätte wundern wollen. Aber in der Seele des jungen Mannes hatte sich bereits so viel ingrimmige Verachtung angesammelt, daß er trotz all seiner mitunter stark jünglingshaften Empfindlichkeit sich seiner Lumpen auf der Straße nicht mehr schämte. Anders beim Zusammentreffen mit irgendwelchen Bekannten oder mit früheren Kommilitonen, denen er überhaupt nicht gern begegnete . . . Als indessen ein Betrunkener, der gerade in einem großen Bauernwagen mit einem mächtigen Lastpferde davor auf der Straße irgendwohin transportiert wurde, ihm plötzlich im Vorbeifahren zurief: »He, du! Hast'nen deutschen Deckel auf dem Kopf!«, aus vollem Halse zu brüllen anfing und mit der Hand auf ihn zeigte: da blieb der junge Mann stehen und griff mit einer krampfhaften Bewegung nach seinem Hute. Es war ein hoher, runder Hut, aus dem Hutgeschäft von Zimmermann, aber schon ganz abgenutzt, völlig fuchsig, ganz voller Löcher und Flecke, ohne Krempe und in greulichster Weise eingeknickt. Aber es war nicht Scham, sondern ein ganz anderes Gefühl, das sich seiner bemächtigte, eine Art Schreck.
+Die transnationale Projektgruppe PEPP-PT besteht aus 130 ExpertInnen aus acht Ländern und arbeitet an Standards und Rahmenbedingungen für die europäische Umsetzung des Tracing-Verfahrens. Auf Grundlage dieser Methode, die maßgeblich vom eng verwandten Wissenschafts-Netzwerk DP^3T mitbegründet wurde, können europäische Staaten eigene Tracing-Apps implementieren, die über Landesgrenzen hinweg kompatibel und skalierbar sind.
 
-›Hab ich's doch gewußt!‹ murmelte er bestürzt. ›Hab ich's mir doch gedacht! Das ist das Allerwiderwärtigste! Irgendeine Dummheit, irgendeine ganz gewöhnliche Kleinigkeit kann den ganzen Plan verderben! Ja, der Hut ist zu auffällig . . . Er ist lächerlich, und dadurch wird er auffällig. Zu meinen Lumpen ist eine Mütze absolut notwendig, und wäre es auch irgend so ein alter Topfdeckel, aber nicht dieses Ungetüm. So etwas trägt kein Mensch. Eine Werst weit fällt den Leuten so ein Hut auf, und sie erinnern sich daran . . . Ja, das ist es: sie erinnern sich seiner nachher, und schon ist der Indizienbeweis da. Bei solchen Geschichten muß man möglichst unauffällig sein, . . . die Kleinigkeiten, die Kleinigkeiten, die sind die Hauptsache! Gerade diese Kleinigkeiten verderben immer alles . . .‹
+PEPP-PT ist ein dezentrales System. Jede*r NutzerIn bekommt eine zufällige und sich regelmäßige ändernde ID zugewiesen, die im Falle eines Kontakts (z.B. näher als 2 Meter) mit dem Gegenüber ausgetauscht wird. Die anonymisierten ID’s werden jeweils nur auf den betreffenden Smartphones und nicht an einem zentralen Ort gespeichert.
+
+Die Technik basiert im Wesentlichen auf Bluetooth Low Energy, das Smartphones innerhalb eines kleinen Radius miteinander verbinden kann. Dabei wird nicht nur der genaue Abstand der Begegnung, sondern auch die Dauer, die Blickrichtung und mögliche Hindernisse wie Wände berücksichtigt. Google und Apple arbeiten bereits an gemeinsamen Technologien und Software-Updates, um die Technik bestmöglich zu optimieren.
 
 +++ vis-app 1
 
@@ -93,3 +98,29 @@ Das Herz stand ihm fast still, und ein nervöses Zittern überkam ihn, als er si
 +++ vis-app 6
 
 Dieses Haus hatte lauter kleine Wohnungen, in denen allerlei einfache Leute wohnten: Schneider, Schlosser, Köchinnen, Deutsche verschiedenen Berufes, alleinstehende Mädchen, kleine Beamte usw. Durch die beiden Haustore und auf den beiden Höfen des Hauses war ein fortwährendes Kommen und Gehen. Hier gab es drei oder vier Hausknechte zur Aufsicht.
+
++++ text-privacy
+
+## Datenschutz
+
+Bisher standen artverwandte Apps häufig und auch zurecht in der Kritik, weil sie grundlegende Rechte des europäischen Datenschutzes GDPR unterwandern. Doch anders als bei verschiedenen Tracking-Methoden, die auf umfassenden Bewegungsprofilen von NutzerInnen basieren, stellt PEPP-PT die Privatsphäre und den Datenschutz der User offensiv in den Mittelpunkt. 
+
+Denn um einen ansteckenden Kontakt nachweisen zu können, sind laut DP^3T nur zwei Informationen notwendig: 
+
+→ Der Aufenthalt in unmittelbarer Nähe und ausreichender Dauer zu einer infizierten Person (Unabhängig des genauen Ortes)  
+→ Der Fakt, dass diese Kontaktperson zum Zeitpunkt des Treffens ansteckend war  
+
+Das bedeutet auch, dass keine sensiblen Informationen zur übertragenden Person, dem genauen Ort des Treffens, weiteren Bewegungsprotokollen oder weiteren Kontexten notwendig sind. 
+
+
++++ text-next
+
+## What’s Next?
+
+Natürlich bleiben nach wie vor einige Fragen offen. Die deutsche Version der App befindet sich aktuell noch in der Entwicklung, beteiligt sind neben dem Heinrich-Hertz-Institut und der TU Dresden auch das Robert Koch-Institut. Einen genauen Termin für die Veröffentlicht gibt es nicht.
+
+Außerdem ist nicht sicher, welche Maßnahmen PEPP-PT genau ablösen könnte. Mit großer Sicherheit werden die gängigen Abstands- und Hygieneregeln weiterhin aufrecht erhalten. Trotzdem: Durch PEPP-PT kann es möglich werden, Infektionsketten präzise zu verfolgen und somit genau die Menschen zu isolieren, die wirklich einer realen Gefahr ausgesetzt sind. Die Voraussetzung wäre ein breites gesellschaftliches Verständnis dafür, betroffene BürgerInnen für den jeweiligen Isolationszeitraum "freizustellen". 
+
+Damit kann die App einen erheblichen Beitrag dazu leisten, unser öffentliches Leben wieder zu normalisieren. Die eingangs erwähnten Nebeneffekte von Lockdowns, also die Verletzung unsere Grundrechte, existenzielle wirtschaftliche Schäden und soziale Ungerechtigkeit, würden somit größtenteils aufgehoben werden.
+
+So könnte unsere neue Normalität mit PEPP-PT aussehen.

@@ -23,7 +23,8 @@
           <VisApp v-bind="props"/>
         </template>
       </ScrollWrapper>
-      <MdRenderer el="section" :text="getText('text-app')"/>
+      <MdRenderer el="section" :text="getText('text-privacy')"/>
+      <MdRenderer el="section" :text="getText('text-next')"/>
     </article>
   </div>
 </template>
