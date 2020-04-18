@@ -87,7 +87,7 @@ export default {
         },
         isolation: {
           opacity: sp < steps.isolation ? 0 : 1,
-          width: Math.max(baselineWidth - symptomsX + sizes[0] / 4),
+          width: Math.max(baselineWidth - symptomsX + sizes[0] / 4, sizes[0]),
           x: symptomsX
         },
         children: '.'.repeat(children).split('').map((c, i) => {
