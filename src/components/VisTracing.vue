@@ -132,7 +132,8 @@ export default {
                   (infected && sp > steps.isolation2 && i2 >= 8) ||
                   (sp > steps.traced && i2 + i + 1 >= 8) ? 0 : 1,
                 x,
-                y: (infected && sp > steps.isolation2 && i2 >= 8) ? sizes[1] * 0.625 : 0,
+                y: (infected && sp > steps.isolation2 && i2 >= 8) ||
+                  (sp > steps.traced && i2 + i + 1 >= 8) ? sizes[1] * 0.625 : 0,
                 size: sizes[2]
               }
             })
