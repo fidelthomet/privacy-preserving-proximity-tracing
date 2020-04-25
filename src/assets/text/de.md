@@ -16,15 +16,15 @@ Verschiedene Teams aus europäischen WissenschaftlerInnen plädieren deshalb daf
 
 +++ vis-reproduction 1
 
-If R₀ = 2 on average one infected person infects to persons leading to expotential growth.
+If <span class="highlight pink">R<span class="sub">0</span>=2</span> on average one infected person infects two persons leading to expotential growth.
 
 +++ vis-reproduction 2
 
-If R₀ = 1 the growth remains linear, but if R₀ = 3 it would spread even more making it more difficult to contain.
+If <span class="highlight yellow">R<span class="sub">0</span>=1</span> the growth remains linear, but if <span class="highlight purple">R<span class="sub">0</span>=3</span> it would spread even more making it more difficult to contain.
 
 +++ vis-reproduction 3
 
-To stop the disease from spreading Re, the effective reproduction number needs to be below 1. Re = 0.5 would mean that only every 2nd case would lead to another infection.
+To stop the disease from spreading R<span class="sub">e</span>, the effective reproduction number needs to be below 1. <span class="highlight red">R<span class="sub">e</span>=0.5</span> would mean that only every 2nd case would lead to another infection.
 
 +++ vis-reproduction 4
 
