@@ -1,8 +1,6 @@
 <template>
   <div class="vis-reproduction" ref="el">
     <div class="text-layer">
-      <!-- <transition name="fade"> -->
-      <!-- <PortalTarget name="vis-reproduction-3"/> -->
       <portal to="vis-reproduction-3">
           <div class="slider-label immunity">
             <span>Immunity</span>
@@ -17,19 +15,20 @@
           </div>
           <input type="range" class="yellow" min="0" max="1" v-model="isolation" step="0.01"/>
       </portal>
-      <!-- </transition> -->
-      <div class="rO-labels">
+      <!-- <div class="rO-labels">
         <span v-for="(l, i) in r0Labels" :key="`l-${i}`"
           :style="{transform: `translate(${l.x}px, ${l.y}px)`, opacity: l.opacity}">
           {{l.text}}
         </span>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
 
 <script>
 import P5 from 'p5'
+import colors from '@/assets/style/global.scss'
+
 import { Portal } from 'portal-vue'
 export default {
   name: 'vis-reproduction',
@@ -56,6 +55,7 @@ export default {
   },
   data () {
     return {
+      colors,
       sketch: null,
       lineHeight: 24,
       gapY: 8,
@@ -63,6 +63,7 @@ export default {
       padding: 32,
       gapX: 12,
       qS: 2,
+      reproductions: null,
       edges1: null,
       edges2: null,
       edges3: null,
@@ -79,28 +80,31 @@ export default {
       return Math.max(...this.edges2[this.lines - 1].map(edge => edge.config.time))
     },
     r0Labels () {
-      const { height, padding, step, progress, innerWidth } = this
+      const { padding, step, progress, innerWidth } = this
       return [{
         text: 'R₀=2',
         x: padding * 1.35,
         y: padding,
         opacity: step === 1 && progress < 0.9 ? 1 : 0
       }, {
-        text: 'R₀=1',
+        text: 'R₀=3',
         x: innerWidth - padding * 1.75,
-        y: (height - padding * 2) / 5 + padding,
+        y: padding,
         opacity: step === 1 && progress > 0.3 && progress < 0.9 ? 1 : 0
       }, {
-        text: 'R₀=3',
+        text: 'R₀=1',
         x: innerWidth / 2 - padding * 0.4,
-        y: (height - padding * 2) / 5 + (height - padding * 2) / 3.5 + padding,
+        y: padding,
         opacity: step === 1 && progress > 0.5 && progress < 0.9 ? 1 : 0
       }]
     }
   },
   watch: {
     width () { this.resize() },
-    height () { this.resize() }
+    height () { this.resize() },
+    progress () { this.redraw() },
+    immunity () { this.redraw() },
+    isolation () { this.redraw() }
     // step () { this.immunity = 0.6 }
   },
   mounted () {
@@ -110,54 +114,139 @@ export default {
 
         const { generateReproductions, calcRows, lines } = this
         calcRows()
-        this.edges1 = generateReproductions(1, 4)
-        this.edges2 = generateReproductions(2, lines)
-        this.edges3 = generateReproductions(3, 4)
+        this.reproductions = [
+          generateReproductions(2, lines),
+          generateReproductions(1, lines),
+          generateReproductions(3, lines)
+        ]
+        p.noLoop()
         // this.maxTime = Math.max(...this.edges2[this.edges2.length - 1].map(edge => edge.config.time))
       }
 
       p.draw = () => {
-        const { innerWidth, padding, width, edges1, edges2, edges3, step, progress, height } = this
-        p.translate((width - innerWidth) / 2 + padding, padding)
-
+        const { innerWidth, padding, width, reproductions, colors, step, progress, transparentize } = this
+        p.translate((width / 2) - innerWidth + padding * 2, padding)
         p.background(255)
         p.noFill()
-        edges2.forEach((line, i) => {
-          line.forEach(edge => {
-            edge.draw(p)
-          })
+        const sp = step + progress
+        reproductions.forEach(reproduction => {
+          p.translate((innerWidth) / 2 - padding, 0)
+          if (reproduction.r0 === 2) {
+            reproduction.rows.forEach((row, i) => {
+              row.forEach((edge, i2) => {
+                switch (step) {
+                  case 0:
+                    if (progress >= edge.config.time / reproduction.maxTime * 1) {
+                      edge.draw(p, colors.pink)
+                    }
+                    break
+                  case 1:
+                    edge.draw(p, colors.pink)
+                    break
+                  case 2:
+                    if (i < 4 || i2 % Math.pow(4, i - 3) === Math.pow(4, i - 3) - 1) {
+                      edge.draw(p, colors.pink)
+                    } else {
+                      edge.draw(p, colors.paleGray)
+                      edge.draw(p, transparentize(colors.pink, progress * 2))
+                    }
+                    break
+                  case 3:
+                    if (i < 4) {
+                      edge.draw(p, colors.pink)
+                    } else {
+                      if (edge.config.immunity <= this.immunity) {
+                        edge.draw(p, colors.green)
+                      } else if (edge.config.branchImmunity <= this.immunity) {
+                        edge.draw(p, colors.paleGray)
+                      } else {
+                        edge.draw(p, colors.pink)
+                      }
+                    }
+                    break
+                  case 4:
+                    if (i < 4) {
+                      edge.draw(p, colors.pink)
+                    } else if (i < 6) {
+                      if (edge.config.immunity <= this.isolation) {
+                        edge.draw(p, colors.yellow)
+                      } else if (edge.config.branchImmunity <= this.isolation) {
+                        edge.draw(p, colors.paleGray)
+                      } else {
+                        edge.draw(p, colors.pink)
+                      }
+                    } else {
+                      if (edge.config.branchIsolation <= this.isolation) {
+                        edge.draw(p, colors.paleGray)
+                      } else {
+                        edge.draw(p, colors.pink)
+                      }
+                    }
+                    break
+                }
+              })
+            })
+          } else if (reproduction.r0 === 1) {
+            if (sp < 1 || sp > 2.25) return
+            switch (step) {
+              case 1:
+                reproduction.rows.forEach((row, i) => {
+                  row.forEach(edge => {
+                    if (progress >= edge.config.time / reproduction.maxTime * 0.5) {
+                      edge.draw(p, colors.yellow)
+                    }
+                  })
+                })
+                break
+              case 2:
+                const color = transparentize(colors.yellow, progress * 4)
+                reproduction.rows.forEach((row, i) => {
+                  row.forEach(edge => {
+                    edge.draw(p, color)
+                  })
+                })
+                break
+            }
+          } else if (reproduction.r0 === 3) {
+            if (sp < 1.5 || sp > 2.25) return
+            switch (step) {
+              case 1:
+                reproduction.rows.forEach((row, i) => {
+                  row.forEach(edge => {
+                    if (progress >= edge.config.time / reproduction.maxTime * 0.5 + 0.5) {
+                      edge.draw(p, colors.purple)
+                    }
+                  })
+                })
+                break
+              case 2:
+                const color = transparentize(colors.purple, progress * 4)
+                reproduction.rows.forEach((row, i) => {
+                  row.forEach(edge => {
+                    edge.draw(p, color)
+                  })
+                })
+                break
+            }
+          }
         })
 
-        if (step === 1 && progress > 0) {
-          let alpha = 0
-          if (progress > 0.2) {
-            alpha = Math.min((progress - 0.2) * 5 * 255, 255)
-            if (progress > 0.8) {
-              alpha = Math.min((1 - progress) * 5 * 255, 255)
-            }
-          }
-          p.translate((innerWidth - padding * 3), (height - padding * 2) / 5)
-          p.stroke(0xE2, 0x29, 0xA2, alpha)
-          edges1.forEach((line, i) => {
-            line.forEach(edge => {
-              edge.draw(p)
-            })
-          })
-          alpha = 0
-          if (progress > 0.4) {
-            alpha = Math.min((progress - 0.4) * 5 * 255, 255)
-            if (progress > 0.8) {
-              alpha = Math.min((1 - progress) * 5 * 255, 255)
-            }
-          }
-          p.stroke(0xE2, 0x29, 0xA2, alpha)
-          p.translate(-(innerWidth / 2 - padding), (height - padding * 2) / 3.5)
-          edges3.forEach((line, i) => {
-            line.forEach(edge => {
-              edge.draw(p)
-            })
-          })
-        }
+        // if (step === 1 && progress > 0) {
+        //   p.translate((innerWidth - padding * 3), 0)
+        //   p.stroke(0xE2, 0x29, 0xA2)
+        //   edges1.forEach((line, i) => {
+        //     line.forEach(edge => {
+        //       edge.draw(p)
+        //     })
+        //   })
+        //   p.stroke(0xE2, 0x29, 0xA2)
+        //   p.translate(-(innerWidth / 2 - padding), 0)
+        //   edges3.forEach((line, i) => {
+        //     line.forEach(edge => {
+        //       edge.draw(p)
+        //     })
+        //   })
+        // }
       }
     }
 
@@ -169,6 +258,11 @@ export default {
       calcRows()
       this.innerWidth = Math.min(width, this.maxWidth)
       sketch.resizeCanvas(width, height)
+    },
+    redraw () {
+      const { sketch } = this
+      if (sketch == null) return
+      sketch.redraw()
     },
     calcRows () {
       const { height, padding, lines, gapY } = this
@@ -183,6 +277,10 @@ export default {
         y += gapY
       }
       this.rows = rows
+    },
+    transparentize (color, amount) {
+      var rgb = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color).filter((v, i) => i > 0).map(v => parseInt(v, 16))
+      return [...rgb, 255 - amount * 255]
     },
     generateReproductions (r0, lines) {
       const { gapX, rows } = this
@@ -210,96 +308,53 @@ export default {
           const coords = [parent.x, rows[row][0], x, rows[row][1]]
           line.push({
             x,
+            px: parent.x,
             config: {
               time,
+              immunity,
               branchImmunity,
               branchIsolation
             },
-            draw: (p) => {
-              const { step, progress, maxTime } = this
-              if (r0 !== 2) {
-                p.line(...coords)
-                return
-              }
-              if (step === 0) {
-                p.stroke('#EEEEEE')
-                p.line(...coords)
-                if (progress >= time / maxTime * 0.9) {
-                  p.stroke(0xE2, 0x29, 0xA2, (progress - time / maxTime * 0.9) * 2550)
-                  p.line(...coords)
-                }
-              }
-              if (step === 1) {
-                if (row < 4) {
-                  p.stroke(0xE2, 0x29, 0xA2)
-                  p.line(...coords)
-                } else {
-                  p.stroke('#EEEEEE')
-                  p.line(...coords)
-                  if (progress < 0.2) {
-                    p.stroke(0xE2, 0x29, 0xA2, 255 - progress * 5 * 255)
-                    p.line(...coords)
-                  }
-                }
-              }
-              if (step === 2) {
-                if (row < 4) {
-                  p.stroke(0xE2, 0x29, 0xA2)
-                  p.line(...coords)
-                } else {
-                  p.stroke('#EEEEEE')
-                  p.line(...coords)
-                  if (col % Math.pow(4, row - 3) === Math.pow(4, row - 3) - 1) {
-                    p.stroke(0xE2, 0x29, 0xA2, progress * 5 * 255)
-                    p.line(...coords)
-                  }
-                }
-              }
-              if (step === 3) {
-                if (row < 4) {
-                  p.stroke(0xE2, 0x29, 0xA2)
-                  p.line(...coords)
-                } else {
-                  if (immunity <= this.immunity) {
-                    p.stroke('#24D9CA')
-                  } else if (branchImmunity <= this.immunity) {
-                    // p.stroke('#F6CC1D')
-                    p.stroke('#BEBEBE')
-                  } else {
-                    p.stroke(0xE2, 0x29, 0xA2)
-                    // p.stroke('#EEEEEE')
-                  }
-                  p.line(...coords)
-                }
-              }
-              if (step === 4) {
-                if (row < 4) {
-                  p.stroke(0xE2, 0x29, 0xA2)
-                  p.line(...coords)
-                } else if (row < 6) {
-                  if (immunity <= this.isolation) {
-                    p.stroke('#F6BC0D')
-                  } else if (branchImmunity <= this.isolation) {
-                    p.stroke('#BEBEBE')
-                  } else {
-                    p.stroke(0xE2, 0x29, 0xA2)
-                  }
-                  p.line(...coords)
-                } else {
-                  if (branchIsolation <= this.isolation) {
-                    p.stroke('#EEEEEE')
-                  } else {
-                    p.stroke(0xE2, 0x29, 0xA2)
-                  }
-                  p.line(...coords)
-                }
-              }
+            draw: (p, color) => {
+              p.stroke(color)
+              p.line(...coords)
+              // if (step === 4) {
+              //   if (row < 4) {
+              //     p.stroke(0xE2, 0x29, 0xA2)
+              //     p.line(...coords)
+              //   } else if (row < 6) {
+              //     if (immunity <= this.isolation) {
+              //       p.stroke('#F6BC0D')
+              //     } else if (branchImmunity <= this.isolation) {
+              //       p.stroke('#BEBEBE')
+              //     } else {
+              //       p.stroke(0xE2, 0x29, 0xA2)
+              //     }
+              //     p.line(...coords)
+              //   } else {
+              //     if (branchIsolation <= this.isolation) {
+              //       p.stroke('#EEEEEE')
+              //     } else {
+              //       p.stroke(0xE2, 0x29, 0xA2)
+              //     }
+              //     p.line(...coords)
+              //   }
+              // }
             }
           })
         }
         edges.push(line)
       }
-      return edges
+      const maxTime = Math.max(...edges[lines - 1].map(edge => edge.config.time))
+      // edges.forEach(lines => {
+      //   lines.forEach(line => { line.config.maxTime = maxTime })
+      // })
+      // console.log(edges.map(row => row.filter(edge => edge.px > 2000 || edge.px < -2000 || true).length))
+      return {
+        rows: edges.map(row => row.filter(edge => edge.px > -2000 && edge.px < 2000)),
+        maxTime,
+        r0
+      }
     }
   }
 }

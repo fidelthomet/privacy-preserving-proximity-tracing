@@ -2,15 +2,16 @@ $spacing: 2rem;
 
 $font-size: 100%;
 
-$color-accent: #E229A2;
-$color-green: #0BA391;
-$color-purple: #7334D6;
-$color-red: #FA084E;
-$color-yellow: #F6BC0D;
-$color-black: #2B1022;
-$color-gray: #DDDAE8;
-$color-pale-gray: #EEEEEE;
+$color-pink: #e229a2;
+$color-green: #0ba391;
+$color-purple: #7334d6;
+$color-red: #fa084e;
+$color-yellow: #f6bc0d;
+$color-black: #2b1022;
+$color-gray: #dddae8;
+$color-pale-gray: #eeeeee;
 $color-white: #ffffff;
+$color-accent: $color-pink;
 
 $narrow: 600px !default;
 $medium: 900px !default;
@@ -18,10 +19,22 @@ $wide: 1200px !default;
 
 $max-width: 720px;
 
-$transition: .4s;
+$transition: 0.4s;
 
 @mixin min-width($device) {
   @media screen and (min-width: $device) {
     @content;
   }
+}
+
+:export {
+  pink: $color-pink;
+  green: $color-green;
+  purple: $color-purple;
+  red: $color-red;
+  yellow: $color-yellow;
+  black: $color-black;
+  gray: $color-gray;
+  paleGray: $color-pale-gray;
+  white: $color-white;
 }
