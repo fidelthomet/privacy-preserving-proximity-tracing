@@ -1,115 +1,33 @@
 <template>
   <div class="vis-app">
-    <div class="text-layer" :style="{width: `${size}px`, height: `${size}px`}">
-      <transition name="fade">
-        <div v-if="step + progress >= 2" class="actor" :class="{traced}" :style="{transform: `rotate(120deg) translateY(${-orbitOuter}px) rotate(-120deg) translateY(50%) translateY(${actor.r * 2.5}px)`}">
-          <strong>id</strong> |<strong> min</strong><br>
-          #A |<span v-html="`&nbsp;`"/> 20<br>
-        </div>
-      </transition>
-      <transition name="fade">
-        <div v-if="step + progress >= 3" class="actor" :style="{transform: `rotate(240deg) translateY(${-orbitOuter}px) rotate(-240deg) translateY(50%) translateY(${actor.r * 2.5}px)`}">
-          <strong>id</strong> |<strong> min</strong><br>
-          #A | <span v-html="`&nbsp;`"/> 1<br>
-        </div>
-      </transition>
-      <transition name="fade">
-        <div v-if="step + progress >= 2" class="actor primary" :class="{infected}"
-          :style="{transform: `rotate(${rotation}deg) translateY(${-orbitInner}px) rotate(-${rotation}deg) translateY(-50%) translateY(${-actor.r * 2.5}px)`}
-          ">
-          <strong>id</strong> |<strong> min</strong><br>
-          #B |<span v-html="`&nbsp;`"/> 20<br>
-          <template v-if="step + progress >= 3">
-          #C | <span v-html="`&nbsp;`"/> 1<br>
-          </template>
-        </div>
-      </transition>
-    </div>
+    <transition-group name="fade" tag="div" class="text-layer" :style="{width: `${size}px`, height: `${size}px`}">
+      <div v-for="text in texts" :key="text.key" class="text" :class="text.class" v-html="text.html" :style="{transform: text.transform}"/>
+    </transition-group>
     <svg :width="size" :height="size">
-      <defs>
-        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="50%" id="gradient-green">
-          <stop stop-opacity="0" offset="0%"/>
-          <stop stop-opacity="0" offset="50%"/>
-          <stop stop-opacity="0.3" offset="100%"/>
-        </radialGradient>
-        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="50%" id="gradient-purple">
-          <stop stop-opacity="0" offset="0%"/>
-          <stop stop-opacity="0" offset="50%"/>
-          <stop stop-opacity="0.3" offset="100%"/>
-        </radialGradient>
-        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="50%" id="gradient-accent">
-          <stop stop-opacity="0" offset="0%"/>
-          <stop stop-opacity="0" offset="50%"/>
-          <stop stop-opacity="0.3" offset="100%"/>
-        </radialGradient>
-        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="50%" id="gradient-yellow">
-          <stop stop-opacity="0" offset="0%"/>
-          <stop stop-opacity="0" offset="50%"/>
-          <stop stop-opacity="0.3" offset="100%"/>
-        </radialGradient>
-      </defs>
       <g :transform="`translate(${size / 2} ${size / 2})`">
         <transition name="fade">
-          <circle v-if="!infected" class="orbit" :r="orbitInner"/>
+          <circle v-if="config.orbit" class="orbit" :r="orbit"/>
         </transition>
         <g class="paths">
           <transition-group name="fade" tag="g">
-            <path v-if="step + progress >= 4.3 && step + progress < 4.9" key="arc1" class="infected" :d="`M 0 ${-orbitInner} A ${orbitInner} ${orbitInner} 0 0 1 ${Math.sin(Math.PI / 3 * 2) * orbitInner} ${Math.cos(Math.PI / 3 * 2) * orbitInner}`"/>
-            <path v-if="step + progress >= 4.5 && step + progress < 4.9" key="arc2" class="infected" :d="`M 0 ${-orbitInner} A ${orbitInner} ${orbitInner} 0 0 0 ${Math.sin(Math.PI / 3 * 2) * orbitInner} ${Math.cos(Math.PI / 3 * 2) * orbitInner}`"/>
-            <path v-if="step + progress >= 4.7" key="arc3" class="infected" :d="`M 0 ${-orbitInner} A ${orbitInner} ${orbitInner} 0 0 0 0 0`"/>
-            <path v-if="step + progress >= 4.9" key="arc4" class="infected" :d="`M 0 0 A ${orbitOuter} ${orbitOuter} 0 0 1 ${Math.sin(Math.PI / 3) * orbitOuter} ${Math.cos(Math.PI / 3) * orbitOuter}`"/>
-            <path v-if="step + progress >= 4.9" key="arc5" class="infected" :d="`M 0 0 A ${orbitOuter} ${orbitOuter} 0 0 0 ${-Math.sin(Math.PI / 3) * orbitOuter} ${Math.cos(Math.PI / 3) * orbitOuter}`"/>
-            <path v-if="step + progress >= 5" key="arc6" class="traced" :d="`M ${Math.sin(Math.PI / 3 * 2) * orbitInner} ${Math.cos(Math.PI / 3 * 2) * orbitInner} A ${orbitOuter} ${orbitOuter} 0 0 1 ${Math.sin(Math.PI / 3) * orbitOuter} ${Math.cos(Math.PI / 3) * orbitOuter}`"/>
+            <path v-for="edge in edges" :key="edge.key" v-bind="edge" class="edge" :class="[edge.color]"/>
           </transition-group>
         </g>
-        <g class="actors">
-          <g class="actor" :transform="`rotate(${rotation}) translate(0 ${-orbitInner})`">
-            <circle class="primary gradient" :class="{infected}" :r="actor.r"/>
-            <circle class="primary gradient" :class="{infected}" :r="actor.r"/>
-            <circle class="primary" :class="{infected}" :r="actor.r"/>
+        <transition-group name="fade" tag="g" class="actors">
+          <g v-for="actor in actors" :key="actor.key" v-bind="actor" class="actor">
+            <template v-if="actor.transmitting">
+              <circle class="gradient" :class="[actor.color, {isolated: actor.isolation}]" :r="layout.actor.r"/>
+              <circle class="gradient" :class="[actor.color, {isolated: actor.isolation}]" :r="layout.actor.r"/>
+            </template>
+            <circle :class="[actor.color, ...actor.class]" :r="layout.actor.r"/>
             <transition name="fade">
-              <circle v-if="infected" class="isolation infected" :r="actor.r * 2"/>
+              <circle v-if="actor.isolation" class="isolation" :class="[actor.color]" :r="layout.actor.r * 2"/>
             </transition>
-            <g :transform="`rotate(${-rotation})`">
-              <text y="5">A</text>
+            <g>
+              <text y="5" :class="[actor.color, ...actor.class]">{{actor.name}}</text>
             </g>
           </g>
-          <g class="actor" :transform="`rotate(120) translate(0 ${-orbitOuter})`">
-            <circle class="gradient" :class="{traced}" :r="actor.r" />
-            <circle class="gradient" :class="{traced}" :r="actor.r" />
-            <circle :r="actor.r" :class="{traced}"/>
-            <transition name="fade">
-              <circle v-if="traced" class="isolation traced" :r="actor.r * 2"/>
-            </transition>
-            <g transform="rotate(-120)">
-              <text y="5">B</text>
-            </g>
-          </g>
-          <g class="actor" :transform="`rotate(240) translate(0 ${-orbitOuter})`">
-            <circle class="gradient" :r="actor.r" />
-            <circle class="gradient" :r="actor.r" />
-            <circle :r="actor.r"/>
-            <g transform="rotate(-240)">
-              <text y="5">C</text>
-            </g>
-          </g>
-          <transition name="fade">
-            <g v-if="step + progress >= 4.2" class="actor medic" :transform="`rotate(60) translate(0 ${-orbitInner})`">
-              <circle :r="actor.r"/>
-              <g transform="rotate(-60)">
-                <text y="9">+</text>
-              </g>
-            </g>
-          </transition>
-          <transition name="fade">
-            <g v-if="step + progress >= 4.7" class="actor server">
-              <circle :r="actor.r"/>
-              <g>
-                <text y="7.5">⇄</text>
-              </g>
-            </g>
-          </transition>
-        </g>
+        </transition-group>
       </g>
     </svg>
   </div>
@@ -134,14 +52,20 @@ export default {
     progress: {
       type: Number,
       default: null
+    },
+    config: {
+      type: Object,
+      default: null
     }
   },
   data () {
     return {
       maxWidth: 512,
       spacing: 32,
-      actor: {
-        r: 16
+      layout: {
+        actor: {
+          r: 16
+        }
       }
     }
   },
@@ -150,32 +74,60 @@ export default {
       const { width, maxWidth, height, spacing } = this
       return Math.min(width - spacing * 2, maxWidth, height - spacing * 2)
     },
-    orbitOuter () {
-      const { size } = this
-      return size / 2
+    orbit () {
+      const { size, layout } = this
+      return size / 2 - layout.actor.r * 3
     },
-    orbitInner () {
-      const { orbitOuter, actor } = this
-      return orbitOuter - actor.r * 3
+    actors () {
+      const { config, toXY } = this
+      return config.actors.filter(a => !a.hide).map(a => {
+        const pos = toXY(a.transform)
+        return {
+          ...a,
+          transform: `translate(${pos.x} ${pos.y})`,
+          key: a.key || a.name
+        }
+      })
     },
-    rotation () {
-      const { step, progress } = this
-      if (step < 1) return 0
-      if (step < 4) return (step - 1 + progress) * 120
-      return 0
+    edges () {
+      const { config, toXY, orbit } = this
+      return config.edges.filter(e => !e.hide).map((e, i) => {
+        const nodes = e.nodes.map(n => config.actors.find(a => a.name === n).transform)
+        const p = nodes.map(n => toXY(n))
+        const r = nodes[0].r * orbit + nodes[0].offset
+        return {
+          ...e,
+          d: `M${p[0].x},${p[0].y} A ${r} ${r} 0 0 ${e.dir} ${p[1].x},${p[1].y}`,
+          key: `edge-${i}`
+        }
+      })
     },
-    infected () {
-      const { step, progress } = this
-      return step + progress >= 4
-    },
-    traced () {
-      const { step, progress } = this
-      return step + progress >= 5
+    texts () {
+      const { config, toXY } = this
+      return config.actors.filter(a => a.text != null && !a.text.hide).map(a => {
+        const pos = toXY(a.transform)
+        return {
+          class: [a.color],
+          transform: `translate(${pos.x}px, ${pos.y + a.text.offset}px) translateY(${50 * (a.text.offset / Math.abs(a.text.offset))}%)`,
+          html: a.text.html,
+          key: `text-${a.key || a.name}`
+        }
+      })
     }
   },
   watch: {},
   mounted () {},
-  methods: {}
+  methods: {
+    toXY ({ r = 0, rev = 1, offset = 0 }) {
+      const { orbit } = this
+      const rotate = (rev - 0.25) * Math.PI * 2
+      const radius = r * orbit + offset
+      return {
+        x: Math.cos(rotate) * radius,
+        y: Math.sin(rotate) * radius
+      }
+    }
+  }
 }
 </script>
 
@@ -187,7 +139,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    .actor {
+    .text {
       font-size: 0.8rem;
       position: absolute;
       font-family: "Plex Mono", monospace;
@@ -195,42 +147,13 @@ export default {
 
       background: transparentize($color-green, 0.8);
       color: $color-green;
-      &.primary {
-        background: transparentize($color-purple, 0.8);
-        color: $color-purple;
-      }
-      &.infected {
-        background: transparentize($color-accent, 0.8);
-        color: $color-accent;
-      }
-      &.traced {
-        background: transparentize($color-yellow, 0.8);
-        color: $color-yellow;
-      }
+      transition: background $transition, color $transition, opacity $transition;
+      @include tint-light(background);
+      @include tint(color);
     }
   }
   svg {
     overflow: visible;
-    #gradient-green {
-      stop {
-        stop-color: $color-green;
-      }
-    }
-    #gradient-purple {
-      stop {
-        stop-color: $color-purple;
-      }
-    }
-    #gradient-accent {
-      stop {
-        stop-color: $color-accent;
-      }
-    }
-    #gradient-yellow {
-      stop {
-        stop-color: $color-yellow;
-      }
-    }
     circle {
       &.orbit {
         fill: none;
@@ -239,60 +162,40 @@ export default {
       }
     }
     .paths {
-      path {
+      .edge {
         fill: none;
         stroke-width: 2;
-        &.infected {
-          stroke: transparentize($color-accent, 0.8);
-        }
-        &.traced {
-          stroke: transparentize($color-yellow, 0.8);
-        }
+        @include tint-light(stroke);
       }
     }
     .actors {
       .actor {
         circle {
           fill: $color-green;
+          transition: fill $transition, stroke $transition;
 
           &.gradient {
-            fill: url(#gradient-green);
+            // fill: url(#gradient-green);
             animation: broadcast 4s linear 0s infinite;
+
+            &.isolated {
+              animation-name: broadcast-isolation;
+            }
 
             &:first-child {
               animation-delay: 2s;
             }
           }
 
-          &.primary {
-            fill: $color-purple;
-            &.gradient {
-              fill: url(#gradient-purple);
-            }
-          }
-          &.infected {
-            fill: $color-accent;
-            &.gradient {
-              fill: url(#gradient-accent);
-              animation-name: broadcast-isolation;
-            }
-          }
-          &.traced {
-            fill: $color-yellow;
-            &.gradient {
-              fill: url(#gradient-yellow);
-              animation-name: broadcast-isolation;
-            }
+          @include tint(fill);
+
+          &.invert {
+            @include tint-light(fill);
           }
           &.isolation {
             fill: none;
             stroke-width: 2;
-            &.infected {
-              stroke: transparentize($color-accent, 0.8);
-            }
-            &.traced {
-              stroke: transparentize($color-yellow, 0.8);
-            }
+            @include tint(stroke);
           }
         }
         text {
@@ -300,24 +203,9 @@ export default {
           fill: $color-white;
           text-anchor: middle;
           font-weight: bold;
-        }
-        &.medic {
-          circle {
-            fill: lighten($color-red, 45)
-          }
-          text {
-            fill: $color-red;
-            font-size: 1.5rem;
-          }
-        }
-        &.server {
-          circle {
-            fill: #eeeeee;
-          }
-          text {
-            fill: $color-black;
-            font-weight: normal;
-            font-size: 1.1rem;
+          transition: fill $transition;
+          &.invert {
+            @include tint(fill);
           }
         }
       }
@@ -326,7 +214,7 @@ export default {
 
   @keyframes broadcast {
     from {
-      opacity: 1;
+      opacity: 0.8;
       transform: scale(1);
     }
 
@@ -337,7 +225,7 @@ export default {
   }
   @keyframes broadcast-isolation {
     from {
-      opacity: 1;
+      opacity: 0.8;
       transform: scale(1);
     }
 

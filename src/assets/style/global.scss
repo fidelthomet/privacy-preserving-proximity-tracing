@@ -28,6 +28,47 @@ $transition: 0.4s;
   }
 }
 
+@mixin tint($property) {
+  &.pink {
+    #{$property}: $color-pink;
+  }
+  &.green {
+    #{$property}: $color-green;
+  }
+  &.purple {
+    #{$property}: $color-purple;
+  }
+  &.red {
+    #{$property}: $color-red;
+  }
+  &.orange {
+    #{$property}: $color-orange;
+  }
+  &.yellow {
+    #{$property}: $color-yellow;
+  }
+}
+@mixin tint-light($property) {
+  &.pink {
+    #{$property}: lighten($color-pink, 40);
+  }
+  &.green {
+    #{$property}: lighten($color-green, 40);
+  }
+  &.purple {
+    #{$property}: lighten($color-purple, 40);
+  }
+  &.red {
+    #{$property}: lighten($color-red, 40);
+  }
+  &.orange {
+    #{$property}: lighten($color-orange, 40);
+  }
+  &.yellow {
+    #{$property}: lighten($color-yellow, 40);
+  }
+}
+
 :export {
   pink: $color-pink;
   green: $color-green;
