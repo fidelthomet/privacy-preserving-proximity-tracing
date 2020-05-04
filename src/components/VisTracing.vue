@@ -156,6 +156,36 @@ export default {
             html: table([['A', '15', '100']], bw(11, 11 + 2 / 3) ? 0 : 1)
           }
         }, {
+          key: 'c0',
+          hide: step !== 13,
+          color: 'purple',
+          class: ['invert'],
+          transform: {
+            r: 0.8,
+            rev: 0.6,
+            offset: 0
+          }
+        }, {
+          key: 'c1',
+          hide: step !== 13,
+          color: 'purple',
+          class: ['invert'],
+          transform: {
+            r: 1.2,
+            rev: 0.75,
+            offset: 0
+          }
+        }, {
+          key: 'c2',
+          hide: step !== 13,
+          color: 'purple',
+          class: ['invert'],
+          transform: {
+            r: 0.8,
+            rev: 0.7,
+            offset: 0
+          }
+        }, {
           name: '↔',
           hide: sp < 12,
           class: ['invert'],
@@ -254,6 +284,34 @@ export default {
           color: 'yellow',
           dir: 1,
           r: 1.2
+        }, {
+          nodes: ['C', 'c0'],
+          color: 'purple',
+          hide: step !== 13,
+          dir: 1,
+          r: 0,
+          dashed: true
+        }, {
+          nodes: ['C', 'c1'],
+          color: 'purple',
+          hide: step !== 13,
+          dir: 0,
+          r: 0,
+          dashed: true
+        }, {
+          nodes: ['C', 'c2'],
+          color: 'purple',
+          hide: step !== 13,
+          dir: 1,
+          r: 0,
+          dashed: true
+        }, {
+          nodes: ['A', 'C'],
+          color: 'purple',
+          hide: step !== 13,
+          dir: 0,
+          r: 2,
+          dashed: true
         }]
       }
     }
