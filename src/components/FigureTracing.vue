@@ -139,18 +139,6 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    .text {
-      font-size: 0.8rem;
-      position: absolute;
-      font-family: "Plex Mono", monospace;
-      padding: $spacing / 8 $spacing / 4;
-
-      background: transparentize($color-green, 0.8);
-      color: $color-green;
-      transition: background $transition, color $transition, opacity $transition;
-      @include tint-light(background);
-      @include tint(color);
-    }
   }
   svg {
     overflow: visible;
@@ -244,6 +232,36 @@ export default {
     to {
       opacity: 0;
       transform: scale(2);
+    }
+  }
+}
+</style>
+<style lang="scss">
+@import "@/assets/style/global";
+.vis-app {
+  .text-layer {
+    .text {
+      font-size: 0.8rem;
+      position: absolute;
+      padding: $spacing / 8;
+      color: $color-green;
+      transition: background $transition, color $transition, opacity $transition;
+      @include tint-light(background);
+      @include tint(color);
+
+      table {
+        border-collapse: collapse;
+        td, th {
+          padding: 0 $spacing / 8;
+          text-align: center;
+          border-left: 1px solid;
+          @include tint(border-color);
+          &:first-of-type {
+            // text-align: left;
+            border-left: none;
+          }
+        }
+      }
     }
   }
 }

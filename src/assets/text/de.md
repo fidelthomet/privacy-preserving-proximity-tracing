@@ -43,31 +43,31 @@ Die WissenschafterInnen sind optimistisch, die Basis­reproduktions­zahl R0  so
 
 +++ vis-tracing 1
 
-<span class="actor a pink">Alice</span> is friends with <span class="actor b green">Bob</span>
+<span class="actor a">Alice</span> is friends with <span class="actor b">Bob</span>
 
 +++ vis-tracing 2
 
-So <span class="actor a pink">Alice</span> visits <span class="actor b green">Bob</span>
+So <span class="actor a">Alice</span> visits <span class="actor b">Bob</span>
 
 +++ vis-tracing 3
 
-Then <span class="actor a pink">Alice</span> develops symptoms, self isolates and gets tested.
+Then <span class="actor a">Alice</span> develops symptoms, self isolates and gets tested.
 
 +++ vis-tracing 4
 
-<span class="actor a pink">Alice</span> is tested positively, but with covid she was already infectios days before developing symptoms.
+<span class="actor a">Alice</span> is tested positively, but with covid she was already infectios days before developing symptoms.
 
 +++ vis-tracing 5
 
-So her Friend <span class="actor b purple">Bob</span> might has contracted the virus.
+So her Friend <span class="actor b">Bob</span> might has contracted the virus.
 
 +++ vis-tracing 6
 
-And if he has, it is likely that <span class="actor b purple">Bob</span> is already unknowingly spreading the disease further.
+And if he has, it is likely that <span class="actor b">Bob</span> is already unknowingly spreading the disease further.
 
 +++ vis-tracing 7
 
-But if <span class="actor a pink">Alices</span> contacts can be traced back, <span class="actor b purple">Bob</span> and could be warned and asked to get tested and self-isolate.
+But if <span class="actor a">Alices</span> contacts can be traced back, <span class="actor b">Bob</span> and could be warned and asked to get tested and self-isolate.
 
 +++ vis-tracing 8
 
@@ -79,13 +79,25 @@ Tracing can be done manually through over the phone interviews. While definetly 
 
 +++ vis-tracing 10
 
-…and some chains can be nearly impossible to trace. E.g. if <span class="actor a pink">Alice</span> infected <span class="actor c green">Carol</span> in public transport after visiting <span class="actor b purple">Bob</span>
+…and some chains can be nearly impossible to trace. E.g. if <span class="actor a">Alice</span> infected <span class="actor c">Carol</span> in public transport after visiting <span class="actor b">Bob</span>
 
 +++ vis-tracing 11
 
-…and some chains can be nearly impossible to trace. E.g. if <span class="actor a pink">Alice</span> infected <span class="actor c green">Carol</span> in public transport after visiting <span class="actor b purple">Bob</span>
+<span class="actor a">Alice</span>, <span class="actor b">Bob</span> and <span class="actor c">Carol</span> carry smartphones. By making use of BLE they could detect nearby devices and log duration and proximity of contacts.
+
++++ vis-tracing 12
+
+When <span class="actor a">Alice</span> is tested positive, that information is transmitted to a server. The phones of <span class="actor b">Bob</span> and <span class="actor c">Carol</span> can reconstruct, that they have been in close contact with a confirmed case and show a warning.
+
++++ vis-tracing 13
+
+However, there are also downsides to this approach. If <span class="actor c">Carol</span> did not install the app, the contact cannot be traced. Furthermore, if designed badly, an app like that could pose a tremendous invasion of privacy.
 
 +++ text-app
+
+## Privacy Preservation
+
+↓ disregard everything below ↓
 
 +++ vis-app 1
 

@@ -39,21 +39,22 @@ export default {
       let sp = step + progress
       if (sp > 8.5) sp += 0.5
       if (sp > 10.5) sp += 0.5
+      if (sp > 11) sp = Math.max(sp - 0.2, 11)
       return sp
     },
     config () {
-      const { sp, bw } = this
+      const { sp, bw, table } = this
       const step = Math.floor(sp)
       const progress = sp % 1
       return {
         orbit: {
-          hide: step >= 1,
+          hide: step >= 1 && sp !== 11,
           color: 'green'
         },
         actors: [{
           name: 'A',
           color: bw(0, 2) || bw(9, 10) || bw(11, 12) ? 'purple' : 'pink',
-          transmitting: false,
+          transmitting: step > 10,
           isolation: step >= 2 && step <= 8,
           transform: {
             r: 1,
@@ -61,9 +62,9 @@ export default {
             offset: 0
           },
           text: {
-            hide: true,
+            hide: step < 11,
             offset: -48,
-            html: '<table><tr><td>B</td><td>20min</td></tr><tr><td>C</td><td>1min</td></tr></table>'
+            html: table([['B', '30', '150'], ['C', '15', '100']], bw(11, 11 + 1 / 3) ? 0 : bw(11, 11 + 2 / 3) ? 1 : 2)
           }
         }, {
           name: 'A-Base',
@@ -77,7 +78,7 @@ export default {
           name: 'B',
           color: bw(0, 4) || bw(9, 10) || bw(11, 12) ? 'green'
             : bw(4, 5) || bw(8, 10) ? 'purple' : 'yellow',
-          transmitting: false,
+          transmitting: step > 10,
           isolation: step >= 6 && step < 8,
           transform: {
             r: 1,
@@ -85,9 +86,9 @@ export default {
             offset: 40
           },
           text: {
-            hide: true,
+            hide: step < 11,
             offset: 48,
-            html: '<table><tr><td>B</td><td>20min</td></tr><tr><td>C</td><td>1min</td></tr></table>'
+            html: table([['A', '30', '150']], bw(11, 11 + 1 / 3) ? 0 : 1)
           }
         }, {
           name: '+',
@@ -141,12 +142,33 @@ export default {
           }
         }, {
           name: 'C',
-          color: sp < 10 || bw(11, 12) ? 'green' : 'purple',
-          hide: step < 9,
+          hide: sp < 9,
+          color: sp < 10 || bw(11, 12) ? 'green' : bw(12, 13) ? 'yellow' : 'purple',
+          transmitting: bw(10, 13),
           transform: {
             r: 1,
             rev: 2 / 3,
             offset: 40
+          },
+          text: {
+            hide: !bw(10, 13),
+            offset: 48,
+            html: table([['A', '15', '100']], bw(11, 11 + 2 / 3) ? 0 : 1)
+          }
+        }, {
+          name: '↔',
+          hide: sp < 12,
+          class: ['invert'],
+          color: 'gray',
+          transform: {
+            r: 0,
+            rev: 0,
+            offset: 0
+          },
+          text: {
+            hide: step < 12,
+            offset: 32,
+            html: table([['A']], null, ['CASES'])
           }
         }],
         edges: [{
@@ -214,6 +236,24 @@ export default {
           dir: 0,
           r: 0,
           dashed: true
+        }, {
+          nodes: ['A', '↔'],
+          show: bw(12, 14),
+          color: 'yellow',
+          dir: 0,
+          r: 0
+        }, {
+          nodes: ['B', '↔'],
+          show: bw(12, 14),
+          color: 'yellow',
+          dir: 0,
+          r: 1.2
+        }, {
+          nodes: ['C', '↔'],
+          show: step === 12,
+          color: 'yellow',
+          dir: 1,
+          r: 1.2
         }]
       }
     }
@@ -238,6 +278,20 @@ export default {
     bw (min, max) {
       const { sp } = this
       return sp >= min && sp < max
+    },
+    table (rows, limit, head = ['ID', 'MIN', 'CM']) {
+      const th = `<tr>${
+          head.map(c => `<th>${c}</th>`).join('')
+        }</tr>`
+      const tr = rows.filter((r, i) => limit == null || i < limit).map(cols => {
+        return `<tr>${
+          cols.map(c => `<td>${c}</td>`).join('')
+        }</tr>`
+      }).join('')
+      return `<table>
+                ${th}
+                ${tr}
+              </table>`
     }
   }
 }

@@ -52,6 +52,9 @@ $transition: 0.4s;
   &.yellow {
     #{$property}: $color-yellow;
   }
+  &.gray {
+    #{$property}: $color-black;
+  }
 }
 @mixin tint-light($property) {
   &.pink {
@@ -68,6 +71,9 @@ $transition: 0.4s;
   }
   &.yellow {
     #{$property}: $color-light-yellow;
+  }
+  &.gray {
+    #{$property}: $color-gray;
   }
 }
 
