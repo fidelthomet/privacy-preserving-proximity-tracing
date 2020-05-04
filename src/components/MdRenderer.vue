@@ -64,31 +64,36 @@ export default {
       font-feature-settings: "subs";
     }
     font-style: inherit;
-    &.highlight {
+    &.highlight, &.actor {
       white-space: nowrap;
       font-style: italic;
       display: inline-block;
-      padding: 0 0.5rem 0 0.25rem;
+      padding: 0 0.5rem 0 0.5rem;
       border-radius: 0.7em;
       line-height: 1.4;
       background: transparentize($color-pink, 0.8);
       color: darken($color-pink, 10);
-      &.purple {
-        background: transparentize($color-purple, 0.8);
-        color: darken($color-purple, 10);
+      @include tint(color);
+      @include tint-light(background);
+    }
+    &.actor {
+      padding: 0 0.5rem 0 0.25rem;
+      transition: color $transition, background $transition;
+      &.a {
+        color: var(--actor-a);
+        background: var(--actor-a-light);
       }
-      &.yellow {
-        background: transparentize($color-yellow, 0.6);
-        color: darken($color-yellow, 20);
+      &.b {
+        color: var(--actor-b);
+        background: var(--actor-b-light);
       }
-      &.red {
-        background: transparentize($color-red, 0.8);
-        color: darken($color-red, 10);
+      &.c {
+        color: var(--actor-c);
+        background: var(--actor-c-light);
       }
       &::before {
         font-style: normal;
         content: '● ';
-        // color: $color-pink;
       }
     }
   }

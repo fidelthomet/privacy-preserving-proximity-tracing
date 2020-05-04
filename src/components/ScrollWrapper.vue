@@ -2,7 +2,7 @@
   <div class="scroll-wrapper">
     <figure v-resize:debounce.initial="onResize"
       :class="section" :style="{'max-width': `${maxWidth}px`}">
-      <slot v-bind="{ step, progress, width, height }" >
+      <slot v-bind="{ step, progress, width, height }">
         <div class="fallback">
           {{ section }} <br>
           {{ step }} <br>
@@ -11,7 +11,7 @@
         </div>
       </slot>
     </figure>
-    <section class="text">
+    <section class="text" :style="style">
       <IntersectionObserver v-for="(t, i) in text" :key="`o-${i}`" :step="i">
         <MdRenderer :class="{active: step === i}" :text="t" :portal="section != null ? `${section}-${i}` : null"/>
       </IntersectionObserver>
@@ -55,7 +55,8 @@ export default {
       step: 0,
       progress: 0,
       width: 800,
-      height: 600
+      height: 600,
+      style: {}
     }
   },
   mounted () {
@@ -67,12 +68,18 @@ export default {
     // }).onStepEnter(onEnter)
     //   .onStepProgress(onProgress)
     //   .onStepExit(onExit)
+    this.$on('style', style => {
+      this.style = style
+    })
     this.$on('step', ({ step, progress }) => {
       this.step = step
       this.progress = progress
     })
   },
   methods: {
+    setStyle (e) {
+      console.log(e)
+    },
     onEnter (step) {
       // console.log(`${this.section}– enter`, step)
       this.step = step.index

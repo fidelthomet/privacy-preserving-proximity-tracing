@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import colors from '@/assets/style/global.scss'
 import FigureTracing from '@/components/FigureTracing.vue'
 export default {
   name: 'vis-tracing',
@@ -101,7 +102,21 @@ export default {
       }
     }
   },
-  watch: {},
+  watch: {
+    'config.actors': {
+      handler (actors) {
+        const style = ['A', 'B', 'C'].map(name => {
+          const color = actors.find(a => a.name === name).color
+          return [
+            [`--actor-${name.toLowerCase()}`, colors[color]],
+            [`--actor-${name.toLowerCase()}-light`, colors[`light-${color}`]]
+          ]
+        }).flat()
+        this.$parent.$emit('style', Object.fromEntries(style))
+      },
+      immediate: true
+    }
+  },
   mounted () {},
   methods: {}
 }
