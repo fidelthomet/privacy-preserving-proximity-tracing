@@ -7,7 +7,6 @@
 <script>
 import colors from '@/assets/style/global.scss'
 import FigureTracing from '@/components/FigureTracing.vue'
-/* eslint-disable camelcase */
 export default {
   name: 'vis-tracing',
   components: {
@@ -37,12 +36,15 @@ export default {
   computed: {
     sp () {
       const { step, progress } = this
-      return step + progress
+      let sp = step + progress
+      if (sp > 8.5) sp += 0.5
+      if (sp > 10.5) sp += 0.5
+      return sp
     },
     config () {
-      const { step, progress, sp } = this
-      const sp_1_3 = sp + 1 / 3
-      const sp_2_3 = sp + 2 / 3
+      const { sp, bw } = this
+      const step = Math.floor(sp)
+      const progress = sp % 1
       return {
         orbit: {
           hide: step >= 1,
@@ -50,12 +52,12 @@ export default {
         },
         actors: [{
           name: 'A',
-          color: step < 2 || sp_1_3 >= 9 ? 'purple' : 'pink',
+          color: bw(0, 2) || bw(9, 10) || bw(11, 12) ? 'purple' : 'pink',
           transmitting: false,
-          isolation: step >= 2 && sp_1_3 <= 9,
+          isolation: step >= 2 && step <= 8,
           transform: {
             r: 1,
-            rev: step === 1 ? progress : (sp_1_3 >= 9 && sp_1_3 < 10) ? sp_1_3 : 0,
+            rev: step === 1 || step === 9 || step === 11 ? progress : 0,
             offset: 0
           },
           text: {
@@ -73,12 +75,13 @@ export default {
           }
         }, {
           name: 'B',
-          color: step < 4 || (sp_1_3 >= 9 && sp <= 9) ? 'green' : step <= 5 || step === 8 || step >= 9 ? 'purple' : 'yellow',
+          color: bw(0, 4) || bw(9, 10) || bw(11, 12) ? 'green'
+            : bw(4, 5) || bw(8, 10) ? 'purple' : 'yellow',
           transmitting: false,
           isolation: step >= 6 && step < 8,
           transform: {
             r: 1,
-            rev: sp_1_3 < 9 ? 1 / 2 : (sp + 1 / 6) < 9 ? 1 / 2 - ((progress - 4 / 6)) : 1 / 3,
+            rev: sp < 9.166 ? 1 / 2 : sp < 9.333 ? 1 / 2 - ((progress - 1 / 6)) : 1 / 3,
             offset: 40
           },
           text: {
@@ -98,7 +101,7 @@ export default {
           }
         }, {
           key: 'b0',
-          hide: sp < 5 || sp >= 8.66,
+          hide: sp < 5 || sp >= 9,
           color: step < 7 || step >= 8 ? 'purple' : 'green',
           class: ['invert'],
           transform: {
@@ -108,7 +111,7 @@ export default {
           }
         }, {
           key: 'b1',
-          hide: sp < 5.2 || sp >= 8.66,
+          hide: sp < 5.2 || sp >= 9,
           color: step < 7 || sp >= 8 ? 'purple' : 'green',
           class: ['invert'],
           transform: {
@@ -118,7 +121,7 @@ export default {
           }
         }, {
           key: 'b2',
-          hide: sp < 5.4 || sp >= 8.66,
+          hide: sp < 5.4 || sp >= 9,
           color: step < 7 ? 'purple' : 'green',
           class: ['invert'],
           transform: {
@@ -128,7 +131,7 @@ export default {
           }
         }, {
           key: 'b3',
-          hide: sp < 5.6 || sp >= 8.66,
+          hide: sp < 5.6 || sp >= 9,
           color: step < 7 ? 'purple' : 'green',
           class: ['invert'],
           transform: {
@@ -138,8 +141,8 @@ export default {
           }
         }, {
           name: 'C',
-          color: sp_2_3 < 10 ? 'green' : 'purple',
-          hide: sp_1_3 < 9,
+          color: sp < 10 || bw(11, 12) ? 'green' : 'purple',
+          hide: step < 9,
           transform: {
             r: 1,
             rev: 2 / 3,
@@ -148,15 +151,15 @@ export default {
         }],
         edges: [{
           nodes: ['A', 'A-Base'],
-          hide: step !== 1 && (sp_1_3 < 9 || sp_1_3 >= 10),
+          show: step === 1 || step === 9 || step === 11,
           color: 'purple',
-          large: (step === 1 ? progress : sp_1_3 % 1) > 0.5,
+          large: progress > 0.5,
           dir: 0
         }, {
           nodes: ['A', 'A-Base'],
-          hide: step !== 1 && (sp_1_3 < 9 || sp_1_3 >= 10),
+          show: step === 1 || step === 9 || step === 11,
           color: 'green',
-          large: (step === 1 ? progress : sp_1_3 % 1) < 0.5,
+          large: progress < 0.5,
           dir: 1
         }, {
           nodes: ['A', '+'],
@@ -171,32 +174,45 @@ export default {
         }, {
           nodes: ['A', 'B'],
           color: step < 6 ? 'purple' : 'yellow',
-          hide: step < 4 || step > 7,
+          show: bw(4, 9) || bw(10, 11),
           dir: 0,
-          dashed: step < 6
+          r: step === 10 ? 2 : 1,
+          dashed: step < 6,
+          dotted: step === 8
+        }, {
+          nodes: ['A', 'C'],
+          color: 'purple',
+          show: bw(10, 11),
+          dir: 1,
+          r: 2,
+          dashed: true
         }, {
           nodes: ['B', 'b0'],
           color: 'purple',
-          hide: (sp < 5 || step >= 7) && (sp <= 8 || sp > 8.66),
+          hide: (sp < 5 || step >= 7) && step !== 8,
           dir: 1,
+          r: 0,
           dashed: true
         }, {
           nodes: ['B', 'b1'],
           color: 'purple',
-          hide: (sp < 5.2 || step >= 7) && (sp <= 8 || sp > 8.66),
+          hide: (sp < 5.2 || step >= 7) && step !== 8,
           dir: 0,
+          r: 0,
           dashed: true
         }, {
           nodes: ['B', 'b2'],
           color: 'purple',
           hide: sp < 5.4 || step >= 7,
           dir: 1,
+          r: 0,
           dashed: true
         }, {
           nodes: ['B', 'b3'],
           color: 'purple',
           hide: sp < 5.6 || step >= 7,
           dir: 0,
+          r: 0,
           dashed: true
         }]
       }
@@ -218,7 +234,12 @@ export default {
     }
   },
   mounted () {},
-  methods: {}
+  methods: {
+    bw (min, max) {
+      const { sp } = this
+      return sp >= min && sp < max
+    }
+  }
 }
 </script>
 

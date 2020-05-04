@@ -10,7 +10,7 @@
         </transition>
         <g class="paths">
           <transition-group name="fade" tag="g">
-            <path v-for="edge in edges" :key="edge.key" v-bind="edge" class="edge" :class="[edge.color, {dashed: edge.dashed}]"/>
+            <path v-for="edge in edges" :key="edge.key" v-bind="edge" class="edge" :class="[edge.color, {dashed: edge.dashed, dotted: edge.dotted}]"/>
           </transition-group>
         </g>
         <transition-group name="fade" tag="g" class="actors">
@@ -80,7 +80,7 @@ export default {
     },
     actors () {
       const { config, toXY } = this
-      return config.actors.map((a, id) => ({ ...a, id })).filter(a => !a.hide).map(a => {
+      return config.actors.map((a, id) => ({ ...a, id })).filter(a => a.show || (a.show !== false && !a.hide)).map(a => {
         const pos = toXY(a.transform)
         return {
           ...a,
@@ -91,10 +91,10 @@ export default {
     },
     edges () {
       const { config, toXY, orbit } = this
-      return config.edges.map((e, id) => ({ ...e, id })).filter(e => !e.hide).map((e) => {
+      return config.edges.map((e, id) => ({ ...e, id })).filter(e => e.show || (e.show !== false && !e.hide)).map((e) => {
         const nodes = e.nodes.map(n => config.actors.find(a => a.name === n || a.key === n).transform)
         const p = nodes.map(n => toXY(n))
-        const r = nodes[0].r * orbit + nodes[0].offset
+        const r = orbit * (e.r != null ? e.r : 1)
         return {
           ...e,
           d: `M${p[0].x},${p[0].y} A ${r} ${r} 0 ${e.large ? 1 : 0} ${e.dir ? 1 : 0} ${p[1].x},${p[1].y}`,
@@ -168,6 +168,11 @@ export default {
         @include tint-light(stroke);
         &.dashed {
           stroke-dasharray: 8 4;
+        }
+        &.dotted {
+          stroke-dasharray: 0 5;
+          stroke-width: 2;
+          stroke-linecap: round;
         }
       }
     }
