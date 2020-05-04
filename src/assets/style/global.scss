@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $spacing: 2rem;
 
 $font-size: 100%;
@@ -6,13 +8,19 @@ $color-pink: #E229CF;
 $color-green: #0ba391;
 $color-purple: #7334d6;
 $color-red: #FA084E;
-$color-orange: #f68c0d;
 $color-yellow: #f6bc0d;
 $color-black: #2b1022;
 $color-gray: #dddae8;
 $color-pale-gray: #eeeeee;
 $color-white: #ffffff;
 $color-accent: $color-purple;
+
+
+$color-light-pink: color.scale($color-pink, $lightness: 70%, $saturation: -40%);
+$color-light-green: color.scale($color-green, $lightness: 70%, $saturation: -40%);
+$color-light-purple: color.scale($color-purple, $lightness: 70%, $saturation: -40%);
+$color-light-red: lighten($color-red, 40);
+$color-light-yellow: color.scale($color-yellow, $lightness: 60%, $saturation: -10%);
 
 $narrow: 600px !default;
 $medium: 900px !default;
@@ -41,31 +49,25 @@ $transition: 0.4s;
   &.red {
     #{$property}: $color-red;
   }
-  &.orange {
-    #{$property}: $color-orange;
-  }
   &.yellow {
     #{$property}: $color-yellow;
   }
 }
 @mixin tint-light($property) {
   &.pink {
-    #{$property}: lighten($color-pink, 40);
+    #{$property}: $color-light-pink;
   }
   &.green {
-    #{$property}: lighten($color-green, 40);
+    #{$property}: $color-light-green;
   }
   &.purple {
-    #{$property}: lighten($color-purple, 40);
+    #{$property}: $color-light-purple;
   }
   &.red {
-    #{$property}: lighten($color-red, 40);
-  }
-  &.orange {
-    #{$property}: lighten($color-orange, 40);
+    #{$property}: $color-light-red;
   }
   &.yellow {
-    #{$property}: lighten($color-yellow, 40);
+    #{$property}: $color-light-yellow;
   }
 }
 
@@ -74,10 +76,14 @@ $transition: 0.4s;
   green: $color-green;
   purple: $color-purple;
   red: $color-red;
-  orange: $color-orange;
   yellow: $color-yellow;
   black: $color-black;
   gray: $color-gray;
   paleGray: $color-pale-gray;
   white: $color-white;
+  light-pink: $color-light-pink;
+  light-green: $color-light-green;
+  light-purple: $color-light-purple;
+  light-red: $color-light-red;
+  light-yellow: $color-light-yellow;
 }
