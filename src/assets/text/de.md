@@ -43,37 +43,49 @@ Die WissenschafterInnen sind optimistisch, die Basis­reproduktions­zahl R0  so
 
 +++ vis-tracing 1
 
-All dies zerrte plötzlich auf das unangenehmste an den ohnehin schon reizbaren Nerven des jungen Mannes. Der unerträgliche Dunst aus den gerade in diesem Stadtteile besonders zahlreichen Kneipen und die Betrunkenen, auf die man trotz Werktag und Arbeitszeit fortwährend stieß, vollendeten das widerwärtige, traurige Kolorit dieses Bildes.
+<span class="actor a pink">Alice</span> is friends with <span class="actor b green">Bob</span>
 
 +++ vis-tracing 2
 
-Ein Ausdruck des tiefsten Ekels spielte einen Augenblick auf den feinen Zügen des jungen Mannes. 
+So <span class="actor a pink">Alice</span> visits <span class="actor b green">Bob</span>
 
 +++ vis-tracing 3
 
-(Um dies beiläufig zu erwähnen: er hatte ein ungewöhnlich hübsches Äußeres, schöne, dunkle Augen, dunkelblondes Haar, war über Mittelgröße, schlank und wohlgebaut.)
+Then <span class="actor a pink">Alice</span> develops symptoms, self isolates and gets tested.
 
 +++ vis-tracing 4
 
-Aber bald versank er in tiefes Nachdenken oder, richtiger gesagt, in eine Art von Geistesabwesenheit und schritt nun einher, ohne seine Umgebung wahrzunehmen; ja, er wollte sie gar nicht wahrnehmen. 
+<span class="actor a pink">Alice</span> is tested positively, but with covid she was already infectios days before developing symptoms.
 
 +++ vis-tracing 5
 
-Nur ab und zu murmelte er etwas vor sich hin, zufolge jener Neigung, mit sich selbst zu reden, die er sich soeben selbst eingestanden hatte. 
+So her Friend <span class="actor b purple">Bob</span> might has contracted the virus.
 
 +++ vis-tracing 6
 
-Gleichzeitig kam ihm auch zum Bewußtsein, daß seine Gedanken sich zeitweilig verwirrten und daß er sehr schwach war: dies war schon der zweite Tag, daß er so gut wie nichts gegessen hatte.
+And if he has, it is likely that <span class="actor b purple">Bob</span> is already unknowingly spreading the disease further.
 
++++ vis-tracing 7
+
+But if <span class="actor a pink">Alices</span> contacts can be traced back, <span class="actor b purple">Bob</span> and could be warned and asked to get tested and self-isolate.
+
++++ vis-tracing 8
+
+This helps to break the chain of infection and to contain the further spread of the coronavirus.
+
++++ vis-tracing 9
+
+Tracing can be done manually through over the phone interviews. While definetly helpful, there are downsides as it takes time, which limits the chance to contain the virus… 
+
++++ vis-tracing 10
+
+…and some chains can be nearly impossible to trace. E.g. if <span class="actor a pink">Alice</span> infected <span class="actor c green">Carol</span> in public transport after visiting <span class="actor b purple">Bob</span>
+
++++ vis-tracing 11
+
+…and some chains can be nearly impossible to trace. E.g. if <span class="actor a pink">Alice</span> infected <span class="actor c green">Carol</span> in public transport after visiting <span class="actor b purple">Bob</span>
 
 +++ text-app
-## PEPP-PT
-
-Die transnationale Projektgruppe PEPP-PT besteht aus 130 ExpertInnen aus acht Ländern und arbeitet an Standards und Rahmenbedingungen für die europäische Umsetzung des Tracing-Verfahrens. Auf Grundlage dieser Methode, die maßgeblich vom eng verwandten Wissenschafts-Netzwerk DP^3T mitbegründet wurde, können europäische Staaten eigene Tracing-Apps implementieren, die über Landesgrenzen hinweg kompatibel und skalierbar sind.
-
-PEPP-PT ist ein dezentrales System. Jede*r NutzerIn bekommt eine zufällige und sich regelmäßige ändernde ID zugewiesen, die im Falle eines Kontakts (z.B. näher als 2 Meter) mit dem Gegenüber ausgetauscht wird. Die anonymisierten ID’s werden jeweils nur auf den betreffenden Smartphones und nicht an einem zentralen Ort gespeichert.
-
-Die Technik basiert im Wesentlichen auf Bluetooth Low Energy, das Smartphones innerhalb eines kleinen Radius miteinander verbinden kann. Dabei wird nicht nur der genaue Abstand der Begegnung, sondern auch die Dauer, die Blickrichtung und mögliche Hindernisse wie Wände berücksichtigt. Google und Apple arbeiten bereits an gemeinsamen Technologien und Software-Updates, um die Technik bestmöglich zu optimieren.
 
 +++ vis-app 1
 
