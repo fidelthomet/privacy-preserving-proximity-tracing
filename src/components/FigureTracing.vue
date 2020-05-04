@@ -6,11 +6,11 @@
     <svg :width="size" :height="size">
       <g :transform="`translate(${size / 2} ${size / 2})`">
         <transition name="fade">
-          <circle v-if="config.orbit" class="orbit" :r="orbit"/>
+          <circle v-if="!config.orbit.hide" class="orbit" :class="[config.orbit.color]" :r="orbit"/>
         </transition>
         <g class="paths">
           <transition-group name="fade" tag="g">
-            <path v-for="edge in edges" :key="edge.key" v-bind="edge" class="edge" :class="[edge.color]"/>
+            <path v-for="edge in edges" :key="edge.key" v-bind="edge" class="edge" :class="[edge.color, {dashed: edge.dashed}]"/>
           </transition-group>
         </g>
         <transition-group name="fade" tag="g" class="actors">
@@ -80,25 +80,25 @@ export default {
     },
     actors () {
       const { config, toXY } = this
-      return config.actors.filter(a => !a.hide).map(a => {
+      return config.actors.map((a, id) => ({ ...a, id })).filter(a => !a.hide).map(a => {
         const pos = toXY(a.transform)
         return {
           ...a,
           transform: `translate(${pos.x} ${pos.y})`,
-          key: a.key || a.name
+          key: `actor-${a.id}`
         }
       })
     },
     edges () {
       const { config, toXY, orbit } = this
-      return config.edges.filter(e => !e.hide).map((e, i) => {
-        const nodes = e.nodes.map(n => config.actors.find(a => a.name === n).transform)
+      return config.edges.map((e, id) => ({ ...e, id })).filter(e => !e.hide).map((e) => {
+        const nodes = e.nodes.map(n => config.actors.find(a => a.name === n || a.key === n).transform)
         const p = nodes.map(n => toXY(n))
         const r = nodes[0].r * orbit + nodes[0].offset
         return {
           ...e,
-          d: `M${p[0].x},${p[0].y} A ${r} ${r} 0 0 ${e.dir} ${p[1].x},${p[1].y}`,
-          key: `edge-${i}`
+          d: `M${p[0].x},${p[0].y} A ${r} ${r} 0 ${e.large ? 1 : 0} ${e.dir ? 1 : 0} ${p[1].x},${p[1].y}`,
+          key: `edge-${e.id}`
         }
       })
     },
@@ -157,7 +157,7 @@ export default {
     circle {
       &.orbit {
         fill: none;
-        stroke: transparentize($color-purple, 0.8);
+        @include tint-light(stroke);
         stroke-width: 2;
       }
     }
@@ -166,13 +166,16 @@ export default {
         fill: none;
         stroke-width: 2;
         @include tint-light(stroke);
+        &.dashed {
+          stroke-dasharray: 8 4;
+        }
       }
     }
     .actors {
       .actor {
         circle {
           fill: $color-green;
-          transition: fill $transition, stroke $transition;
+          transition: fill $transition, stroke $transition, opacity $transition;
 
           &.gradient {
             // fill: url(#gradient-green);
