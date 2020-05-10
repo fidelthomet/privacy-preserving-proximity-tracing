@@ -1,6 +1,6 @@
 +++ text-intro
 
-# <span>Proximity Tracing</span>
+# <span>Privacy Preserving Proximity Tracing</span>
 
 *Wie können wir die Ausbreitung des Coronavirus verlangsamen, ohne unsere Grundgesetze und die Wirtschaft langfristig zu schädigen? Verschiedene Teams aus WissenschaftlerInnen scheinen darauf eine Antwort gefunden zu haben. So funktioniert die Tracing-App PEPP-PT.*
 
