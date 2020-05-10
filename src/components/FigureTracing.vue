@@ -15,13 +15,19 @@
         </g>
         <transition-group name="fade" tag="g" class="actors">
           <g v-for="actor in actors" :key="actor.key" v-bind="actor" class="actor">
-            <template v-if="actor.transmitting">
-              <circle class="gradient" :class="[actor.color, {isolated: actor.isolation}]" :r="layout.actor.r"/>
-              <circle class="gradient" :class="[actor.color, {isolated: actor.isolation}]" :r="layout.actor.r"/>
+            <template v-if="actor.transmitting && !actor.directional">
+              <circle class="gradient" :class="[actor.color, {isolated: actor.isolation}]" :r="layout.actor.r * actor.scale"/>
+              <circle class="gradient" :class="[actor.color, {isolated: actor.isolation}]" :r="layout.actor.r * actor.scale"/>
             </template>
-            <circle :class="[actor.color, ...actor.class]" :r="layout.actor.r"/>
+            <template v-if="actor.transmitting && actor.directional">
+              <g :transform="`rotate(${45 + actor.rotate})`">
+                <path class="gradient" :class="[actor.color, {isolated: actor.isolation}]" :d="`M${-layout.actor.r * actor.scale},${0} A ${layout.actor.r * actor.scale} ${layout.actor.r * actor.scale} 0 0 1 ${0},${-layout.actor.r * actor.scale} L0,0`"/>
+                <path class="gradient" :class="[actor.color, {isolated: actor.isolation}]" :d="`M${-layout.actor.r * actor.scale},${0} A ${layout.actor.r * actor.scale} ${layout.actor.r * actor.scale} 0 0 1 ${0},${-layout.actor.r * actor.scale} L0,0`"/>
+              </g>
+            </template>
+            <circle :class="[actor.color, ...actor.class]" :r="layout.actor.r * actor.scale"/>
             <transition name="fade">
-              <circle v-if="actor.isolation" class="isolation" :class="[actor.color]" :r="layout.actor.r * 2"/>
+              <circle v-if="actor.isolation" class="isolation" :class="[actor.color]" :r="layout.actor.r * actor.scale * 2"/>
             </transition>
             <g>
               <text y="5" :class="[actor.color, ...actor.class]">{{actor.name}}</text>
@@ -80,19 +86,21 @@ export default {
     },
     actors () {
       const { config, toXY } = this
-      return config.actors.map((a, id) => ({ ...a, id })).filter(a => a.show || (a.show !== false && !a.hide)).map(a => {
+      return config.actors.map((a, id) => ({ id, ...a })).filter(a => a.show || (a.show !== false && !a.hide)).map(a => {
         const pos = toXY(a.transform)
         return {
           ...a,
           transform: `translate(${pos.x} ${pos.y})`,
+          rotate: 360 * a.transform.rev,
+          scale: a.transform.scale != null ? a.transform.scale : 1,
           key: `actor-${a.id}`
         }
       })
     },
     edges () {
       const { config, toXY, orbit } = this
-      return config.edges.map((e, id) => ({ ...e, id })).filter(e => e.show || (e.show !== false && !e.hide)).map((e) => {
-        const nodes = e.nodes.map(n => config.actors.find(a => a.name === n || a.key === n).transform)
+      return config.edges.map((e, id) => ({ id, ...e })).filter(e => e.show || (e.show !== false && !e.hide)).map((e) => {
+        const nodes = e.nodes.map(n => config.actors.find(a => a.name === n || a.key === n || a.id === n).transform)
         const p = nodes.map(n => toXY(n))
         const r = orbit * (e.r != null ? e.r : 1)
         return {
@@ -104,13 +112,13 @@ export default {
     },
     texts () {
       const { config, toXY } = this
-      return config.actors.filter(a => a.text != null && !a.text.hide).map(a => {
+      return config.actors.map((a, id) => ({ id, ...a })).filter(a => a.text != null && (a.text.show || (a.text.show !== false && !a.text.hide))).map(a => {
         const pos = toXY(a.transform)
         return {
           class: [a.color],
           transform: `translate(${pos.x}px, ${pos.y + a.text.offset}px) translateY(${50 * (a.text.offset / Math.abs(a.text.offset))}%)`,
           html: a.text.html,
-          key: `text-${a.key || a.name}`
+          key: `text-${a.id}`
         }
       })
     }
@@ -166,7 +174,7 @@ export default {
     }
     .actors {
       .actor {
-        circle {
+        circle, path {
           fill: $color-green;
           transition: fill $transition, stroke $transition, opacity $transition;
 

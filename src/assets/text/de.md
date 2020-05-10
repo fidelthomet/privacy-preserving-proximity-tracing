@@ -87,43 +87,51 @@ Tracing can be done manually through over the phone interviews. While definetly 
 
 +++ vis-tracing 12
 
-When <span class="actor a">Alice</span> is tested positive, that information is transmitted to a server. The phones of <span class="actor b">Bob</span> and <span class="actor c">Carol</span> can reconstruct, that they have been in close contact with a confirmed case and show a warning.
+When <span class="actor a">Alice</span> is tested positive, that information is transmitted to a <span class="actor gray">server.</span> The phones of <span class="actor b">Bob</span> and <span class="actor c">Carol</span> can reconstruct, that they have been in close contact with a confirmed case and show a warning.
 
 +++ vis-tracing 13
 
 However, there are also downsides to this approach. If <span class="actor c">Carol</span> did not install the app, the contact cannot be traced. Furthermore, if designed badly, an app like that could pose a tremendous invasion of privacy.
 
-+++ text-app
++++ text-privacy
 
 ## Privacy Preservation
 
-↓ disregard everything below ↓
+It's voluntary! No repurcussions if you decide to not install the app. The sensitive parts are where data is exchanged between devices. i.e. between two users of the app or between a user and the server. Let's have a look at them.
 
-+++ vis-app 1
++++ vis-privacy 1
 
-Er hatte nicht weit zu gehen; er wußte sogar, wieviel Schritte es von seiner Haustür waren: genau siebenhundertunddreißig. Er hatte sie einmal gezählt, als er sich sein Vorhaben schon lebhaft ausmalte.
+Broadcasting your ID makes your device visible not only to other users with the tracing app but to all bluetooth devices. To prevent <span class="actor e">Eve</span> from setting up a network of bluetooth antennas to track <span class="actor a"/>Alice's</span> movements, the boradcasted IDs change periodically.
 
-+++ vis-app 2
++++ vis-privacy 2
 
-Damals freilich glaubte er selbst noch nicht an diese seine Phantasiegemälde und kitzelte nur sich selbst mit ihrer grauenhaften, aber verführerischen Verwegenheit.
+Who has contact with whom, for how long, and how close is quite sensitive data. In an attempt to Identify who <span class="actor a"/>Alice</span> was in contact with or to create a wider social graph of all tracing-app users <span class="actor m">Mallet</span> might try to obtain this data by attacking the <span class="actor gray">server.</span> To prevent this attack, this data stays on <span class="actor a"/>Alice's</span> and <span class="actor b"/>Bob's</span> phones.
 
-+++ vis-app 3
++++ vis-privacy 3
 
-Jetzt, einen Monat später, hatte er bereits angefangen, die Sache anders zu betrachten, und trotz aller höhnischen Monologe über seine eigene Schwäche und Unschlüssigkeit hatte er sich unwillkürlich daran gewöhnt, das »grauenhafte« Phantasiegemälde bereits als ein beabsichtigtes Unternehmen zu betrachten, wiewohl er an seinen Entschluß noch immer selbst nicht recht glaubte.
+Only after she's been tested positively <span class="actor a">Alice</span> uploads data to the <span class="actor gray">server.</span> These data contain her own IDs or keys to generate her IDs cryptographically, but no information on her contacts. That is enough for <span class="actor b">Bob</span> to check if he's been exposed to a confirmed case, and prevents <span class="actor m">Mallet</span> from acessing data that's not public anyways.
 
-+++ vis-app 4
++++ text-attacks
 
-Sein jetziger Ausgang hatte sogar den Zweck, eine Probe für sein Vorhaben zu unternehmen, und mit jedem Schritte wuchs seine Aufregung mehr und mehr.
+While the system is designed in a way to preserve privacy, some risks remain. They are mostly inherent to all BLE-based tracing systems or even to contact tracing, including manual, in general. There are two main attack vectors: Identifying a confirmed case and sending false alerts.
 
-+++ vis-app 5
++++ vis-attacks 1
 
-Das Herz stand ihm fast still, und ein nervöses Zittern überkam ihn, als er sich einem kolossalen Gebäude näherte, das mit der einen Seite nach dem Kanal, mit der andern nach der . . . straße zu lag. 
+Since <span class="actor e"/>Eve</span> failed to track people she now tries to indentify people who have been tested positively for having the virus. In the simplest case, she only was in contact with <span class="actor a">Alice</span> or is certain, that her other contacts have not been tested positively.
 
-+++ vis-app 6
++++ vis-attacks 2
 
-Dieses Haus hatte lauter kleine Wohnungen, in denen allerlei einfache Leute wohnten: Schneider, Schlosser, Köchinnen, Deutsche verschiedenen Berufes, alleinstehende Mädchen, kleine Beamte usw. Durch die beiden Haustore und auf den beiden Höfen des Hauses war ein fortwährendes Kommen und Gehen. Hier gab es drei oder vier Hausknechte zur Aufsicht.
+When <span class="actor a">Alice</span> is tested positively and <span class="actor e"/>Eve</span> receives a warning, she can simply figure out that <span class="actor a">Alice</span> must have the virus. Similarly, by using a modified version of the app, that not only notifies about having had contact to a confirmed case, but also about the time of the contact (or by switching accounts/devices after each contact), and simulatainly logging with whom she was in contact at what time <span class="actor e"/>Eve</span> could reconstruct who has been tested positively.
 
-+++ text-privacy
++++ vis-attacks 3
+
+Using a more elaborate setup of linking directional antennas with cameras, credit card terminals or other equpment that can help indentifying people <span class="actor e"/>Eve</span> is also able to identify a larger group of confirmed cases, without being physically close to them herself.
+
++++ vis-attacks 4
+
+As soon as <span class="actor a">Alice</span> uploads her IDs to the server, <span class="actor e"/>Eve</span> who already knows who is behind those IDs, can identify her.
+
++++ text-privacy-old
 
 ## Datenschutz
 

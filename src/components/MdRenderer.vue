@@ -79,6 +79,7 @@ export default {
     &.actor {
       padding: 0 0.5rem 0 0.25rem;
       transition: color $transition, background $transition;
+      text-transform: capitalize;
       &.a {
         color: var(--actor-a);
         background: var(--actor-a-light);
@@ -90,6 +91,14 @@ export default {
       &.c {
         color: var(--actor-c);
         background: var(--actor-c-light);
+      }
+      &.e {
+        color: var(--actor-e);
+        background: var(--actor-e-light);
+      }
+      &.m {
+        color: var(--actor-m);
+        background: var(--actor-m-light);
       }
       &::before {
         font-style: normal;

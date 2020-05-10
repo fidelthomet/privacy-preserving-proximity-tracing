@@ -198,7 +198,7 @@ export default {
           text: {
             hide: step < 12,
             offset: 32,
-            html: table([['A']], null, ['CASES'])
+            html: table([['A']], null, ['IDs'])
           }
         }],
         edges: [{

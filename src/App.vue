@@ -17,13 +17,19 @@
           <VisTracing v-bind="props"/>
         </template>
       </ScrollWrapper>
-      <MdRenderer el="section" :text="getText('text-app')"/>
-      <ScrollWrapper :text="getText('vis-app')">
+      <MdRenderer el="section" :text="getText('text-privacy')"/>
+      <ScrollWrapper :text="getText('vis-privacy')" :max-width="720">
         <template v-slot="props">
-          <VisApp v-bind="props"/>
+          <VisPrivacy v-bind="props"/>
         </template>
       </ScrollWrapper>
-      <MdRenderer el="section" :text="getText('text-privacy')"/>
+      <MdRenderer el="section" :text="getText('text-attacks')"/>
+      <ScrollWrapper :text="getText('vis-attacks')" :max-width="720">
+        <template v-slot="props">
+          <VisAttacks v-bind="props"/>
+        </template>
+      </ScrollWrapper>
+      <MdRenderer el="section" :text="getText('text-privacy-old')"/>
       <MdRenderer el="section" :text="getText('text-next')"/>
     </article>
   </div>
@@ -32,7 +38,8 @@
 import MdRenderer from '@/components/MdRenderer.vue'
 import ScrollWrapper from '@/components/ScrollWrapper.vue'
 import VisReproduction from '@/components/VisReproduction.vue'
-import VisApp from '@/components/VisApp.vue'
+import VisPrivacy from '@/components/VisPrivacy.vue'
+import VisAttacks from '@/components/VisAttacks.vue'
 import VisTracing from '@/components/VisTracing.vue'
 // import { PortalTarget } from 'portal-vue'
 // import LayoutScrollytelling from '@/components/LayoutScrollytelling.vue'
@@ -44,8 +51,9 @@ export default {
     MdRenderer,
     ScrollWrapper,
     VisReproduction,
-    VisApp,
-    VisTracing
+    VisPrivacy,
+    VisTracing,
+    VisAttacks
     // PortalTarget
     // LayoutScrollytelling,
     // IntersectionObserverFracture
