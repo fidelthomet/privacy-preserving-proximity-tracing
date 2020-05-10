@@ -59,6 +59,11 @@ export default {
       style: {}
     }
   },
+  created () {
+    this.$on('style', style => {
+      this.style = style
+    })
+  },
   mounted () {
     // const { scroller, section, onEnter, onProgress, onExit } = this
     // scroller.setup({
@@ -68,9 +73,6 @@ export default {
     // }).onStepEnter(onEnter)
     //   .onStepProgress(onProgress)
     //   .onStepExit(onExit)
-    this.$on('style', style => {
-      this.style = style
-    })
     this.$on('step', ({ step, progress }) => {
       this.step = step
       this.progress = progress
