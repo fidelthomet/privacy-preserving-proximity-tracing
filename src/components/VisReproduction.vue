@@ -147,7 +147,7 @@ export default {
                     if (i < 4) {
                       edge.draw(p, colors.pink)
                     } else if (i2 % Math.pow(4, i - 3) === Math.pow(4, i - 3) - 1) {
-                      edge.draw(p, colors.red)
+                      edge.draw(p, colors.pink)
                       edge.draw(p, transparentize(colors.pink, progress * 2))
                     } else {
                       edge.draw(p, colors.paleGray)

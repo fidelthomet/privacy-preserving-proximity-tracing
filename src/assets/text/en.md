@@ -1,95 +1,158 @@
 +++ text-intro
-# Privacy-Preserving Proximity Tracing
 
-***Mary Shelley – Frankenstein or The Modern Prometheus →**  
-Ich bin in Genf geboren. Meine Familie ist eine der vornehmsten dieser Stadt. Mein Vater war angesehen bei allen, die ihn kannten, wegen seiner unbestechlichen Rechtschaffenheit und der unermüdlichen Hingabe an seine Pflichten. In jüngeren Jahren schon hatte er im Dienste seiner Vaterstadt gestanden und verschiedene Umstände hatten es mit sich gebracht, daß er lange nicht zur Gründung eines eigenen Herdes gekommen war. Erst später hatte er geheiratet, als er die Mittaghöhe des Lebens schon überschritten.*
+# <span>Privacy Preserving Proximity Tracing</span>
 
-*Da die Vorgeschichte seiner Ehe für seinen ganzen Charakter bezeichnend ist, kann ich nicht umhin, ihrer Erwähnung zu tun. Einer seiner intimsten Freunde war ein Kaufmann, der infolge mißgünstiger Schicksale von der Höhe des Glückes herab in die tiefste Armut geriet. Dieser Mann, er hieß Beaufort, war stolz und unbeugsam und konnte es nicht ertragen, jetzt an der gleichen Stätte arm und vergessen zu leben, wo man ihn einst wegen seines Reichtums und seines glänzenden Auftretens besonders geehrt hatte. Er zahlte als ehrlicher Mann noch seine Schulden und zog sich dann mit seiner Tochter nach Luzern zurück, wo er unerkannt und armselig sein Leben fristete. Mein Vater war ihm in aufrichtiger Freundschaft zugetan und fühlte tiefes Erbarmen mit dem unglücklichen Manne. Auch bedauerte er sehr den falschen Stolz, der den Freund hinderte, seine Hilfe anzunehmen; hatte er doch gehofft, ihm mit seinem Rat und seinem Kredit wieder auf die Beine helfen zu können.*
+*Wie können wir die Ausbreitung des Coronavirus verlangsamen, ohne unsere Grundgesetze und die Wirtschaft langfristig zu schädigen? Verschiedene Teams aus WissenschaftlerInnen scheinen darauf eine Antwort gefunden zu haben. So funktioniert die Tracing-App PEPP-PT.*
+
+Weil die Ausbreitung des Coronavirus europa- und weltweit weiter rasant ansteigt, ergreifen viele Staaten einschneidende Maßnahmen, um Infektionszahlen zu verringern und damit eine Überlastung der Gesundheitssysteme zu vermeiden. Leider spüren immer größere Teile der Bevölkerung die signifikanten Nebenwirkungen von Lockdowns, Ausgangssperren und Kontaktverboten. Die Verordnungen bedeuten tiefe Einschnitte in unsere Grundrechte, stellen viele Unternehmen und Selbstständige vor existenzielle wirtschaftliche Herausforderungen und sind sozial ungerecht. Bleiben die gegenwärtigen Interventionen bestehen, spitzt sich dieser Interessenkonflikt weiter zu. Ein Szenario, das wir alle unbedingt vermeiden möchten.
+
+Die Alternative könnte laut verschiedenen ForscherInnen-Teams eine frei zugängliche App sein, die unsere physischen Kontakte aufzeichnet und uns im Fall einer möglichen Ansteckung direkt  benachrichtigt. Um unsere Privatsphäre brauchen wir uns aber nicht zu sorgen. Es werden weder Bewegungsprofile noch persönliche Kontaktprotokolle gespeichert. Wir erklären Schritt für Schritt die Grundlagen und die Funktionsweise von PEPP-PT.
 
 +++ text-reproduction
 
-## Reproduction 
+## R₀ 
 
-Tatsächlich hielt sich Beaufort dermaßen sorgfältig verborgen, daß es meinem Vater erst nach Verlauf von zehn Monaten gelang, ihn ausfindig zu machen. Überwältigt von der Freude, die ihm diese Entdeckung bereitet hatte, eilte er nach dem Hause, das in einer schmalen Gasse in der Nähe der Reuß lag. Aber schon bei seinem Eintritt wurde ihm klar, daß er eine Stätte der Not und des Elendes vor sich sah. Beaufort hatte aus seinem Zusammenbruch nur eine ganz unbedeutende Summe gerettet, aber sie hätte wenigstens genügt, ihn einige Monate zu erhalten. In dieser Zeit hoffte er in einem Kaufhause eine Stellung zu finden. Die erzwungene Untätigkeit gab ihm Zeit, noch mehr über das nachzudenken, was aus ihm geworden, und vertiefte seinen Gram, so daß er schließlich nach drei Monaten aufs Krankenbett sank.
+Verschiedene Teams aus europäischen WissenschaftlerInnen plädieren deshalb dafür, diese Maßnahmen schrittweise durch digitale Tracing-Apps zu ersetzen. Die Vorschläge tragen kompliziert klingende Namen wie "Pan European Privacy Protecting Proximity Tracing" (PEPP-PT) oder "Decentralized Privacy-Preserving Proximity Tracing" (DP^3T), basieren aber auf einem einfachen Prinzip: dem Tracing. Statt flächendeckender Massenisolation sollen Infektionsketten durch das Smartphone extrem präzise nachverfolgt und isoliert werden. Die notwendigen Daten liefert eine App, die alle unmittelbaren physischen Kontakte eines Users mit anderen App-Usern nachvollzieht. Sobald Kontakt zu einer infizierten Person bestand, warnt die App die BenutzerIn schnell und anonym. 
 
 +++ vis-reproduction 1
 
-Seine Tochter pflegte ihn mit der äußersten Hingabe, aber sie konnte es sich nicht verhehlen, daß ihr kleines Kapital rapid dahinschwand und daß dann keine Hoffnung auf irgend eine Unterstützung bestand. 
+If <span class="highlight pink">R<span class="sub">0</span>=2</span> on average one infected person infects two persons leading to expotential growth.
 
 +++ vis-reproduction 2
 
-Aber Karoline Beaufort besaß eine ungewöhnliche Spannkraft und ihr Mut wuchs in diesen Widerwärtigkeiten. 
+If <span class="highlight yellow">R<span class="sub">0</span>=1</span> the growth remains linear, but if <span class="highlight purple">R<span class="sub">0</span>=3</span> it would spread even more making it more difficult to contain.
 
 +++ vis-reproduction 3
 
-Sie versah die ganze Arbeit und vermochte durch Strohflechtereien wenigstens so viel zu verdienen, daß sie beide gerade noch notdürftig ihr Leben zu fristen imstande waren.
+To stop the disease from spreading R<span class="sub">e</span>, the effective reproduction number needs to be below 1. <span class="highlight red">R<span class="sub">e</span>=0.5</span> would mean that only every 2nd case would lead to another infection.
 
 +++ vis-reproduction 4
 
-Einige Monate vergingen in dieser Weise. Ihr Vater wurde immer elender, so daß sie von seiner Pflege ausschließlich in Anspruch genommen wurde. Die letzten Notpfennige waren bald ausgegeben und im zehnten Monat starb ihr Vater in ihren Armen, sie als bettelarme Waise zurücklassend. 
+A high level of immunity will lower Re significantly. But since it's a new disease there is no vaccine and natural immunity in the population is low.
 
 +++ vis-reproduction 5
 
-Dieser letzte Schlag war der härteste für sie; sie kniete gerade bitterlich weinend am Sarge Beauforts, als mein Vater eintrat. 
-
-Er kam wie ein rettender Engel zu dem armen Mädchen und vertrauensvoll legte sie ihr Geschick in seine helfenden Hände. Nach der Beerdigung seines Freundes brachte er Karoline nach Genf und gab sie dort Verwandten zur Obhut. Zwei Jahre später war sie seine Frau.
+Isolation has a simillar effect. But if no other measures are taken expotential spreading will pick up again.
 
 +++ text-tracing
 ## Tracing 
 
-Der Altersunterschied meiner beiden Eltern war zwar sehr bedeutend, aber gerade das schien die Liebe, die sie zu einander hegten, nur zu vertiefen. Mein Vater besaß ein ausgeprägtes Gerechtigkeitsgefühl, das ihn nur da wirklich lieben ließ, wo er auch seine Achtung geben konnte. Vielleicht hatte er in seinen früheren Jahren irgend eine Erfahrung in dieser Hinsicht gemacht und legte deshalb so viel Wert auf den inneren Wert. Er zeigte für meine Mutter eine Verehrung, die sich von der schwächlichen Liebe älterer Leute wohl unterschied und die aus wirklicher Hochachtung vor ihr entsprang und vielleicht auch aus dem Wunsche, sie für all das Leid zu entschädigen, das ihr ihre Jugend gebracht. Alles drehte sich um sie, um ihr Wohlergehen. Er hielt sie, wie ein Gärtner eine wertvolle exotische Blume hält und sie vor jedem rauhen Windzug behütet. Allerdings hatte ihre Gesundheit und auch ihr starker, mutiger Geist unter den schweren Erschütterungen gelitten. Während der zwei Jahre, die seiner Verehelichung vorausgingen, hatte mein Vater allmählich alle seine Ämter abgegeben, und sofort nach der Hochzeit begab sich das Paar nach Italien, wo das milde Klima und eine Reise durch das wundervolle Land die Gesundheit der jungen Frau wiederherstellen sollten.
+Verschiedene Teams aus europäischen WissenschaftlerInnen plädieren deshalb dafür, diese Maßnahmen schrittweise durch digitale Tracing-Apps zu ersetzen. Die Vorschläge tragen kompliziert klingende Namen wie "Pan European Privacy Protecting Proximity Tracing" (PEPP-PT) oder "Decentralized Privacy-Preserving Proximity Tracing" (DP^3T), basieren aber auf einem einfachen Prinzip: dem Tracing. Statt flächendeckender Massenisolation sollen Infektionsketten durch das Smartphone extrem präzise nachverfolgt und isoliert werden. Die notwendigen Daten liefert eine App, die alle unmittelbaren physischen Kontakte eines Users mit anderen App-Usern nachvollzieht. Sobald Kontakt zu einer infizierten Person bestand, warnt die App die BenutzerIn schnell und anonym.
 
-Von Italien aus ging dann die Reise nach Deutschland und Frankreich. Ich, das älteste Kind, kam in Neapel zur Welt und begleitete als kleiner Bursche schon meine Eltern auf ihren Streifzügen. Mehrere Jahre blieb ich ihr einziges Kind. Aus ihrer unerschöpflichen Liebe zueinander entsprang eine reiche Quelle von Liebe für mich. Die Liebkosungen meiner Mutter und das wohlwollende Lächeln meines Vaters sind meine ersten Erinnerungen. Ich war ihnen zugleich Spielzeug und Idol und, was das Beste ist, ihr Kind, das kleine, hilflose Wesen, das ihnen Gott geschenkt hatte, um es aufzuziehen, dessen Wohl und Wehe in ihren Händen lag. Es ist nicht verwunderlich, daß bei dem hohen Pflichtgefühl, das meine Eltern beseelte, und bei dem Geiste wahrer Zärtlichkeit, der in unserem Hause waltete, mein Leben einer Reihe von Freuden glich.
+Die WissenschafterInnen sind optimistisch, die Basis­reproduktions­zahl R0  so auf einen Wert < 1 verringern zu können. 
 
 +++ vis-tracing 1
 
-Lange Zeit war ich ihre einzige Sorge. Meine Mutter hatte sich noch ein Töchterchen ersehnt, aber ich blieb das einzige Reis am Baume. 
+<span class="actor a">Alice</span> is friends with <span class="actor b">Bob</span>
 
 +++ vis-tracing 2
 
-Als ich etwa fünf Jahre alt war, machten wir eine Reise nach der italienischen Grenze und verbrachten auch eine Woche an den Gestaden des Comersees. 
+So <span class="actor a">Alice</span> visits <span class="actor b">Bob</span>
 
 +++ vis-tracing 3
 
-Ihr wohltätiger Sinn führte sie oftmals in die Hütten der Armen. Meine Mutter empfand das nicht nur als eine Pflicht, es war ihr ein Bedürfnis, eine Leidenschaft, den Armen in ihrem Elend ein Engel zu sein, denn sie hatte selbst viel gelitten und wußte, wie weh das tut.
+Then <span class="actor a">Alice</span> develops symptoms, self isolates and gets tested.
 
 +++ vis-tracing 4
 
-Bei einem ihrer Spaziergänge erregte eine kleine Hütte ihre Aufmerksamkeit, die wie verschämt sich in einem Seitentale barg und die, von der Schar armselig gekleideter Kinder zu schließen, die vor der Türe saßen, ein gut Teil Not und Elend zu bergen schien.
+<span class="actor a">Alice</span> is tested positively, but with covid she was already infectios days before developing symptoms.
 
 +++ vis-tracing 5
 
-Als mein Vater eines Tages nach Mailand verreist war, besuchte meine Mutter diese Hütte und ich durfte sie begleiten. 
+So her Friend <span class="actor b">Bob</span> might has contracted the virus.
 
 +++ vis-tracing 6
 
-Wir trafen ein bäuerisches Ehepaar, von Sorge und harter Arbeit niedergebeugt, das gerade ein karges Mahl an die fünf hungernden Kinder verteilte. Unter diesen war eines, das meiner Mutter besonders auffiel, denn es schien von ganz anderem Schlage.
+And if he has, it is likely that <span class="actor b">Bob</span> is already unknowingly spreading the disease further.
 
-+++ text-app
-## App
++++ vis-tracing 7
 
-Während die übrigen Kinder schwarzäugige, derbe Kerle waren, sah die schlanke Kleine sehr hübsch aus. Sie hatte glänzendes Goldhaar und trotz der Armut ihrer Kleidung breitete sich ein unverkennbarer Adel über sie aus. Ihre Stirn war breit und hoch, ihre Augen leuchteten wie Sterne und ihr ganzes Antlitz war so lieblich, daß man sie nicht ansehen konnte, ohne sofort das Gefühl zu haben, daß sie etwas Besonderes, ein gottbegnadetes Geschöpf sei. Die Bäuerin hatte gleich bemerkt, daß meine Mutter mit Interesse und Bewunderung ihre Augen auf der Kleinen ruhen ließ, und erzählte sofort deren Lebensgeschichte. Sie war nicht ihr Kind, sondern das Töchterchen eines Edelmannes aus Mailand. Ihre Mutter, eine Deutsche, war gestorben, als sie dem Kinde das Leben gegeben hatte. Man hatte ihnen das kleine Wesen zur Pflege übergeben, sie waren damals noch nicht so arm gewesen. Sie waren noch nicht lange verheiratet und ihr erstes Kind war damals gerade zur Welt gekommen. Der Vater ihres Pflegekindes war einer jener Italiener gewesen, die in der Erinnerung an die glorreiche Geschichte ihrer Heimat aufgewachsen waren; einer jener Männer, die sich selbst opferten, um ihrem Vaterlande die Freiheit zu verschaffen. Auch er fiel seiner Leidenschaft zum Opfer. Ob er starb oder ob er noch in einem der Gefängnisse Österreichs schmachtete, wußte man nicht. Jedenfalls waren seine Güter konfisziert worden und sein Kind war ein Bettelkind geworden. Es blieb bei seinen Pflegeeltern und blühte in der rauhen Umgebung schöner wie eine Rose zwischen dunkelfarbigem Unkraut.
+But if <span class="actor a">Alices</span> contacts can be traced back, <span class="actor b">Bob</span> and could be warned and asked to get tested and self-isolate.
 
-+++ vis-app 1
++++ vis-tracing 8
 
-Als mein Vater von Mailand zurückkehrte, fand er mich auf dem Vorplatze unserer Villa mit der Kleinen spielend, die schön war wie ein Cherub; ein Wesen, aus dessen Augen wundervolle Strahlen leuchteten und das schlank und beweglich war wie eine Gemse. Die Angelegenheit war bald geregelt. 
+This helps to break the chain of infection and to contain the further spread of the coronavirus.
 
-+++ vis-app 2
++++ vis-tracing 9
 
-Mit Erlaubnis meines Vaters vermochte die Mutter die armen Leute rasch zu bewegen, ihr die Obhut über das Kind zu überlassen. 
+Tracing can be done manually through over the phone interviews. While definetly helpful, there are downsides as it takes time, which limits the chance to contain the virus… 
 
-+++ vis-app 3
++++ vis-tracing 10
 
-Sie konnten die arme, süße Waise gut leiden und sie war ihnen immer wie ein Sonnenschein im Hause gewesen; deshalb hätten sie es nicht übers Herz gebracht, sie in Not und Elend zurückzuhalten, während ihr die Vorsehung ein solches Glück bescherte. 
+…and some chains can be nearly impossible to trace. E.g. if <span class="actor a">Alice</span> infected <span class="actor c">Carol</span> in public transport after visiting <span class="actor b">Bob</span>
 
-+++ vis-app 4
++++ vis-tracing 11
 
-Sie fragten noch den Priester des Ortes um Rat, und das Resultat dieser Unterredung war, daß Elisabeth Lavenza ihren Einzug in das Haus meiner Eltern hielt. 
+<span class="actor a">Alice</span>, <span class="actor b">Bob</span> and <span class="actor c">Carol</span> carry smartphones. By making use of BLE they could detect nearby devices and log duration and proximity of contacts.
 
-+++ vis-app 5
++++ vis-tracing 12
 
-Sie wurde mir lieber als eine Schwester – die liebliche, angebetete Gefährtin meines Schaffens und meiner Erholung.
+When <span class="actor a">Alice</span> is tested positive, that information is transmitted to a <span class="actor gray">server.</span> The phones of <span class="actor b">Bob</span> and <span class="actor c">Carol</span> can reconstruct, that they have been in close contact with a confirmed case and show a warning.
 
-+++ vis-app 6
++++ vis-tracing 13
 
-Jeder hatte Elisabeth gern. Die Liebe und Verehrung, mit der sie alle bedachten, die ihr näher traten, war mein Stolz und meine Freude. Am Vorabend des Tages, an dem Elisabeth zu uns kam, sagte meine Mutter zu mir: »Ich habe ein reizendes Geschenk für meinen Viktor, morgen sollst du es haben.« Und als sie am Morgen das Kind mir als die versprochene Gabe zeigte, faßte ich voll kindlichen Ernstes ihre Worte so auf, daß Elisabeth mein sei, um sie zu schützen, zu lieben und zu verhätscheln. Jedes Lob, das der Kleinen galt, nahm ich so auf, als sei es ein Lob meines Eigentums. Wir nannten einander beim Vornamen. Kein Wort ist imstande zu schildern, was wir uns waren, um so mehr als sie bis zu ihrem Tode meine einzige Schwester sein sollte.
+However, there are also downsides to this approach. If <span class="actor c">Carol</span> did not install the app, the contact cannot be traced. Furthermore, if designed badly, an app like that could pose a tremendous invasion of privacy.
+
++++ text-privacy
+
+## Privacy Preservation
+
+It's voluntary! No repurcussions if you decide to not install the app. The sensitive parts are where data is exchanged between devices. i.e. between two users of the app or between a user and the server. Let's have a look at them.
+
++++ vis-privacy 1
+
+Broadcasting your ID makes your device visible not only to other users with the tracing app but to all bluetooth devices. To prevent <span class="actor e">Eve</span> from setting up a network of bluetooth antennas to track <span class="actor a"/>Alice's</span> movements, the boradcasted IDs change periodically.
+
++++ vis-privacy 2
+
+Who has contact with whom, for how long, and how close is quite sensitive data. In an attempt to Identify who <span class="actor a"/>Alice</span> was in contact with or to create a wider social graph of all tracing-app users <span class="actor m">Mallet</span> might try to obtain this data by attacking the <span class="actor gray">server.</span> To prevent this attack, this data stays on <span class="actor a"/>Alice's</span> and <span class="actor b"/>Bob's</span> phones.
+
++++ vis-privacy 3
+
+Only after she's been tested positively <span class="actor a">Alice</span> uploads data to the <span class="actor gray">server.</span> These data contain her own IDs or keys to generate her IDs cryptographically, but no information on her contacts. That is enough for <span class="actor b">Bob</span> to check if he's been exposed to a confirmed case, and prevents <span class="actor m">Mallet</span> from acessing data that's not public anyways.
+
++++ text-attacks
+
+While the system is designed in a way to preserve privacy, some risks remain. They are mostly inherent to all BLE-based tracing systems or even to contact tracing, including manual, in general. There are two main attack vectors: Identifying a confirmed case and sending false alerts.
+
++++ vis-attacks 1
+
+Since <span class="actor e"/>Eve</span> failed to track people she now tries to indentify people who have been tested positively for having the virus. In the simplest case, she only was in contact with <span class="actor a">Alice</span> or is certain, that her other contacts have not been tested positively.
+
++++ vis-attacks 2
+
+When <span class="actor a">Alice</span> is tested positively and <span class="actor e"/>Eve</span> receives a warning, she can simply figure out that <span class="actor a">Alice</span> must have the virus. Similarly, by using a modified version of the app, that not only notifies about having had contact to a confirmed case, but also about the time of the contact (or by switching accounts/devices after each contact), and simulatainly logging with whom she was in contact at what time <span class="actor e"/>Eve</span> could reconstruct who has been tested positively.
+
++++ vis-attacks 3
+
+Using a more elaborate setup of linking directional antennas with cameras, credit card terminals or other equpment that can help indentifying people <span class="actor e"/>Eve</span> is also able to identify a larger group of confirmed cases, without being physically close to them herself.
+
++++ vis-attacks 4
+
+As soon as <span class="actor a">Alice</span> uploads her IDs to the server, <span class="actor e"/>Eve</span> who already knows who is behind those IDs, can identify her.
+
++++ text-privacy-old
+
+## Datenschutz
+
+Bisher standen artverwandte Apps häufig und auch zurecht in der Kritik, weil sie grundlegende Rechte des europäischen Datenschutzes GDPR unterwandern. Doch anders als bei verschiedenen Tracking-Methoden, die auf umfassenden Bewegungsprofilen von NutzerInnen basieren, stellt PEPP-PT die Privatsphäre und den Datenschutz der User offensiv in den Mittelpunkt. 
+
+Denn um einen ansteckenden Kontakt nachweisen zu können, sind laut DP^3T nur zwei Informationen notwendig: 
+
+→ Der Aufenthalt in unmittelbarer Nähe und ausreichender Dauer zu einer infizierten Person (Unabhängig des genauen Ortes)  
+→ Der Fakt, dass diese Kontaktperson zum Zeitpunkt des Treffens ansteckend war  
+
+Das bedeutet auch, dass keine sensiblen Informationen zur übertragenden Person, dem genauen Ort des Treffens, weiteren Bewegungsprotokollen oder weiteren Kontexten notwendig sind. 
+
+
++++ text-next
+
+## What’s Next?
+
+Natürlich bleiben nach wie vor einige Fragen offen. Die deutsche Version der App befindet sich aktuell noch in der Entwicklung, beteiligt sind neben dem Heinrich-Hertz-Institut und der TU Dresden auch das Robert Koch-Institut. Einen genauen Termin für die Veröffentlicht gibt es nicht.
+
+Außerdem ist nicht sicher, welche Maßnahmen PEPP-PT genau ablösen könnte. Mit großer Sicherheit werden die gängigen Abstands- und Hygieneregeln weiterhin aufrecht erhalten. Trotzdem: Durch PEPP-PT kann es möglich werden, Infektionsketten präzise zu verfolgen und somit genau die Menschen zu isolieren, die wirklich einer realen Gefahr ausgesetzt sind. Die Voraussetzung wäre ein breites gesellschaftliches Verständnis dafür, betroffene BürgerInnen für den jeweiligen Isolationszeitraum "freizustellen". 
+
+Damit kann die App einen erheblichen Beitrag dazu leisten, unser öffentliches Leben wieder zu normalisieren. Die eingangs erwähnten Nebeneffekte von Lockdowns, also die Verletzung unsere Grundrechte, existenzielle wirtschaftliche Schäden und soziale Ungerechtigkeit, würden somit größtenteils aufgehoben werden.
+
+So könnte unsere neue Normalität mit PEPP-PT aussehen.
