@@ -33,7 +33,7 @@ export default {
   data () {
     return {
       trackingIds: '.'.repeat(5).split('').map(() => `${Math.random().toString(36).split('.')[1].toUpperCase().slice(0, 7)}…`),
-      contactIds: '.'.repeat(2).split('').map(() => `${Math.random().toString(36).split('.')[1].toUpperCase().slice(0, 4)}…`)
+      contactIds: '.'.repeat(4).split('').map(() => `${Math.random().toString(36).split('.')[1].toUpperCase()}`)
     }
   },
   computed: {
@@ -48,22 +48,22 @@ export default {
       const progress = sp % 1
       return {
         orbit: {
-          hide: step >= 1 && sp !== 11,
+          hide: step > 0,
           color: 'green'
         },
         actors: [{
           name: 'A',
-          color: bw(0, 2) ? 'purple' : 'pink',
+          color: bw(0, 4) ? 'purple' : 'pink',
           transmitting: true,
           transform: {
             r: 1,
-            rev: step === 0 ? progress : 0,
+            rev: bw(1, 4) ? (sp - 1) / 3 : 0,
             offset: 0
           },
           text: {
-            show: bw(1, 3),
+            show: bw(1, 5),
             offset: -48,
-            html: table([[this.contactIds[1], '30', '150']])
+            html: table([[this.getId(0, 4)], [this.getId(3, 4)]].filter((d, i) => i < 1 || sp > 2.5), null, ['Transmitted IDs'])
           }
         }, {
           name: 'A-Base',
@@ -75,134 +75,95 @@ export default {
           }
         }, {
           name: 'B',
-          show: bw(1, 3),
-          color: bw(0, 2) ? 'green' : 'yellow',
+          show: bw(0, 6),
+          color: bw(0, 5) ? 'green' : 'yellow',
           transmitting: true,
           transform: {
             r: 1,
             rev: 1 / 3,
+            offset: 40
+          },
+          text: {
+            show: bw(2, 6),
+            offset: 48,
+            html: table([[this.getId(0), '30', '150']])
+          }
+        }, {
+          name: 'C',
+          show: true,
+          color: bw(0, 5) ? 'green' : 'yellow',
+          transform: {
+            r: 1,
+            rev: 2 / 3,
+            offset: 40
+          },
+          text: {
+            show: bw(3, 6),
+            offset: 48,
+            html: table([[this.getId(3), '30', '150']])
+          }
+        }, {
+          key: 'transmission',
+          show: false,
+          color: sp < 4.5 ? 'pink' : 'gray',
+          transform: {
+            r: step < 4 ? 1 : step === 4 ? 1 - progress : 0,
+            rev: 0,
             offset: 0
           },
           text: {
-            show: bw(1, 3),
-            offset: 48,
-            html: table([[this.contactIds[0], '30', '150']])
-          }
-        }, {
-          name: 'E',
-          show: step === 0,
-          color: 'red',
-          transform: {
-            r: 0
-          }
-        }, {
-          name: 'M',
-          show: bw(1, 3),
-          color: 'red',
-          transform: {
-            r: 1,
-            rev: 2 / 3
+            show: bw(4, 6),
+            offset: 32,
+            html: table([[this.getId(0, 4)], [this.getId(3, 4)]], null, [''])
           }
         }, {
           name: '↔',
-          show: bw(1, 3),
+          show: bw(4, 6),
           class: ['invert'],
           color: 'gray',
           transform: {
           },
           text: {
-            show: step === 2,
+            show: step > 5,
             offset: 32,
-            html: table([[`${this.contactIds[0]}, …`]], null, ['IDs'])
+            html: table([[`${this.getId(0)}, …`]], null, ['IDs'])
           }
-        },
-        ...(step === 0 ? this.trackingActors : [])
-        ],
+        }],
         edges: [{
           nodes: ['A', 'A-Base'],
-          show: step === 0,
+          show: bw(1, 4),
           color: 'purple',
-          large: progress > 0.5,
+          large: sp > 2.5,
           dir: 0
         }, {
           nodes: ['A', 'A-Base'],
-          show: step === 0,
+          show: bw(1, 4),
           color: 'green',
-          large: progress < 0.5,
+          large: sp < 2.5,
           dir: 1
         }, {
-          nodes: ['M', '↔'],
-          show: bw(1, 3),
-          color: 'red',
-          r: 0,
-          dotted: true
-        }, {
-          nodes: ['A', 'B'],
-          show: step === 1,
-          color: 'purple',
-          dashed: true,
-          r: 4
-        }, {
-          nodes: ['B', 'A'],
-          show: step === 1,
-          color: 'green',
-          dashed: true,
-          r: 4
-        }, {
           nodes: ['A', '↔'],
-          show: bw(2, 3),
+          show: bw(4, 5),
           color: 'yellow',
           r: 0
         }, {
           nodes: ['B', '↔'],
-          show: bw(2, 3),
+          show: bw(5, 6),
           color: 'yellow',
           r: 0
-        },
-        ...(step === 0 ? this.trackingEdges : [])
-        ]
-      }
-    },
-    trackingActors () {
-      const { sp, table, trackingIds } = this
-      const progress = sp % 1
-      const actors = 5
-      return '.'.repeat(actors).split('').map((d, i) => {
-        const rev = 1 / (actors + 1) * (i + 1)
-        return {
-          color: 'red',
-          transmitting: false,
-          id: `trackingActor-${i}`,
-          transform: {
-            r: 1,
-            rev,
-            offset: 40,
-            scale: 0.5
-          },
-          text: {
-            hide: progress < rev,
-            offset: i === 0 || i === 4 ? -24 : 24,
-            html: table([[trackingIds[i]]], null, ['ID'])
-          }
-        }
-      })
-    },
-    trackingEdges () {
-      const { trackingActors } = this
-      return trackingActors.map(actor => {
-        return {
-          nodes: ['E', actor.id],
-          color: 'red',
-          dotted: true,
+        }, {
+          nodes: ['C', '↔'],
+          show: bw(5, 6),
+          color: 'yellow',
           r: 0
-        }
-      })
+        }]
+      }
     }
   },
   watch: {
     'config.actors': {
       handler (actors) {
-        const style = ['A', 'B', 'E', 'M'].map(name => {
+        const style = ['A', 'B', 'C'].map(name => {
           const color = actors.find(a => a.name === name).color
           return [
             [`--actor-${name.toLowerCase()}`, colors[color]],
@@ -233,6 +194,9 @@ export default {
                 ${th}
                 ${tr}
               </table>`
+    },
+    getId (id, length = 4) {
+      return `${this.contactIds[id].slice(0, length)}…`
     }
   }
 }

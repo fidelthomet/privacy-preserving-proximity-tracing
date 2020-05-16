@@ -116,7 +116,7 @@ export default {
         const pos = toXY(a.transform)
         return {
           class: [a.color],
-          transform: `translate(${pos.x}px, ${pos.y + a.text.offset}px) translateY(${50 * (a.text.offset / Math.abs(a.text.offset))}%)`,
+          transform: `translate(${pos.x}px, ${pos.y + a.text.offset}px) translateY(${50 * (a.text.offset / Math.abs(a.text.offset !== 0 ? a.text.offset : 1))}%)`,
           html: a.text.html,
           key: `text-${a.id}`
         }
@@ -147,6 +147,10 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    .text {
+      display: flex;
+      flex-direction: column;
+    }
   }
   svg {
     overflow: visible;

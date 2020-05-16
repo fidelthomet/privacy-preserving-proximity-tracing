@@ -114,17 +114,34 @@ It's voluntary! No repurcussions if you decide to not install the app. The sensi
 
 +++ vis-privacy 1
 
-Broadcasting your ID makes your device visible not only to other users with the tracing app but to all bluetooth devices. To prevent <span class="actor e">Eve</span> from setting up a network of bluetooth antennas to track <span class="actor a"/>Alice's</span> movements, the boradcasted IDs change periodically.
+Since we're talking about privacy, let's assume <span class="actor a">Alice</span> neither knows <span class="actor b">Bob</span> nor <span class="actor c">Charol</span>, and doesn't want to change that. Let's have a closer look at what Alice's phone exchanges with others the others.
 
 +++ vis-privacy 2
 
-Who has contact with whom, for how long, and how close is quite sensitive data. In an attempt to Identify who <span class="actor a"/>Alice</span> was in contact with or to create a wider social graph of all tracing-app users <span class="actor m">Mallet</span> might try to obtain this data by attacking the <span class="actor gray">server.</span> To prevent this attack, this data stays on <span class="actor a"/>Alice's</span> and <span class="actor b"/>Bob's</span> phones.
+To enable tracing they need to exchange unique identifiers. To issue a warning at a later point in time it is sufficient to know the identifier associated to a confirmed case, but not their actual identity.
+
+IDs are created on the phones, so there's no global database linking people to IDs. Crypto-Magic makes it nearly impossible that duplicate IDs are generated.
 
 +++ vis-privacy 3
 
-Only after she's been tested positively <span class="actor a">Alice</span> uploads data to the <span class="actor gray">server.</span> These data contain her own IDs or keys to generate her IDs cryptographically, but no information on her contacts. That is enough for <span class="actor b">Bob</span> to check if he's been exposed to a confirmed case, and prevents <span class="actor m">Mallet</span> from acessing data that's not public anyways.
+What's more: New IDs are generated at a certain time interval, so while both <span class="actor b">Bob</span> and <span class="actor c">Charol</span> hadt contact to <span class="actor a">Alice</span> they receive a different ID from her. So <span class="actor b">Bob</span> and <span class="actor c">Charol</span> can not reconstruct that they've been in contact with the same Person and a potential attacker with a network of Bluetooth antennas would not be able to track people through the city.
+
++++ vis-privacy 4
+
+All the collected IDs as well as the associated data on proximity and duration of a contact stays on the phones and is not transmitted to a server or any third party. Now, when <span class="actor a">Alice</span> is tested positively, this information needs to be transmitted to <span class="actor b">Bob</span> and <span class="actor c">Charol</span>.
+
++++ vis-privacy 5
+
+Well, it doesn't. <span class="actor a">Alice</span> only sends the IDs (actually keys to generate them, to keep traffic low) she has transmitted to others to a <span class="actor gray">server.</span>
+
++++ vis-privacy 6
+
+<span class="actor b">Bob</span>, <span class="actor c">Charol</span> and everyone else download the data from the server (without ever knowing, <span class="actor a">Alice's</span> identity). Then they compare the downloaded IDs/keys with what they've logged over the past days. And if they have a match, and the contact was long and close enough, the app warns them.
+
 
 +++ text-attacks
+
+Contacts, their duration proximity or real idenetities are never transfered to a server or third party! Also data on the phone and on the server is removed after X days.
 
 While the system is designed in a way to preserve privacy, some risks remain. They are mostly inherent to all BLE-based tracing systems or even to contact tracing, including manual, in general. There are two main attack vectors: Identifying a confirmed case and sending false alerts.
 
@@ -143,6 +160,30 @@ Using a more elaborate setup of linking directional antennas with cameras, credi
 +++ vis-attacks 4
 
 As soon as <span class="actor a">Alice</span> uploads her IDs to the server, <span class="actor e"/>Eve</span> who already knows who is behind those IDs, can identify her.
+
++++ vis-attacks 5
+
+Meanwhile, <span class="actor m">Mallot</span> is trying to trigger false alarms to force people into self-isolation. The simplest way for him to achvieve that, would be to first come into contact with his target <span class="actor b">Bob</span> and to then claim to have coronavirus.
+
++++ vis-attacks 6
+
+However, claiming to have coronavirus is not that easy. Uploading IDs to the server requires an authorisation code <span class="actor m">Mallot</span> can only obtain through being tested positvely himself.
+
++++ vis-attacks 7
+
+This mitigates the risk, but by obtaining the authorisation code of a confirmed case, or by hijacking either the <span class="actor pink">health authority</span> or the <span class="actor gray">server,</span> <span class="actor m">Mallot</span> could overcome those hurdles and trigger a warning for <span class="actor b">Bob.</span> By using the same techniques and placing an antenna at a crowded place, <span class="actor m">Mallot</span> could not only target individuals but also larger groups.
+
++++ vis-attacks 8
+
+Another way <span class="actor m">Mallot</span> could achieve his goal is by relaying IDs from people who are likely to show up as confirmed cases in the near future, e.g. by placing an atenna at a cronavirus test center and another one close to <span class="actor b">Bob.</span> 
+
++++ vis-attacks 10
+
+When <span class="actor a">Alice</span> visits the test center the relay simulates a contact event between her and <span class="actor b">Bob.</span>
+
++++ vis-attacks 11
+
+When <span class="actor a">Alice</span> receives her positive results and uploads the data to the server, <span class="actor b">Bob</span> receives a warning, without having actually been in contact with someone infected.
 
 +++ text-privacy-old
 

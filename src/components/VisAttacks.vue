@@ -47,12 +47,13 @@ export default {
       const progress = sp % 1
       return {
         orbit: {
-          hide: step >= 1 && sp !== 11,
-          color: 'green'
+          hide: step >= 1 && step !== 4,
+          color: step === 4 ? 'red' : 'green'
         },
         actors: [{
           name: 'A',
-          color: bw(0, 1) || bw(2, 3) ? 'purple' : 'pink',
+          show: bw(0, 4) || bw(8, 10),
+          color: bw(0, 1) || bw(2, 3) || bw(8, 9) ? 'purple' : 'pink',
           transmitting: true,
           transform: {
             r: 1,
@@ -74,13 +75,18 @@ export default {
           }
         }, {
           name: 'B',
-          show: bw(2, 3),
-          color: bw(0, 3) ? 'green' : 'yellow',
+          show: bw(2, 3) || bw(4, 10),
+          color: bw(0, 6) || bw(7, 9) ? 'green' : 'yellow',
           transmitting: true,
           transform: {
             r: 1,
             rev: 1 / 3,
-            offset: 0
+            offset: bw(4, 5) ? 40 : bw(5, 5.5) ? 40 * (1 - progress * 2) : 0
+          },
+          text: {
+            show: bw(8.5, 10),
+            offset: 48,
+            html: table([[`${this.trackingIds[0]}, …`, 15, 100]])
           }
         }, {
           name: 'C',
@@ -109,26 +115,53 @@ export default {
           }
         }, {
           name: 'M',
-          show: false,
-          color: 'red',
+          show: bw(4, 9),
+          transmitting: true,
+          color: bw(5, 6) ? 'pink' : 'red',
           transform: {
             r: 1,
-            rev: 2 / 3
+            rev: step === 4 ? 2 / 3 + progress : 2 / 3,
+            offset: 0
           }
         }, {
           name: '↔',
-          show: bw(1, 2) || bw(3, 4),
+          show: bw(1, 2) || bw(3, 4) || bw(5, 7) || bw(9, 10),
           class: ['invert'],
           color: 'gray',
           transform: {
           },
           text: {
-            show: bw(1, 2) || bw(3, 4),
+            show: bw(1, 2) || bw(3, 4) || bw(9, 10),
             offset: 32,
             html: table([[`${this.trackingIds[0]}, …`]], null, ['IDs'])
           }
+        }, {
+          name: '+',
+          show: bw(5, 8),
+          color: 'pink',
+          class: ['invert'],
+          transform: {
+            r: 1,
+            rev: 0,
+            offset: 0
+          }
+        }, {
+          key: 'relay',
+          show: false,
+          color: 'red',
+          transform: {
+            r: 1,
+            rev: bw(8, 8.5) ? (-2 / 3 + 0.05) * progress * 2 : 1 / 3 + 0.05,
+            offset: bw(8, 8.25) ? -100 + 50 * progress * 4 : bw(8.25, 8.5) ? -50 - 50 * (progress - 0.25) * 4 : -100
+          },
+          text: {
+            show: bw(8, 9),
+            offset: 0,
+            html: table([[`${this.trackingIds[0]}, …`]], null, ['IDs'])
+          }
         },
-        ...(bw(2, 4) ? this.trackingActors : [])
+        ...(bw(2, 4) ? this.trackingActors : []),
+        ...(bw(7, 9) ? this.relayActors : [])
         ],
         edges: [{
           nodes: ['A', 'A-Base'],
@@ -144,18 +177,51 @@ export default {
           dir: 1
         }, {
           nodes: ['A', '↔'],
-          show: bw(1, 2) || bw(3, 4),
+          show: bw(1, 2) || bw(3, 4) || bw(9, 10),
           color: 'yellow',
           dir: 1,
-          r: bw(1, 2) ? 0 : 2 / 3
+          r: bw(1, 2) || bw(9, 10) ? 0 : 2 / 3
         }, {
           nodes: ['E', '↔'],
           show: bw(1, 2) || bw(3, 4),
           color: 'yellow',
           dir: 1,
           r: bw(1, 2) ? 0 : 2 / 3
+        }, {
+          nodes: ['M', '+'],
+          show: bw(5.2, 6),
+          color: 'pink',
+          dir: 1,
+          r: 1,
+          dashed: true
+        }, {
+          nodes: ['M', '+'],
+          show: bw(6, 7),
+          color: 'red',
+          dir: 1,
+          r: 1,
+          dotted: true
+        }, {
+          nodes: ['M', '↔'],
+          show: bw(5.4, 7),
+          color: 'yellow',
+          dir: 1,
+          dashed: bw(5, 6)
+        }, {
+          nodes: ['M', '↔'],
+          show: bw(6, 7),
+          color: 'red',
+          dir: 0,
+          dotted: true
+        }, {
+          nodes: ['B', '↔'],
+          show: bw(5.4, 7) || bw(9, 10),
+          color: 'yellow',
+          dashed: bw(5, 6),
+          r: bw(9, 10) ? 0 : 1
         },
-        ...(bw(2, 4) ? this.trackingEdges : [])
+        ...(bw(2, 4) ? this.trackingEdges : []),
+        ...(bw(7, 9) ? this.relayEdges : [])
         ]
       }
     },
@@ -184,6 +250,24 @@ export default {
         }
       }).filter((a, i) => step === 2 || i === 0)
     },
+    relayActors () {
+      const actors = 2
+      return '.'.repeat(actors).split('').map((name, i) => {
+        const rev = (1 / 3) * i
+        return {
+          color: 'red',
+          transmitting: true,
+          directional: true,
+          id: `relayActor-${i}`,
+          transform: {
+            r: 1,
+            rev,
+            offset: -60,
+            scale: 0.5
+          }
+        }
+      })
+    },
     trackingEdges () {
       const { trackingActors, sp } = this
       const step = Math.floor(sp)
@@ -193,6 +277,18 @@ export default {
           color: step === 2 ? 'red' : 'yellow',
           dotted: true,
           dir: 1,
+          r: 1
+        }
+      })
+    },
+    relayEdges () {
+      const { relayActors } = this
+      return relayActors.map((actor, i) => {
+        return {
+          nodes: ['M', actor.id],
+          color: 'red',
+          dotted: true,
+          dir: i === 0 ? 1 : 0,
           r: 1
         }
       })

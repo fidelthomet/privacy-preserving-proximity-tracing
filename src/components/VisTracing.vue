@@ -93,7 +93,7 @@ export default {
         }, {
           name: '+',
           hide: sp < 2.1 || sp >= 5,
-          color: 'red',
+          color: 'pink',
           class: ['invert'],
           transform: {
             r: 1,
@@ -216,12 +216,12 @@ export default {
         }, {
           nodes: ['A', '+'],
           hide: sp < 2.2 || sp >= 5,
-          color: 'red',
+          color: 'pink',
           dir: 0
         }, {
           nodes: ['A', '+'],
           hide: step < 3 || sp >= 5,
-          color: 'red',
+          color: 'pink',
           dir: 1
         }, {
           nodes: ['A', 'B'],
