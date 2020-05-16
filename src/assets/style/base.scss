@@ -17,7 +17,7 @@ html {
 
   > * {
     @include min-width($medium) {
-      font-size: 1.25rem;
+      font-size: 1.125rem;
     }
   }
 
