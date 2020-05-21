@@ -210,3 +210,8 @@ Außerdem ist nicht sicher, welche Maßnahmen PEPP-PT genau ablösen könnte. Mi
 Damit kann die App einen erheblichen Beitrag dazu leisten, unser öffentliches Leben wieder zu normalisieren. Die eingangs erwähnten Nebeneffekte von Lockdowns, also die Verletzung unsere Grundrechte, existenzielle wirtschaftliche Schäden und soziale Ungerechtigkeit, würden somit größtenteils aufgehoben werden.
 
 So könnte unsere neue Normalität mit PEPP-PT aussehen.
+
++++ dict
+
+isolation → Isolation
+immunity → Immunität

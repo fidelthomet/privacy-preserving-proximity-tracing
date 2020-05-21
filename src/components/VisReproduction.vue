@@ -3,14 +3,14 @@
     <div class="text-layer">
       <portal to="vis-reproduction-3">
           <div class="slider-label immunity">
-            <span>Immunity</span>
+            <span>{{getTerm('immunity')}}</span>
             <span>{{Math.round(immunity * 100)}}%</span>
           </div>
           <input type="range" class="green" min="0" max="1" v-model="immunity" step="0.01"/>
       </portal>
       <portal to="vis-reproduction-4">
           <div class="slider-label isolation">
-            <span>Isolation</span>
+            <span>{{getTerm('isolation')}}</span>
             <span>{{Math.round(isolation * 100)}}%</span>
           </div>
           <input type="range" class="yellow" min="0" max="1" v-model="isolation" step="0.01"/>
@@ -28,7 +28,7 @@
 <script>
 import P5 from 'p5'
 import colors from '@/assets/style/global.scss'
-
+import { mapGetters } from 'vuex'
 import { Portal } from 'portal-vue'
 export default {
   name: 'vis-reproduction',
@@ -76,6 +76,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(['getTerm']),
     maxTime () {
       return Math.max(...this.edges2[this.lines - 1].map(edge => edge.config.time))
     },
@@ -126,7 +127,7 @@ export default {
       p.draw = () => {
         const { innerWidth, padding, width, reproductions, colors, step, progress, transparentize } = this
         p.translate((width / 2) - innerWidth + padding * 2, padding)
-        p.background(255)
+        p.clear()
         p.noFill()
         const sp = step + progress
         reproductions.forEach(reproduction => {

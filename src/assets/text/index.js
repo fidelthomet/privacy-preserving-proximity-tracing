@@ -31,6 +31,9 @@ function parse (text) {
   })
   const keys = [...new Set(sections.map(s => s[0]))]
   return Object.fromEntries(keys.map(k => {
+    if (k === 'dict') {
+      return [k, sections.filter(s => s[0] === k).map(s => Object.fromEntries(s[1].split('\n').map(term => term.split('→').map(t => t.trim()))))[0]]
+    }
     return [k, sections.filter(s => s[0] === k).map(s => s[1])]
   }))
 }

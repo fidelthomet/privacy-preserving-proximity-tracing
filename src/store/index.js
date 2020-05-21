@@ -14,6 +14,9 @@ export default new Vuex.Store({
   getters: {
     getText: ({ text, language }) => (key) => {
       return text[language][key]
+    },
+    getTerm: ({ text, language }) => (term) => {
+      return text[language].dict[term]
     }
   },
   mutations: {
