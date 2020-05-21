@@ -1,10 +1,19 @@
 <template>
   <div id="app">
+    <header>
+      <MdRenderer el="section" :text="getText('text-meta')"/>
+      <h1>
+        <span>Privacy</span><br>
+        <span>Preserving</span><br>
+        <span>Proximity</span><br>
+        <span>Tracing</span>
+      </h1>
+    </header>
     <nav>
       <router-link v-for="l in languages" :key="l.path" :to="l.path">{{ l.name }}</router-link>
     </nav>
     <article>
-      <MdRenderer el="section" :text="getText('text-intro')"/>
+      <MdRenderer el="section" class="intro" :text="getText('text-intro')"/>
       <MdRenderer el="section" :text="getText('text-reproduction')"/>
       <ScrollWrapper :text="getText('vis-reproduction')" section="vis-reproduction">
         <template v-slot="props">
@@ -32,6 +41,9 @@
       <MdRenderer el="section" :text="getText('text-privacy-old')"/>
       <MdRenderer el="section" :text="getText('text-next')"/>
     </article>
+    <footer>
+      <MdRenderer el="section" :text="getText('text-footer')"/>
+    </footer>
   </div>
 </template>
 <script>
@@ -88,14 +100,38 @@ export default {
   flex-direction: column;
   align-items: center;
 
+  header {
+    background: $color-background;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $spacing / 4 0;
+
+    @include min-width($narrow) {
+      padding: $spacing 0;
+    }
+    > * {
+      width: 100%;
+      max-width: $max-width;
+      padding: 0 $spacing / 2;
+    }
+
+    h1 {
+      width: 100%;
+      max-width: $max-width;
+    }
+  }
+
   nav {
+    padding: 0 $spacing / 2;
     width: 100%;
     max-width: $max-width;
-    margin: 0 $spacing / 8 $spacing / 2 $spacing / -8;
+    margin: $spacing / 2 $spacing / 8 $spacing / 2 $spacing / -8;
     a {
       color: $color-black;
-      text-decoration: none;
       padding: 0 $spacing / 8;
+      text-decoration: none;
       transition: color $transition / 2;
 
       &.router-link-exact-active, &:hover {
@@ -107,12 +143,30 @@ export default {
   article {
     width: 100%;
     max-width: $max-width;
+    > .md-renderer {
+      padding: 0 $spacing / 2;
+    }
   }
 
   .intersection-observer-fracture {
     padding-top: 50vh;
     &:last-child {
       padding-bottom: 50vh;
+    }
+  }
+
+  footer {
+    padding: $spacing 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: $color-background;
+
+    > * {
+      width: 100%;
+      max-width: $max-width;
+      padding: 0 $spacing / 2;
     }
   }
 }

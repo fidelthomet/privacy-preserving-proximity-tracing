@@ -22,26 +22,43 @@ html {
   }
 
   #app {
-    margin: $spacing $spacing / 2;
+    // margin: $spacing $spacing / 2;
   }
 
-  h1, h2 {
+  h1, h2, h3 {
     font-family: "Inter", sans-serif;
     // font-style: italic;
     color: $color-accent;
   }
   h1 {
-    font-size: 6em;
+    font-size: 3.5em;
     line-height: 0.82;
     letter-spacing: -0.08em;
     color: $color-black;
-    margin: $spacing 0 $spacing * 2;
+    margin: $spacing / 2 0 $spacing;
+
+    @include min-width($narrow) {
+      font-size: 6em;
+      margin: $spacing 0 $spacing * 2;
+    }
+    @include min-width($medium) {
+      font-size: 6em;
+    }
 
     span {
       background: linear-gradient(0deg,transparent .12em,$color-accent 0,$color-accent .31em,transparent 0);
-      padding-right: $spacing / 2;
+      &:nth-of-type(even) {
+        padding-right: $spacing / 4;
+      }
+      
       // background: $color-accent;
     }
+  }
+  h3 {
+    font-size: 1em;
+  }
+  h3 + p {
+    margin-top: 0;
   }
 
   p {
@@ -54,7 +71,7 @@ html {
 
   .blur {
     border-radius: 2px;
-    background: transparentize(#F2FCFB, 0);
+    background: transparentize(#F2FCFB, 0.1);
 
     @supports (
       (-webkit-backdrop-filter: saturate(180%) blur(20px))

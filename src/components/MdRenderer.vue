@@ -59,6 +59,16 @@ export default {
 <style lang="scss">
 @import "@/assets/style/global";
 .md-renderer {
+  a {
+    hyphens: none;
+    color: $color-black;
+    &:visited {
+      color: $color-black;
+    }
+    &:hover {
+      color: $color-accent;
+    }
+  }
   span {
     &.sub {
       font-feature-settings: "subs";

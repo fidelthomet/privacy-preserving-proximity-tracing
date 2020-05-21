@@ -1,6 +1,9 @@
-+++ text-intro
++++ text-meta
 
-# <span>Privacy Preserving Proximity Tracing</span>
+26\. Mai 2019<br>
+[Thomas Haas](https://twitter.com/thomashaas) & [Fidel Thomet](https://twitter.com/fidelthomet)
+
++++ text-intro
 
 *Wie können wir die Ausbreitung des Coronavirus verlangsamen, ohne unsere Grundrechte und die Wirtschaft langfristig zu schädigen? Die Wissenschaft ist sich sicher: anonyme Tracing-Apps können der entscheidende Schlüssel sein. Eine visuelle Erklärung darüber, wie Privacy-Preserving Proximity Tracing funktioniert – und welche Rolle unsere Privatsphäre dabei spielt.*
 
@@ -210,6 +213,26 @@ Außerdem ist nicht sicher, welche Maßnahmen PEPP-PT genau ablösen könnte. Mi
 Damit kann die App einen erheblichen Beitrag dazu leisten, unser öffentliches Leben wieder zu normalisieren. Die eingangs erwähnten Nebeneffekte von Lockdowns, also die Verletzung unsere Grundrechte, existenzielle wirtschaftliche Schäden und soziale Ungerechtigkeit, würden somit größtenteils aufgehoben werden.
 
 So könnte unsere neue Normalität mit PEPP-PT aussehen.
+
++++ text-footer 
+
+### Copyright
+
+Dieses Werk ist lizensiert unter [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/?ref=ccchooser). Der Source Code ist auf [Github](https://github.com/fidelthomet/privacy-preserving-proximity-tracing/) veröffetnlicht.
+
+### Impressum
+
+Verantwortlich für diese Webseite sind Thomas Haas & Fidel Thomet. Für Inhalte auf verlinkte externe Seiten sind wir nicht verantwortlich.
+
+### Kontakt
+
+Wir sind erreichbar über Twitter [@thomashaas](https://twitter.com/thomashaas) & [@fidelthomet](https://twitter.com/fidelthomet)<br>und per Mail <a href="mailto:tracing@ft0.ch">tracing@ft0.ch</a>.
+
+### Datenschutz
+
+Beim Besuch dieser Webseite werden folgende Informationen auf dem Server in Logfiles gespeichert: Die IP-Adresse, der Browser und das Betriebssystem der Besucherin / des Besuchers, der Zeitpunkt des Besuchs, die aufgerufenen Webseiten und angefragten Dateien und, sofern übermittelt, welche Webseite auf diese verwiesen hat.
+
+Die aufgezeichneten Daten dienen der Fehlersuche und Absicherung des Servers und werden nach 14 Tagen automatisiert gelöscht. Die Daten werden nicht an Dritte übermittelt. Die Webseite verwendet weder Cookies noch werden externe Inhalte eingebettet.
 
 +++ dict
 

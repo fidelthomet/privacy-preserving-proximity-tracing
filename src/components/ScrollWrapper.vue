@@ -1,16 +1,18 @@
 <template>
   <div class="scroll-wrapper">
-    <figure v-resize:debounce.initial="onResize"
-      :class="section" :style="{'max-width': `${maxWidth}px`}">
-      <slot v-bind="{ step, progress, width, height }">
-        <div class="fallback">
-          {{ section }} <br>
-          {{ step }} <br>
-          {{ progress }} <br>
-          {{ width }} × {{ height }}<br>
-        </div>
-      </slot>
-    </figure>
+    <div class="vis">
+      <figure v-resize:debounce.initial="onResize"
+        :class="section" :style="{'max-width': `${maxWidth}px`}">
+        <slot v-bind="{ step, progress, width, height }">
+          <div class="fallback">
+            {{ section }} <br>
+            {{ step }} <br>
+            {{ progress }} <br>
+            {{ width }} × {{ height }}<br>
+          </div>
+        </slot>
+      </figure>
+    </div>
     <section class="text" :style="style">
       <IntersectionObserver v-for="(t, i) in text" :key="`o-${i}`" :step="i">
         <MdRenderer :class="{active: step === i}" :text="t" :portal="section != null ? `${section}-${i}` : null"/>
@@ -108,27 +110,37 @@ export default {
 <style scoped lang="scss">
 @import "@/assets/style/global";
 .scroll-wrapper {
+  margin: $spacing * 1.5 0 $spacing * 1.5;
   display: flex;
   flex-direction: column;
   align-items: center;
-  figure {
+  .vis {
     position: sticky;
     top: 0;
+    background: $color-background;
     height: 100vh;
     width: 100vw;
+    z-index: -1;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: -1;
+    figure {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: -1;
 
-    .fallback {
-      width: 100%;
-      overflow: hidden;
-      height: 100%;
-      font-size: 2.5em;
-      background: $color-accent;
-      color: $color-white;
-    }
+      .fallback {
+        width: 100%;
+        overflow: hidden;
+        height: 100%;
+        font-size: 2.5em;
+        background: $color-accent;
+        color: $color-white;
+      }
+  }
   }
   .text {
     margin-top: -100vh;
@@ -136,11 +148,15 @@ export default {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
+    @include min-width($narrow) {
+      // align-items: flex-end;
+    }
     .intersection-observer {
       padding: 25vh 0;
 
       .md-renderer {
+        width: 100vw;
         max-width: 400px;
         font-size: 0.8em;
         padding: 0 $spacing / 2;
