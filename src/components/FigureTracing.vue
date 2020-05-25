@@ -157,7 +157,7 @@ export default {
     circle {
       &.orbit {
         fill: none;
-        @include tint-light(stroke);
+        @include tint(stroke);
         stroke-width: 2;
       }
     }
@@ -165,7 +165,7 @@ export default {
       .edge {
         fill: none;
         stroke-width: 2;
-        @include tint-light(stroke);
+        @include tint(stroke);
         &.dashed {
           stroke-dasharray: 8 4;
         }

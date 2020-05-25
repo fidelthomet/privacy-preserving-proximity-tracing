@@ -6,6 +6,7 @@
             <span>{{getTerm('immunity')}}</span>
             <span>{{Math.round(immunity * 100)}}%</span>
           </div>
+          <div class="thumb" :style="{left: `${immunity * 100}%`, transform: `translate(${immunity * -100}%, 0)`}" >↔</div>
           <input type="range" class="green" min="0" max="1" v-model="immunity" step="0.01"/>
       </portal>
       <portal to="vis-reproduction-4">
@@ -13,6 +14,7 @@
             <span>{{getTerm('isolation')}}</span>
             <span>{{Math.round(isolation * 100)}}%</span>
           </div>
+          <div class="thumb" :style="{left: `${isolation * 100}%`, transform: `translate(${isolation * -100}%, 0)`}" >↔</div>
           <input type="range" class="yellow" min="0" max="1" v-model="isolation" step="0.01"/>
       </portal>
       <!-- <div class="rO-labels">
@@ -397,7 +399,9 @@ export default {
 </style>
 <style lang="scss">
 @import "@/assets/style/global";
-.slider-label {
+.vue-portal-target {
+  position: relative;
+  .slider-label {
   display: flex;
   justify-content: space-between;
   color: $color-green;
@@ -406,5 +410,15 @@ export default {
   &.isolation {
     color: $color-yellow;
   }
+}
+
+.thumb {
+  width: $spacing;
+  text-align: center;
+  position: absolute;
+  pointer-events: none;
+  color: $color-pale-gray;
+  line-height: 1.15em;
+}
 }
 </style>

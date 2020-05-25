@@ -226,7 +226,7 @@ Verantwortlich für diese Webseite sind Thomas Haas & Fidel Thomet. Für Inhalte
 
 ### Kontakt
 
-Wir sind erreichbar über Twitter [@thomashaas](https://twitter.com/thomashaas) & [@fidelthomet](https://twitter.com/fidelthomet)<br>und per Mail <a href="mailto:tracing@ft0.ch">tracing@ft0.ch</a>.
+Wir sind erreichbar über Twitter [@thomashaaas](https://twitter.com/thomashaaas) & [@fidelthomet](https://twitter.com/fidelthomet)<br>und per Mail <a href="mailto:tracing@ft0.ch">tracing@ft0.ch</a>.
 
 ### Datenschutz
 

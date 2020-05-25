@@ -9,20 +9,20 @@ $color-green: #0ba391;
 $color-purple: #7334d6;
 $color-red: #FA084E;
 $color-yellow: #f6bc0d;
-$color-black: #2b1022;
+$color-black: #160F29;
 $color-gray: #dddae8;
 $color-deep-gray: #463340;
 $color-pale-gray: #eeeeee;
 $color-white: #ffffff;
-$color-accent: $color-purple;
-$color-background: #F6F2FC;
+$color-accent: $color-pink;
+$color-background: #F4E8F4;
 
 
 $color-light-pink: color.scale($color-pink, $lightness: 70%, $saturation: -40%);
 $color-light-green: color.scale($color-green, $lightness: 70%, $saturation: -40%);
 $color-light-purple: color.scale($color-purple, $lightness: 70%, $saturation: -40%);
-$color-light-red: lighten($color-red, 40);
-$color-light-yellow: color.scale($color-yellow, $lightness: 60%, $saturation: -10%);
+$color-light-red: color.scale($color-red, $lightness: 70%, $saturation: -30%);
+$color-light-yellow: color.scale($color-yellow, $lightness: 70%, $saturation: -20%);
 
 $narrow: 600px !default;
 $medium: 900px !default;

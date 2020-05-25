@@ -48,11 +48,14 @@ html {
     span {
       background: linear-gradient(0deg,transparent .12em,$color-accent 0,$color-accent .31em,transparent 0);
       &:nth-of-type(even) {
-        padding-right: $spacing / 4;
+        padding-right: $spacing / 3;
       }
       
       // background: $color-accent;
     }
+  }
+  h2 {
+    margin-top: $spacing;
   }
   h3 {
     font-size: 1em;

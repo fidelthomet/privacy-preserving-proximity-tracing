@@ -104,7 +104,7 @@ export default {
           key: 'b0',
           hide: sp < 5 || sp >= 9,
           color: step < 7 || step >= 8 ? 'purple' : 'green',
-          class: ['invert'],
+          // class: ['invert'],
           transform: {
             r: 0.8,
             rev: 0.6,
@@ -114,7 +114,7 @@ export default {
           key: 'b1',
           hide: sp < 5.2 || sp >= 9,
           color: step < 7 || sp >= 8 ? 'purple' : 'green',
-          class: ['invert'],
+          // class: ['invert'],
           transform: {
             r: 1,
             rev: 0.35,
@@ -124,7 +124,7 @@ export default {
           key: 'b2',
           hide: sp < 5.4 || sp >= 9,
           color: step < 7 ? 'purple' : 'green',
-          class: ['invert'],
+          // class: ['invert'],
           transform: {
             r: 0.2,
             rev: 0.65,
@@ -134,7 +134,7 @@ export default {
           key: 'b3',
           hide: sp < 5.6 || sp >= 9,
           color: step < 7 ? 'purple' : 'green',
-          class: ['invert'],
+          // class: ['invert'],
           transform: {
             r: 0.8,
             rev: 0.45,
@@ -159,7 +159,7 @@ export default {
           key: 'c0',
           hide: step !== 13,
           color: 'purple',
-          class: ['invert'],
+          // class: ['invert'],
           transform: {
             r: 0.8,
             rev: 0.6,
@@ -169,7 +169,7 @@ export default {
           key: 'c1',
           hide: step !== 13,
           color: 'purple',
-          class: ['invert'],
+          // class: ['invert'],
           transform: {
             r: 1.2,
             rev: 0.75,
@@ -179,7 +179,7 @@ export default {
           key: 'c2',
           hide: step !== 13,
           color: 'purple',
-          class: ['invert'],
+          // class: ['invert'],
           transform: {
             r: 0.8,
             rev: 0.7,
