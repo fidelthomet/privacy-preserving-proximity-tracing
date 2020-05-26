@@ -72,6 +72,29 @@ html {
     margin: $spacing / 2 0;
     hyphens: auto;
   }
+
+  ol {
+    margin-left: $spacing;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0 0 $spacing / 2 0;
+    li:before {
+      content: '– ';
+    }
+  }
+
+  li + li {
+    margin-top: $spacing / 4;
+  }
+
+  li {
+    a {
+      text-decoration: none;
+    }
+  }
+
   .scrolly p {
     margin: 0;
   }

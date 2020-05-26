@@ -38,7 +38,6 @@
           <VisAttacks v-bind="props"/>
         </template>
       </ScrollWrapper>
-      <MdRenderer el="section" :text="getText('text-privacy-old')"/>
       <MdRenderer el="section" :text="getText('text-next')"/>
     </article>
     <footer>
