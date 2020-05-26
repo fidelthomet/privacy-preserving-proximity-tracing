@@ -11,6 +11,10 @@ html {
     padding: 0;
   }
 
+  ::selection {
+    background: transparentize($color: $color-pink, $amount: 0.75);
+  }
+
   font: normal normal #{$font-size}/1.5 "Inter", sans-serif;
   font-feature-settings: "ss01", "ss03", "cv10", "calt", "kern";
   color: $color-black;
