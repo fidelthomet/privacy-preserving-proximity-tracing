@@ -1,185 +1,230 @@
 +++ text-meta
 
-May 26 2019<br>
-[Thomas Haas](https://twitter.com/thomashaas) & [Fidel Thomet](https://twitter.com/fidelthomet)
+May 27 2020<br>
+[Thomas Haas](https://twitter.com/thomashaaas) & [Fidel Thomet](https://twitter.com/fidelthomet)
 
 +++ text-intro
 
-*Wie können wir die Ausbreitung des Coronavirus verlangsamen, ohne unsere Grundgesetze und die Wirtschaft langfristig zu schädigen? Verschiedene Teams aus WissenschaftlerInnen scheinen darauf eine Antwort gefunden zu haben. So funktioniert die Tracing-App PEPP-PT.*
+*A Visual explainer on why we need a tracing app, how it works and the risks it entails*
 
-Weil die Ausbreitung des Coronavirus europa- und weltweit weiter rasant ansteigt, ergreifen viele Staaten einschneidende Maßnahmen, um Infektionszahlen zu verringern und damit eine Überlastung der Gesundheitssysteme zu vermeiden. Leider spüren immer größere Teile der Bevölkerung die signifikanten Nebenwirkungen von Lockdowns, Ausgangssperren und Kontaktverboten. Die Verordnungen bedeuten tiefe Einschnitte in unsere Grundrechte, stellen viele Unternehmen und Selbstständige vor existenzielle wirtschaftliche Herausforderungen und sind sozial ungerecht. Bleiben die gegenwärtigen Interventionen bestehen, spitzt sich dieser Interessenkonflikt weiter zu. Ein Szenario, das wir alle unbedingt vermeiden möchten.
+Since March many European states have been faced with the problems posed by COVID-19. Measures such as lockdowns and contact restrictions were taken by the majority of countries. They help to slow down the spread of the virus and relieve pressure on health systems. But there is an obvious downside. The interventions radically restrict our fundamental rights, bring large parts of the economy in a state of despair, and increase social inequality.
 
-Die Alternative könnte laut verschiedenen ForscherInnen-Teams eine frei zugängliche App sein, die unsere physischen Kontakte aufzeichnet und uns im Fall einer möglichen Ansteckung direkt  benachrichtigt. Um unsere Privatsphäre brauchen wir uns aber nicht zu sorgen. Es werden weder Bewegungsprofile noch persönliche Kontaktprotokolle gespeichert. Wir erklären Schritt für Schritt die Grundlagen und die Funktionsweise von PEPP-PT.
+What could be an alternative that would effectively help us fight the virus and save us from this dilemma?
+
+The newly formed consortium [DP3T](https://dp-3t.github.io/) (Decentralized Privacy-Preserving Proximity Tracing), under which scientists from renowned European universities and research institutes have joined forces, advocates for voluntary tracing apps that anonymously record our physical contacts and notify us in case of a possible infection. Possible infections could thus be detected early and therefore, at least in theory, any chain of infection could be interrupted.
 
 +++ text-reproduction
 
-## R₀ 
+## How the virus spreads
 
-Verschiedene Teams aus europäischen WissenschaftlerInnen plädieren deshalb dafür, diese Maßnahmen schrittweise durch digitale Tracing-Apps zu ersetzen. Die Vorschläge tragen kompliziert klingende Namen wie "Pan European Privacy Protecting Proximity Tracing" (PEPP-PT) oder "Decentralized Privacy-Preserving Proximity Tracing" (DP^3T), basieren aber auf einem einfachen Prinzip: dem Tracing. Statt flächendeckender Massenisolation sollen Infektionsketten durch das Smartphone extrem präzise nachverfolgt und isoliert werden. Die notwendigen Daten liefert eine App, die alle unmittelbaren physischen Kontakte eines Users mit anderen App-Usern nachvollzieht. Sobald Kontakt zu einer infizierten Person bestand, warnt die App die BenutzerIn schnell und anonym. 
+To understand the spread of COVID-19, we need to know the reproduction number (R). In epidemiology, it describes how many healthy people are on average infected by a single infectious person. The number can be influenced by preventive measures. In the best case the number R decreases and the spread slows down. Without any measures the reproduction rate is estimated to be [between 2 and 3](https://academic.oup.com/jtm/article/27/2/taaa021/5735319).
 
 +++ vis-reproduction 1
 
-If <span class="highlight pink">R<span class="sub">0</span>=2</span> on average one infected person infects two persons leading to expotential growth.
+If <span class="highlight pink">R=2,</span> an infectious person infects two others. The disease spreads exponentially.
 
 +++ vis-reproduction 2
 
-If <span class="highlight yellow">R<span class="sub">0</span>=1</span> the growth remains linear, but if <span class="highlight purple">R<span class="sub">0</span>=3</span> it would spread even more making it more difficult to contain.
+When <span class="highlight yellow">R=1,</span> the number of new infections is constant. But if <span class="highlight purple">R=3,</span> then the disease spreads much more easily and is all the more difficult to control.
 
 +++ vis-reproduction 3
 
-To stop the disease from spreading R<span class="sub">e</span>, the effective reproduction number needs to be below 1. <span class="highlight red">R<span class="sub">e</span>=0.5</span> would mean that only every 2nd case would lead to another infection.
+To stop the virus, the reproduction number must fall below 1. <span class="highlight pink">R=0.5</span> would mean that only every second case leads to a new infection.
 
 +++ vis-reproduction 4
 
-A high level of immunity will lower Re significantly. But since it's a new disease there is no vaccine and natural immunity in the population is low.
+If a large part of the population is immune, R decreases automatically. But because COVID-19 is a new disease, there is neither a vaccine nor sufficient natural immunity.
 
 +++ vis-reproduction 5
 
-Isolation has a simillar effect. But if no other measures are taken expotential spreading will pick up again.
+That is why many governments are opting for lockdown and social distancing. The effect is similar. The problem is: as soon as the measures are lifted, new chains of infection can quickly form.
 
 +++ text-tracing
-## Tracing 
+## Proximity Tracing 
 
-Verschiedene Teams aus europäischen WissenschaftlerInnen plädieren deshalb dafür, diese Maßnahmen schrittweise durch digitale Tracing-Apps zu ersetzen. Die Vorschläge tragen kompliziert klingende Namen wie "Pan European Privacy Protecting Proximity Tracing" (PEPP-PT) oder "Decentralized Privacy-Preserving Proximity Tracing" (DP^3T), basieren aber auf einem einfachen Prinzip: dem Tracing. Statt flächendeckender Massenisolation sollen Infektionsketten durch das Smartphone extrem präzise nachverfolgt und isoliert werden. Die notwendigen Daten liefert eine App, die alle unmittelbaren physischen Kontakte eines Users mit anderen App-Usern nachvollzieht. Sobald Kontakt zu einer infizierten Person bestand, warnt die App die BenutzerIn schnell und anonym.
-
-Die WissenschafterInnen sind optimistisch, die Basis­reproduktions­zahl R0  so auf einen Wert < 1 verringern zu können. 
+Ideally, only infected persons should be isolated and suspected cases should be quarantined. And this is exactly what tracing promises, i.e. the precise recording of possible transmissions. To better understand the method, let's take a closer look at a meeting of the two friends <span class="actor purple">Alice</span> and <span class="actor green">Bob:</span>
 
 +++ vis-tracing 1
 
-<span class="actor a">Alice</span> is friends with <span class="actor b">Bob</span>
+<span class="actor a">Alice</span> is friends with <span class="actor b">Bob.</span>
 
 +++ vis-tracing 2
 
-So <span class="actor a">Alice</span> visits <span class="actor b">Bob</span>
+That’s why <span class="actor a">Alice</span> visits <span class="actor b">Bob.</span>
 
 +++ vis-tracing 3
 
-Then <span class="actor a">Alice</span> develops symptoms, self isolates and gets tested.
+A short time later <span class="actor a">Alice</span> feels unwell and shows symptoms. She goes into quarantine and is tested.
 
 +++ vis-tracing 4
 
-<span class="actor a">Alice</span> is tested positively, but with covid she was already infectios days before developing symptoms.
+<span class="actor a">Alice</span> tests positive for COVID-19, but she was already infectious before the symptoms appeared.
 
 +++ vis-tracing 5
 
-So her Friend <span class="actor b">Bob</span> might has contracted the virus.
+This means that she may have infected her friend <span class="actor b">Bob.</span>
 
 +++ vis-tracing 6
 
-And if he has, it is likely that <span class="actor b">Bob</span> is already unknowingly spreading the disease further.
+If this is true, <span class="actor b">Bob</span> may have unconsciously infected others in the meantime.
 
 +++ vis-tracing 7
 
-But if <span class="actor a">Alices</span> contacts can be traced back, <span class="actor b">Bob</span> and could be warned and asked to get tested and self-isolate.
+If <span class="actor a">Alice's</span> contacts are tracked and informed quickly, <span class="actor b">Bob</span> can also be warned and thus protect his friends.
 
 +++ vis-tracing 8
 
-This helps to break the chain of infection and to contain the further spread of the coronavirus.
+In this way, chains of infection are broken and the spread of the virus is contained.
 
 +++ vis-tracing 9
 
-Tracing can be done manually through over the phone interviews. While definetly helpful, there are downsides as it takes time, which limits the chance to contain the virus… 
+Manual tracing via telephone interviews does help, but it is not fast enough to keep up with the pace the disease spreads.
 
 +++ vis-tracing 10
 
-…and some chains can be nearly impossible to trace. E.g. if <span class="actor a">Alice</span> infected <span class="actor c">Carol</span> in public transport after visiting <span class="actor b">Bob</span>
+And with some contacts it is almost impossible to trace them manually. For example, if <span class="actor a">Alice</span> infects <span class="actor c">Carol</span> on public transport after meeting <span class="actor b">Bob.</span>
 
 +++ vis-tracing 11
 
-<span class="actor a">Alice</span>, <span class="actor b">Bob</span> and <span class="actor c">Carol</span> carry smartphones. By making use of BLE they could detect nearby devices and log duration and proximity of contacts.
+<span class="actor a">Alice,</span> <span class="actor b">Bob,</span> and <span class="actor c">Carol</span> all have smartphones. If they use a tracing app, their devices can detect each other via Bluetooth Low Energy (BLE) and measure the duration and distance of the contact.
 
 +++ vis-tracing 12
 
-When <span class="actor a">Alice</span> is tested positive, that information is transmitted to a <span class="actor gray">server.</span> The phones of <span class="actor b">Bob</span> and <span class="actor c">Carol</span> can reconstruct, that they have been in close contact with a confirmed case and show a warning.
+If <span class="actor a">Alice</span> tests positive, she uploads her data to a server. <span class="actor b">Bob</span> and <span class="actor c">Carol's</span> smartphones can later reconstruct that they were in close contact with <span class="actor a">Alice</span> during the infectious period and report a warning.
 
 +++ vis-tracing 13
 
-However, there are also downsides to this approach. If <span class="actor c">Carol</span> did not install the app, the contact cannot be traced. Furthermore, if designed badly, an app like that could pose a tremendous invasion of privacy.
+Of course, this approach also has its problems. If <span class="actor c">Carol</span> has not installed the app or does not use a smartphone at all, the contact cannot be reconstructed. If the app is poorly designed, this could also endanger data protection and privacy.
 
 +++ text-privacy
 
+Tracing, therefore, means the most complete and rapid detection of infections. This allows affected persons to be quarantined in a targeted approach and even pre-symptomatic infections can be prevented. This is particularly important because about half of all transmissions are pre- or asymptomatic. A [study of the University of Oxford](https://science.sciencemag.org/content/368/6491/eabb6936/tab-pdf) proves this fact and also concludes that a tracing app could permanently reduce the reproduction rate below 1.
+
+
 ## Privacy Preservation
 
-It's voluntary! No repurcussions if you decide to not install the app. The sensitive parts are where data is exchanged between devices. i.e. between two users of the app or between a user and the server. Let's have a look at them.
+How can a tracing app that relies on sensitive health and contact data be both compliant with the strict European data protection regulations and able to fulfill its originally intended purpose? 
+
+1. Usage is voluntary! No person who decides against an installation has to fear any disadvantages. 
+2. Everyone using the app stays anonymous. No conclusions about the identity of any user can be drawn. 
+
+Nevertheless, such systems have vulnerabilities. Especially wherever data is transferred, either between two users of the app or between user and server. Let's take a closer look.
+
 
 +++ vis-privacy 1
 
-Broadcasting your ID makes your device visible not only to other users with the tracing app but to all bluetooth devices. To prevent <span class="actor e">Eve</span> from setting up a network of bluetooth antennas to track <span class="actor a"/>Alice's</span> movements, the boradcasted IDs change periodically.
+We assume that <span class="actor a">Alice</span> doesn't know <span class="actor b">Bob</span> nor <span class="actor c">Carol.</span> What data does <span class="actor a">Alice's</span> smartphone exchange with the others'?
 
 +++ vis-privacy 2
 
-Who has contact with whom, for how long, and how close is quite sensitive data. In an attempt to Identify who <span class="actor a"/>Alice</span> was in contact with or to create a wider social graph of all tracing-app users <span class="actor m">Mallet</span> might try to obtain this data by attacking the <span class="actor gray">server.</span> To prevent this attack, this data stays on <span class="actor a"/>Alice's</span> and <span class="actor b"/>Bob's</span> phones.
+To make tracing possible, the apps need to exchange unique IDs when <span class="actor a">Alice</span> and <span class="actor b">Bob</span> meet. The IDs are generated and stored decentrally on the smartphone. So there is no main server that links IDs with real identities.
 
 +++ vis-privacy 3
 
-Only after she's been tested positively <span class="actor a">Alice</span> uploads data to the <span class="actor gray">server.</span> These data contain her own IDs or keys to generate her IDs cryptographically, but no information on her contacts. That is enough for <span class="actor b">Bob</span> to check if he's been exposed to a confirmed case, and prevents <span class="actor m">Mallet</span> from acessing data that's not public anyways.
+IDs are only valid for a certain time interval and are continuously regenerated. <span class="actor b">Bob</span> and <span class="actor c">Carol</span> both had contact with <span class="actor a">Alice</span> but may receive different IDs. The changing IDs prevent <span class="actor a">Alice's</span> movements from being tracked by third parties.
+
++++ vis-privacy 4
+
+All IDs collected and the associated information (distance and duration) remain stored locally on each user's phone and are not passed on to a server or third parties. So how does the important information that <span class="actor a">Alice</span> was tested positive get to <span class="actor b">Bob</span> and Carol?
+
++++ vis-privacy 5
+
+Well, via a detour. <span class="actor a">Alice</span> sends only her IDs (or to be more precise, the seed keys from which her IDs are generated – this keeps data traffic low) to a server. <span class="actor b">Bob,</span> <span class="actor c">Carol,</span> and all other users download all new seed keys regularly.
+
++++ vis-privacy 6
+
+The app then automatically compares them with the locally stored IDs. If there is a match, it issues a warning – depending on the risk of transmission, which is determined by the duration and distance of the contact.
 
 +++ text-attacks
 
-While the system is designed in a way to preserve privacy, some risks remain. They are mostly inherent to all BLE-based tracing systems or even to contact tracing, including manual, in general. There are two main attack vectors: Identifying a confirmed case and sending false alerts.
+The real identities of users, their contact details, or the duration of an encounter are therefore never passed on to a central server or a third party. Location or movement data is not collected at all. The locally stored IDs will also automatically be deleted from the smartphone after a certain period. 
+
+Data protection is the focus of the app. Still some risks remain. They mostly affect all BLE-based tracing systems, and in some cases even extend to any form of contact tracing. There are two central attack vectors: the identification of a confirmed case and the sending of false alarms.
 
 +++ vis-attacks 1
 
-Since <span class="actor e"/>Eve</span> failed to track people she now tries to indentify people who have been tested positively for having the virus. In the simplest case, she only was in contact with <span class="actor a">Alice</span> or is certain, that her other contacts have not been tested positively.
+<span class="actor e">Eve</span> is an attacker trying to identify people who have tested positive for the virus. In the simplest case, <span class="actor a">Alice</span> was her only contact.
 
 +++ vis-attacks 2
 
-When <span class="actor a">Alice</span> is tested positively and <span class="actor e"/>Eve</span> receives a warning, she can simply figure out that <span class="actor a">Alice</span> must have the virus. Similarly, by using a modified version of the app, that not only notifies about having had contact to a confirmed case, but also about the time of the contact (or by switching accounts/devices after each contact), and simulatainly logging with whom she was in contact at what time <span class="actor e"/>Eve</span> could reconstruct who has been tested positively.
+As soon as <span class="actor a">Alice</span> tests positive and <span class="actor e">Eve</span> receives a warning, she can easily reconstruct that <span class="actor a">Alice</span> must be infected. If she modifies her app so that it also records the date and time of the contacts and notes when she was in contact with whom, <span class="actor e">Eve</span> can apply the same principle to several contacts.
 
 +++ vis-attacks 3
 
-Using a more elaborate setup of linking directional antennas with cameras, credit card terminals or other equpment that can help indentifying people <span class="actor e"/>Eve</span> is also able to identify a larger group of confirmed cases, without being physically close to them herself.
+<span class="actor e">Eve</span> also uses more sophisticated methods. For example, she can position directional antennas and surveillance cameras so that both cover the same area. This allows her to link the anonymous ID with a picture of <span class="actor a">Alice.</span> <span class="actor e">Eve</span> herself doesn't even have to be around for this.
 
 +++ vis-attacks 4
 
-As soon as <span class="actor a">Alice</span> uploads her IDs to the server, <span class="actor e"/>Eve</span> who already knows who is behind those IDs, can identify her.
+As soon as <span class="actor a">Alice</span> publishes her IDs, <span class="actor e">Eve</span> compares them with her database and finds the picture of the now positively tested <span class="actor a">Alice.</span>
 
-+++ text-privacy-old
++++ vis-attacks 5
 
-## Datenschutz
+Meanwhile, <span class="actor m">Mallot</span> tries to trigger false warnings so that people will wrongly quarantine themselves. This works by contacting his target <span class="actor b">Bob</span> and then claiming that he is infected.
 
-Bisher standen artverwandte Apps häufig und auch zurecht in der Kritik, weil sie grundlegende Rechte des europäischen Datenschutzes GDPR unterwandern. Doch anders als bei verschiedenen Tracking-Methoden, die auf umfassenden Bewegungsprofilen von NutzerInnen basieren, stellt PEPP-PT die Privatsphäre und den Datenschutz der User offensiv in den Mittelpunkt. 
++++ vis-attacks 6
 
-Denn um einen ansteckenden Kontakt nachweisen zu können, sind laut DP^3T nur zwei Informationen notwendig: 
+However, this is not so easy. To be considered infected, you need a confirmation code, which you only receive from the authorities after a positive test result.
 
-→ Der Aufenthalt in unmittelbarer Nähe und ausreichender Dauer zu einer infizierten Person (Unabhängig des genauen Ortes)  
-→ Der Fakt, dass diese Kontaktperson zum Zeitpunkt des Treffens ansteckend war  
++++ vis-attacks 7
 
-Das bedeutet auch, dass keine sensiblen Informationen zur übertragenden Person, dem genauen Ort des Treffens, weiteren Bewegungsprotokollen oder weiteren Kontexten notwendig sind. 
+To place his IDs on the server, <span class="actor m">Mallot</span> would, therefore, have to technically enter the system or obtain a valid authentication code through bribery. If he succeeds, he could even send entire groups into isolation by placing antennas in highly frequented public places.
 
++++ vis-attacks 8
+
+Another possibility would be for <span class="actor m">Mallot</span> to send the IDs of people who are likely to test positive soon. For example <span class="actor m">Mallot</span> places one antenna in a COVID-19 test center and another near <span class="actor b">Bob.</span>
+
++++ vis-attacks 9
+
+When <span class="actor a">Alice</span> visits the test center, the antennas relay her ID to <span class="actor b">Bob.</span> His app assumes that this is real contact.
+
++++ vis-attacks 10
+
+As soon as <span class="actor a">Alice</span> reports her infection, <span class="actor b">Bob</span> is warned and goes into self-quarantine. 
 
 +++ text-next
 
-## What’s Next?
+## What we learn from this
 
-Natürlich bleiben nach wie vor einige Fragen offen. Die deutsche Version der App befindet sich aktuell noch in der Entwicklung, beteiligt sind neben dem Heinrich-Hertz-Institut und der TU Dresden auch das Robert Koch-Institut. Einen genauen Termin für die Veröffentlicht gibt es nicht.
+Despite the privacy-protecting approach, tracing by app bears risks. The extent to which these risks are exploited is difficult to assess. Weighing up the pros and cons, we believe that the reduced probability of infecting other people through your infection outweighs the security risks of this tracing app design. [Expert opinion by id est avocats](https://github.com/DP-3T/documents/blob/master/data_protection/DP-3T%20Model%20DPIA.pdf) also considers these residual risks to be acceptable, provided that users are expressly informed about them.
 
-Außerdem ist nicht sicher, welche Maßnahmen PEPP-PT genau ablösen könnte. Mit großer Sicherheit werden die gängigen Abstands- und Hygieneregeln weiterhin aufrecht erhalten. Trotzdem: Durch PEPP-PT kann es möglich werden, Infektionsketten präzise zu verfolgen und somit genau die Menschen zu isolieren, die wirklich einer realen Gefahr ausgesetzt sind. Die Voraussetzung wäre ein breites gesellschaftliches Verständnis dafür, betroffene BürgerInnen für den jeweiligen Isolationszeitraum "freizustellen". 
+The European Union assumes that [about 60%](https://ec.europa.eu/health/sites/health/files/ehealth/docs/covid-19_apps_en.pdf) of the population would have to use and follow the app to break infection chains in a lasting way. But it can still play its part in lowering the reproduction rate if fewer people decide to use it. Tracing apps should, therefore, be seen as a supplement and not a substitute for common measures such as hygiene and distance rules. If successful, they can help to relax restrictive measures and thus solve the dilemma between restrictions and the risk of infection.
 
-Damit kann die App einen erheblichen Beitrag dazu leisten, unser öffentliches Leben wieder zu normalisieren. Die eingangs erwähnten Nebeneffekte von Lockdowns, also die Verletzung unsere Grundrechte, existenzielle wirtschaftliche Schäden und soziale Ungerechtigkeit, würden somit größtenteils aufgehoben werden.
-
-So könnte unsere neue Normalität mit PEPP-PT aussehen.
 
 +++ text-footer 
 
+### Background
+
+Our work refers to the framework «Decentralized Privacy-Preserving Proximity Tracing» published by [DP3T](https://github.com/DP-3T/documents). All documents are publicly available on Github. National implementations may differ.
+
+### Further Links
+- [DP3T: Decentralized privacy-preserving proximity tracing (White Paper)](https://github.com/DP-3T/documents/blob/master/DP3T%20White%20Paper.pdf)
+- [DP3T: Protecting lives & liberty. How contact tracing apps can foil both COVID-19 and Big Brother](https://github.com/DP-3T/documents/blob/master/public_engagement/cartoon/en/comic-en.pdf)
+- [eHealth Network: Mobile applications to support contact tracing in the EU’s fight against COVID-19. Common EU Toolbox for Member States](https://ec.europa.eu/health/sites/health/files/ehealth/docs/covid-19_apps_en.pdf) 
+- [eHealth Network: Interoperability guidelines for approved contact tracing mobile applications in the EU](https://ec.europa.eu/health/sites/health/files/ehealth/docs/contacttracing_mobileapps_guidelines_en.pdf)
+- [Ferretti et al.: Quantifying SARS-CoV-2 transmission suggests epidemic control with digital contact tracing](https://science.sciencemag.org/content/368/6491/eabb6936/tab-pdf)
+- [Id Est Avocats: Data protection assessment report (DP3T)](https://github.com/DP-3T/documents/blob/master/data_protection/DP-3T%20Model%20DPIA.pdf)
+- [Liu, Gayle, Wilder-Smith, Rocklöv: The reproductive number of COVID-19 is higher compared to SARS coronavirus](https://academic.oup.com/jtm/article/27/2/taaa021/5735319)
+- [Nicky Case: What happens next? COVID-19 futures, explained with playable simulations](https://ncase.me/covid-19/)
+- [Republik: Wie Big Tech die Pandemie lösen will](https://www.republik.ch/2020/05/09/wie-big-tech-die-pandemie-loesen-will)
+- [Washington Post: Why outbreaks like coronavirus spread exponentially, and how to “flatten the curve”](https://www.washingtonpost.com/graphics/2020/world/corona-simulator/)
+
 ### Copyright
 
-Dieses Werk ist lizensiert unter [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/?ref=ccchooser). Der Source Code ist auf [Github](https://github.com/fidelthomet/privacy-preserving-proximity-tracing/) veröffetnlicht.
+Berlin, 2020. [This work](https://tracing.ft0.ch/) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/?ref=ccchooser). The source code is available on [Github](https://github.com/fidelthomet/privacy-preserving-proximity-tracing/).
 
-### Impressum
+### Imprint
 
-Verantwortlich für diese Webseite sind Thomas Haas & Fidel Thomet. Für Inhalte auf verlinkte externe Seiten sind wir nicht verantwortlich.
+Responsible for this website are Thomas Haas & Fidel Thomet. We are not responsible for the content of linked external sites.
 
-### Kontakt
+### Contact
 
-Wir sind erreichbar über Twitter [@thomashaas](https://twitter.com/thomashaas) & [@fidelthomet](https://twitter.com/fidelthomet)<br>und per Mail <a href="mailto:tracing@ft0.ch">tracing@ft0.ch</a>.
+You can reach us via Twitter [@thomashaaas](https://twitter.com/thomashaaas) & [@fidelthomet](https://twitter.com/fidelthomet) and mail: <a href="mailto:tracing@ft0.ch">tracing@ft0.ch</a>.
 
-### Datenschutz
+### Data protection
 
-Beim Besuch dieser Webseite werden folgende Informationen auf dem Server in Logfiles gespeichert: Die IP-Adresse, der Browser und das Betriebssystem der Besucherin / des Besuchers, der Zeitpunkt des Besuchs, die aufgerufenen Webseiten und angefragten Dateien und, sofern übermittelt, welche Webseite auf diese verwiesen hat.
+When you visit this website, the following information is stored on the server in log files: The IP address, the browser and operating system of the visitor, the time of the visit, the web pages called up and files requested and, if transmitted, which website referred to them.
 
-Die aufgezeichneten Daten dienen der Fehlersuche und Absicherung des Servers und werden nach 14 Tagen automatisiert gelöscht. Die Daten werden nicht an Dritte übermittelt. Die Webseite verwendet weder Cookies noch werden externe Inhalte eingebettet.
-
+The recorded data is used for error detection and securing the server and is automatically deleted after 14 days. The data will not be transmitted to third parties. The website does not use cookies nor is external content embedded.
 
 +++ dict
 

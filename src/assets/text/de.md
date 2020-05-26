@@ -5,7 +5,7 @@
 
 +++ text-intro
 
-*Eine visuelle Erklärung, warum wir eine Tracing-App brauchen, wie sie funktioniert und welche Risiken existieren.*
+*Eine visuelle Erklärung, warum wir eine Tracing-App brauchen, wie sie funktioniert und welche Risiken existieren*
 
 Seit März stellt COVID-19 viele europäischen Staaten vor einen folgenschweren Konflikt. Maßnahmen wie Lockdowns und Kontaktsperren, die von der überwiegenden Anzahl aller Länder ergriffen wurden, helfen dabei, die Ausbreitung des Virus zu verlangsamen und Gesundheitssysteme zu entlasten. Doch es gibt eine offensichtliche Kehrseite: Die Eingriffe schränken unsere Grundrechte fundamental ein, stellen weite Teile der Wirtschaft vor existenzielle Fragen und verstärken soziale Ungleichheit.
 
@@ -127,6 +127,7 @@ Was ist noch wichtig? IDs gelten nur für ein bestimmtes Zeitintervall und werde
 +++ vis-privacy 4
 
 Alle gesammelten IDs und die dazugehörigen Informationen (Abstand, Dauer) bleiben lokal auf dem Smartphone jedes Users gespeichert und werden nicht an einen Server oder an Dritte weitergegeben. Wie gelangt also die wichtige Information, dass <span class="actor a">Alice</span> positiv getestet wurde, an <span class="actor b">Bob</span> und <span class="actor c">Carol?</span> 
+
 +++ vis-privacy 5
 
 Nun, über einen Umweg. <span class="actor a">Alice</span> sendet nämlich nur ihre IDs (oder besser gesagt die Seed Keys, aus dem ihre IDs generiert werden – so bleibt der Daten-Traffic gering) an einen Server. <span class="actor b">Bob,</span> <span class="actor c">Carol</span> und alle anderen NutzerInnen downloaden regelmäßig alle neuen Seed Keys. 
