@@ -3,9 +3,11 @@
 May 27 2020<br>
 [Thomas Haas](https://twitter.com/thomashaaas) & [Fidel Thomet](https://twitter.com/fidelthomet)
 
-+++ text-intro
++++ text-teaser
 
-*A Visual explainer on why we need a tracing app, how it works and the risks it entails*
+<span class="teaser">*A visual explainer on why we need a tracing app, how it works and the risks it entails*</span>
+
++++ text-intro
 
 Since March many European states have been faced with the problems posed by COVID-19. Measures such as lockdowns and contact restrictions were taken by the majority of countries. They help to slow down the spread of the virus and relieve pressure on health systems. But there is an obvious downside. The interventions radically restrict our fundamental rights, bring large parts of the economy in a state of despair, and increase social inequality.
 

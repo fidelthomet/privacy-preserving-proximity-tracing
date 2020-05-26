@@ -39,11 +39,11 @@ html {
     line-height: 0.82;
     letter-spacing: -0.08em;
     color: $color-black;
-    margin: $spacing / 2 0 $spacing;
+    margin: $spacing / 2 0 $spacing / 2;
 
     @include min-width($narrow) {
       font-size: 6em;
-      margin: $spacing 0 $spacing * 2;
+      margin: $spacing 0 $spacing;
     }
     @include min-width($medium) {
       font-size: 6em;
@@ -81,7 +81,7 @@ html {
     list-style: none;
     margin: 0 0 $spacing / 2 0;
     li:before {
-      content: '– ';
+      // content: '– ';
     }
   }
 
@@ -91,7 +91,9 @@ html {
 
   li {
     a {
-      text-decoration: none;
+      &:before {
+        content: '→ ';
+      }
     }
   }
 
@@ -118,6 +120,16 @@ html {
   }
   .fade-enter, .fade-leave-to {
     opacity: 0;
+  }
+
+  .teaser {
+    max-width: 70%;
+    display: block;
+
+    @include min-width($narrow) {
+      font-size: 1.25em;
+      max-width: 60%;
+    }
   }
 
   input[type=range] {

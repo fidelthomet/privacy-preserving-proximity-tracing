@@ -8,6 +8,7 @@
         <span>Proximity</span><br>
         <span>Tracing</span>
       </h1>
+      <MdRenderer el="section" :text="getText('text-teaser')"/>
     </header>
     <nav>
       <router-link v-for="l in languages" :key="l.path" :to="l.path">{{ l.name }}</router-link>
@@ -40,6 +41,7 @@
       </ScrollWrapper>
       <MdRenderer el="section" :text="getText('text-next')"/>
     </article>
+    <img class="group-2" src="@/assets/img/group2.png"/>
     <footer>
       <MdRenderer el="section" :text="getText('text-footer')"/>
     </footer>
@@ -100,7 +102,9 @@ export default {
   align-items: center;
 
   header {
-    background: $color-background;
+    background: url("~@/assets/img/group1.png") center center no-repeat;
+    background-size: auto 100%;
+    background-color: $color-background;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -152,6 +156,12 @@ export default {
     &:last-child {
       padding-bottom: 50vh;
     }
+  }
+
+  .group-2 {
+    width: 100%;
+    max-width: $max-width;
+    margin-bottom: $spacing / 2;
   }
 
   footer {

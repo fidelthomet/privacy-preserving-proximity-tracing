@@ -3,9 +3,11 @@
 27\. Mai 2020<br>
 [Thomas Haas](https://twitter.com/thomashaaas) & [Fidel Thomet](https://twitter.com/fidelthomet)
 
-+++ text-intro
++++ text-teaser
 
-*Eine visuelle Erklärung, warum wir eine Tracing-App brauchen, wie sie funktioniert und welche Risiken existieren*
+<span class="teaser">*Eine visuelle Erklärung, warum wir eine Tracing-App brauchen, wie sie funktioniert und welche Risiken existieren*</span>
+
++++ text-intro
 
 Seit März stellt COVID-19 viele europäischen Staaten vor einen folgenschweren Konflikt. Maßnahmen wie Lockdowns und Kontaktsperren, die von der überwiegenden Anzahl aller Länder ergriffen wurden, helfen dabei, die Ausbreitung des Virus zu verlangsamen und Gesundheitssysteme zu entlasten. Doch es gibt eine offensichtliche Kehrseite: Die Eingriffe schränken unsere Grundrechte fundamental ein, stellen weite Teile der Wirtschaft vor existenzielle Fragen und verstärken soziale Ungleichheit.
 
