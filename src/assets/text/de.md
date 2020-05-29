@@ -88,11 +88,11 @@ Und bei manchen Kontakten ist es fast unmöglich, sie manuell nachzuvollziehen. 
 
 +++ vis-tracing 11
 
-<span class="actor a">Alice,</span> <span class="actor b">Bob</span> und <span class="actor c">Carol</span> benutzen Smartphones. Wenn Sie eine Tracing-App verwenden, können sich ihre Geräte über Bluetooth Low Energy (BLE) erkennen und Dauer und Abstand des Kontakts messen. 
+<span class="actor a">Alice,</span> <span class="actor b">Bob</span> und <span class="actor c">Carol</span> benutzen Smartphones. Wenn Sie eine Tracing-App verwenden, können sich ihre Geräte über Bluetooth Low Energy (BLE) erkennen und Dauer und ungefähren Abstand des Kontakts messen. 
 
 +++ vis-tracing 12
 
-Wird <span class="actor a">Alice</span> positiv getestet, übermittelt sie diese Information an einen Server. Die Smartphones von <span class="actor b">Bob</span> und <span class="actor c">Carol</span> können später rekonstruieren, dass sie innerhalb des infektiösen Zeitraums in engem Kontakt zu <span class="actor a">Alice</span> standen und melden eine Warnung. 
+Wird <span class="actor a">Alice</span> positiv getestet, übermittelt sie diese Information an einen Server. Die Smartphones von <span class="actor b">Bob</span> und <span class="actor c">Carol</span> können später rekonstruieren, dass sie innerhalb des infektiösen Zeitraums in engem Kontakt zu <span class="actor a">Alice</span> standen und melden ihnen eine Warnung. 
 
 +++ vis-tracing 13
 
@@ -109,8 +109,8 @@ Das ist besonders wichtig, da laut einer [Studie der Universität Oxford](https:
 
 Wie kann eine Tracing-App, die mit sensiblen Gesundheits- und Kontaktdaten arbeitet, konzipiert und designt sein, um sowohl die strengen europäischen Datenschutzrichtlinien zu befolgen als auch ihren ursprünglich intendierten Zweck zu erfüllen? 
 
-1. Die Nutzung ist freiwillig! Keine Person, die sich gegen eine Installation entscheidet, muss daraus weitere Nachteile fürchten. 
-2. Alle, die die App nutzen, tun das anonym. Es können also keine Rückschlüsse auf die Identität der NutzerInnen gezogen werden. 
+1. **Die Nutzung ist freiwillig!** Keine Person, die sich gegen eine Installation entscheidet, muss daraus weitere Nachteile fürchten. 
+2. **Alle, die die App nutzen, tun das anonym.** Es können also keine Rückschlüsse auf die Identität der NutzerInnen gezogen werden. 
 
 Trotzdem haben solche Systeme vulnerable Stellen. Nämlich überall dort, wo Daten übermittelt werden – entweder zwischen zwei NutzerInnen der App oder zwischen NutzerIn und Server. Werfen wir also einen genaueren Blick darauf: 
 
@@ -136,7 +136,7 @@ Nun, über einen Umweg. <span class="actor a">Alice</span> sendet nämlich nur i
 
 +++ vis-privacy 6
 
-Die App gleicht sie dann automatisch mit den lokal gespeicherten IDs ab. Gibt es eine Übereinstimmung, spricht sie – abhängig vom Übertragungsrisiko, das sich aus Kontaktdauer und -distanz ergibt – eine Warnung aus. 
+Die App gleicht sie dann automatisch mit den lokal gespeicherten IDs ab. Gibt es eine Übereinstimmung, spricht sie – abhängig vom Übertragungsrisiko, das sich aus Kontaktdauer und geschätzter Distanz ergibt – eine Warnung aus. 
 
 
 +++ text-attacks

@@ -5,7 +5,7 @@ May 27 2020<br>
 
 +++ text-teaser
 
-<span class="teaser">*A visual explainer on why we need a tracing app, how it works and the risks it entails*</span>
+<span class="teaser">*A visual explainer on why we need a tracing app, how it would work and the risks it entails*</span>
 
 +++ text-intro
 
@@ -19,7 +19,7 @@ The newly formed consortium [DP3T](https://dp-3t.github.io/) (Decentralized Priv
 
 ## How the virus spreads
 
-To understand the spread of COVID-19, we need to know the reproduction number (R). In epidemiology, it describes how many healthy people are on average infected by a single infectious person. The number can be influenced by preventive measures. In the best case the number R decreases and the spread slows down. Without any measures the reproduction rate is estimated to be [between 2 and 3](https://academic.oup.com/jtm/article/27/2/taaa021/5735319).
+To understand the spread of COVID-19, we need to know the reproduction number (R). In epidemiology, it describes how many healthy people are on average infected by a single infectious person. The number can be influenced by preventive measures. In the best case, the number R decreases, and the spread slows down. Without any measures, the reproduction rate is estimated to be [between 2 and 3](https://academic.oup.com/jtm/article/27/2/taaa021/5735319).
 
 +++ vis-reproduction 1
 
@@ -42,7 +42,7 @@ If a large part of the population is immune, R decreases automatically. But beca
 That is why many governments are opting for lockdown and social distancing. The effect is similar. The problem is: as soon as the measures are lifted, new chains of infection can quickly form.
 
 +++ text-tracing
-## Proximity Tracing 
+## Proximity tracing 
 
 Ideally, only infected persons should be isolated and suspected cases should be quarantined. And this is exactly what tracing promises, i.e. the precise recording of possible transmissions. To better understand the method, let's take a closer look at a meeting of the two friends <span class="actor purple">Alice</span> and <span class="actor green">Bob:</span>
 
@@ -56,7 +56,7 @@ That’s why <span class="actor a">Alice</span> visits <span class="actor b">Bob
 
 +++ vis-tracing 3
 
-A short time later <span class="actor a">Alice</span> feels unwell and shows symptoms. She goes into quarantine and is tested.
+A short time later, <span class="actor a">Alice</span> feels unwell and shows symptoms. She goes into quarantine and is tested.
 
 +++ vis-tracing 4
 
@@ -76,7 +76,7 @@ If <span class="actor a">Alice's</span> contacts are tracked and informed quickl
 
 +++ vis-tracing 8
 
-In this way, chains of infection are broken and the spread of the virus is contained.
+In this way, chains of infection are broken, and the spread of the virus is contained.
 
 +++ vis-tracing 9
 
@@ -88,11 +88,11 @@ And with some contacts it is almost impossible to trace them manually. For examp
 
 +++ vis-tracing 11
 
-<span class="actor a">Alice,</span> <span class="actor b">Bob,</span> and <span class="actor c">Carol</span> all have smartphones. If they use a tracing app, their devices can detect each other via Bluetooth Low Energy (BLE) and measure the duration and distance of the contact.
+<span class="actor a">Alice,</span> <span class="actor b">Bob,</span> and <span class="actor c">Carol</span> all have smartphones. If they use a tracing app, their devices can detect each other via Bluetooth Low Energy (BLE) and measure the duration and approximate distance of the contact.
 
 +++ vis-tracing 12
 
-If <span class="actor a">Alice</span> tests positive, she uploads her data to a server. <span class="actor b">Bob</span> and <span class="actor c">Carol's</span> smartphones can later reconstruct that they were in close contact with <span class="actor a">Alice</span> during the infectious period and report a warning.
+If <span class="actor a">Alice</span> tests positive, she uploads her data to a server. <span class="actor b">Bob</span> and <span class="actor c">Carol's</span> smartphones can later reconstruct that they were in close contact with <span class="actor a">Alice</span> during the infectious period and report a warning to them.
 
 +++ vis-tracing 13
 
@@ -100,18 +100,17 @@ Of course, this approach also has its problems. If <span class="actor c">Carol</
 
 +++ text-privacy
 
-Tracing, therefore, means the most complete and rapid detection of infections. This allows affected persons to be quarantined in a targeted approach and even pre-symptomatic infections can be prevented. This is particularly important because about half of all transmissions are pre- or asymptomatic. A [study of the University of Oxford](https://science.sciencemag.org/content/368/6491/eabb6936/tab-pdf) proves this fact and also concludes that a tracing app could permanently reduce the reproduction rate below 1.
+Tracing, therefore, means the most complete and rapid detection of infections. This allows affected persons to be quarantined in a targeted approach and even pre-symptomatic infections can be prevented. This is particularly important because about half of all transmissions are pre- or asymptomatic. A [study by the University of Oxford](https://science.sciencemag.org/content/368/6491/eabb6936/tab-pdf) proves this fact and also concludes that a tracing app could permanently reduce the reproduction rate below 1.
 
 
-## Privacy Preservation
+## Privacy preservation
 
-How can a tracing app that relies on sensitive health and contact data be both compliant with the strict European data protection regulations and able to fulfill its originally intended purpose? 
+How can a tracing app that relies on sensitive health and contact data be both compliant with the strict European data protection regulations and able to fulfil its originally intended purpose?
 
-1. Usage is voluntary! No person who decides against an installation has to fear any disadvantages. 
-2. Everyone using the app stays anonymous. No conclusions about the identity of any user can be drawn. 
-
-Nevertheless, such systems have vulnerabilities. Especially wherever data is transferred, either between two users of the app or between user and server. Let's take a closer look.
-
+1. **Usage is voluntary!** No person who decides against an installation has to fear any disadvantages.
+2. **App users stay anonymous.** No conclusions about the identity of any user can be drawn.
+ 
+Nevertheless, such systems have vulnerabilities — especially wherever data is transferred, either between two users of the app or between user and server. Let's take a closer look.
 
 +++ vis-privacy 1
 
@@ -119,15 +118,15 @@ We assume that <span class="actor a">Alice</span> doesn't know <span class="acto
 
 +++ vis-privacy 2
 
-To make tracing possible, the apps need to exchange unique IDs when <span class="actor a">Alice</span> and <span class="actor b">Bob</span> meet. The IDs are generated and stored decentrally on the smartphone. So there is no main server that links IDs with real identities.
+To make tracing possible, the apps need to exchange unique IDs when <span class="actor a">Alice</span> and <span class="actor b">Bob</span> meet. The IDs are generated and stored decentrally on the smartphone. So there is no central server that links IDs with real identities.
 
 +++ vis-privacy 3
 
-IDs are only valid for a certain time interval and are continuously regenerated. <span class="actor b">Bob</span> and <span class="actor c">Carol</span> both had contact with <span class="actor a">Alice</span> but may receive different IDs. The changing IDs prevent <span class="actor a">Alice's</span> movements from being tracked by third parties.
+IDs are only valid for a specified time interval and are continuously regenerated. <span class="actor b">Bob</span> and <span class="actor c">Carol</span> both had contact with <span class="actor a">Alice</span> but may receive different IDs. The changing IDs prevent <span class="actor a">Alice's</span> movements from being tracked by third parties.
 
 +++ vis-privacy 4
 
-All IDs collected and the associated information (distance and duration) remain stored locally on each user's phone and are not passed on to a server or third parties. So how does the important information that <span class="actor a">Alice</span> was tested positive get to <span class="actor b">Bob</span> and Carol?
+All IDs collected and the associated information (distance and duration) remain stored locally on each user's phone and are not passed on to a server or third parties. So how does the critical information that <span class="actor a">Alice</span> was tested positive get to <span class="actor b">Bob</span> and Carol?
 
 +++ vis-privacy 5
 
@@ -135,13 +134,13 @@ Well, via a detour. <span class="actor a">Alice</span> sends only her IDs (or to
 
 +++ vis-privacy 6
 
-The app then automatically compares them with the locally stored IDs. If there is a match, it issues a warning – depending on the risk of transmission, which is determined by the duration and distance of the contact.
+The app then automatically compares them with the locally stored IDs. If there is a match, it issues a warning, assuming the specific risk of transmission. This risk depends on the duration of the encounter and the estimated distance
 
 +++ text-attacks
 
 The real identities of users, their contact details, or the duration of an encounter are therefore never passed on to a central server or a third party. Location or movement data is not collected at all. The locally stored IDs will also automatically be deleted from the smartphone after a certain period. 
 
-Data protection is the focus of the app. Still some risks remain. They mostly affect all BLE-based tracing systems, and in some cases even extend to any form of contact tracing. There are two central attack vectors: the identification of a confirmed case and the sending of false alarms.
+Data protection is the focus of the app. Still, some risks remain. They mostly affect all BLE-based tracing systems, and in some cases even extend to any form of contact tracing. There are two central attack vectors: the identification of a confirmed case and the sending of false alarms.
 
 +++ vis-attacks 1
 
@@ -173,7 +172,7 @@ To place his IDs on the server, <span class="actor m">Mallot</span> would, there
 
 +++ vis-attacks 8
 
-Another possibility would be for <span class="actor m">Mallot</span> to send the IDs of people who are likely to test positive soon. For example <span class="actor m">Mallot</span> places one antenna in a COVID-19 test center and another near <span class="actor b">Bob.</span>
+Another possibility would be for <span class="actor m">Mallot</span> to send the IDs of people who are likely to test positive soon. For example, <span class="actor m">Mallot</span> places one antenna in a COVID-19 test center and another near <span class="actor b">Bob.</span>
 
 +++ vis-attacks 9
 
@@ -187,7 +186,7 @@ As soon as <span class="actor a">Alice</span> reports her infection, <span class
 
 ## What we learn from this
 
-Despite the privacy-protecting approach, tracing by app bears risks. The extent to which these risks are exploited is difficult to assess. Weighing up the pros and cons, we believe that the reduced probability of infecting other people through your infection outweighs the security risks of this tracing app design. [Expert opinion by id est avocats](https://github.com/DP-3T/documents/blob/master/data_protection/DP-3T%20Model%20DPIA.pdf) also considers these residual risks to be acceptable, provided that users are expressly informed about them.
+Despite the privacy-protecting approach, tracing by app bears risks. The extent to which these risks are exploited is challenging to assess. Weighing up the pros and cons, we believe that the reduced probability of infecting other people through your infection outweighs the security risks of this tracing app design. [Expert opinion by id est avocats](https://github.com/DP-3T/documents/blob/master/data_protection/DP-3T%20Model%20DPIA.pdf) also considers these residual risks to be acceptable, provided that users are expressly informed about them.
 
 The European Union assumes that [about 60%](https://ec.europa.eu/health/sites/health/files/ehealth/docs/covid-19_apps_en.pdf) of the population would have to use and follow the app to break infection chains in a lasting way. But it can still play its part in lowering the reproduction rate if fewer people decide to use it. Tracing apps should, therefore, be seen as a supplement and not a substitute for common measures such as hygiene and distance rules. If successful, they can help to relax restrictive measures and thus solve the dilemma between restrictions and the risk of infection.
 
