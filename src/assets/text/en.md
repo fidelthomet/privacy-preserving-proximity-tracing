@@ -72,7 +72,7 @@ If this is true, <span class="actor b">Bob</span> may have unconsciously infecte
 
 +++ vis-tracing 7
 
-If <span class="actor a">Alice's</span> contacts are tracked and informed quickly, <span class="actor b">Bob</span> can also be warned and thus protect his friends.
+If <span class="actor a">Alice's</span> contacts are traced and informed quickly, <span class="actor b">Bob</span> can also be warned and thus protect his friends.
 
 +++ vis-tracing 8
 
