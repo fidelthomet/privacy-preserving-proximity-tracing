@@ -86,7 +86,7 @@ export default {
       const { padding, step, progress, innerWidth } = this
       return [{
         text: 'R₀=2',
-        x: padding * 1.35,
+        x: innerWidth / 2 - padding * 0.4,
         y: padding,
         opacity: step === 1 && progress < 0.9 ? 1 : 0
       }, {
@@ -96,7 +96,7 @@ export default {
         opacity: step === 1 && progress > 0.3 && progress < 0.9 ? 1 : 0
       }, {
         text: 'R₀=1',
-        x: innerWidth / 2 - padding * 0.4,
+        x: padding * 1.35,
         y: padding,
         opacity: step === 1 && progress > 0.5 && progress < 0.9 ? 1 : 0
       }]
@@ -118,8 +118,8 @@ export default {
         const { generateReproductions, calcRows, lines } = this
         calcRows()
         this.reproductions = [
-          generateReproductions(2, lines),
           generateReproductions(1, lines),
+          generateReproductions(2, lines),
           generateReproductions(3, lines)
         ]
         p.noLoop()
