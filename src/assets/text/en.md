@@ -205,6 +205,10 @@ Our work refers to the framework «Decentralized Privacy-Preserving Proximity Tr
 - [Republik: Wie Big Tech die Pandemie lösen will](https://www.republik.ch/2020/05/09/wie-big-tech-die-pandemie-loesen-will)
 - [Washington Post: Why outbreaks like coronavirus spread exponentially, and how to “flatten the curve”](https://www.washingtonpost.com/graphics/2020/world/corona-simulator/)
 
+### Thanks to 
+
+Gerd Beuster, Marian Dörk, Francesca Morini, and Jonas Parnow for providing valuable feedback.
+
 ### Copyright
 
 Berlin, 2020. [This work](https://tracing.ft0.ch/) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/?ref=ccchooser). The source code is available on [Github](https://github.com/fidelthomet/privacy-preserving-proximity-tracing/).

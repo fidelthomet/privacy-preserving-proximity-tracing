@@ -208,6 +208,10 @@ Unsere Arbeit bezieht sich auf das von DP3T veröffentlichte Framework «Decentr
 - [Republik: Wie Big Tech die Pandemie lösen will](https://www.republik.ch/2020/05/09/wie-big-tech-die-pandemie-loesen-will)
 - [Washington Post: Why outbreaks like coronavirus spread exponentially, and how to “flatten the curve”](https://www.washingtonpost.com/graphics/2020/world/corona-simulator/)
 
+### Danke an 
+
+Gerd Beuster, Marian Dörk, Francesca Morini und Jonas Parnow für das hilfreiche Feedback.
+
 ### Copyright
 
 Berlin, 2020. [Dieses Werk](https://tracing.ft0.ch/) ist lizensiert unter [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/?ref=ccchooser). Der Source Code ist auf [Github](https://github.com/fidelthomet/privacy-preserving-proximity-tracing/) veröffentlicht.
