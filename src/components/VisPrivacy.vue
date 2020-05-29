@@ -86,7 +86,7 @@ export default {
           text: {
             show: bw(2, 6),
             offset: 48,
-            html: table([[this.getId(0), '30', '150']])
+            html: table([[this.getId(0), '30', '2']])
           }
         }, {
           name: 'C',
@@ -100,7 +100,7 @@ export default {
           text: {
             show: bw(3, 6),
             offset: 48,
-            html: table([[this.getId(3), '30', '150']])
+            html: table([[this.getId(3), '30', '1']])
           }
         }, {
           key: 'transmission',
@@ -117,7 +117,7 @@ export default {
             html: table([[this.getId(0, 4)], [this.getId(3, 4)]], null, [''])
           }
         }, {
-          name: '↔',
+          name: '⌘',
           show: bw(4, 6),
           class: ['invert'],
           color: 'gray',
@@ -142,17 +142,17 @@ export default {
           large: sp < 2.5,
           dir: 1
         }, {
-          nodes: ['A', '↔'],
+          nodes: ['A', '⌘'],
           show: bw(4, 5),
           color: 'yellow',
           r: 0
         }, {
-          nodes: ['B', '↔'],
+          nodes: ['B', '⌘'],
           show: bw(5, 6),
           color: 'yellow',
           r: 0
         }, {
-          nodes: ['C', '↔'],
+          nodes: ['C', '⌘'],
           show: bw(5, 6),
           color: 'yellow',
           r: 0
@@ -181,7 +181,7 @@ export default {
       const { sp } = this
       return sp >= min && sp < max
     },
-    table (rows, limit, head = ['ID', 'MIN', 'CM']) {
+    table (rows, limit, head = ['ID', 'MIN', 'M']) {
       const th = `<tr>${
           head.map(c => `<th>${c}</th>`).join('')
         }</tr>`

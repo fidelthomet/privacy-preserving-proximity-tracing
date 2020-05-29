@@ -63,7 +63,7 @@ export default {
           text: {
             show: bw(0.5, 2),
             offset: -48,
-            html: table([[this.trackingIds[1], '10', '100']])
+            html: table([[this.trackingIds[1], '10', '1']])
           }
         }, {
           name: 'A-Base',
@@ -86,7 +86,7 @@ export default {
           text: {
             show: bw(8.5, 10),
             offset: 48,
-            html: table([[`${this.trackingIds[0]}, …`, 15, 100]])
+            html: table([[`${this.trackingIds[0]}, …`, 15, 1]])
           }
         }, {
           name: 'C',
@@ -111,7 +111,7 @@ export default {
           text: {
             show: bw(0.5, 2),
             offset: 48,
-            html: table([[this.trackingIds[0], '10', '100']])
+            html: table([[this.trackingIds[0], '10', '1']])
           }
         }, {
           name: 'M',
@@ -124,7 +124,7 @@ export default {
             offset: 0
           }
         }, {
-          name: '↔',
+          name: '⌘',
           show: bw(1, 2) || bw(3, 4) || bw(5, 7) || bw(9, 10),
           class: ['invert'],
           color: 'gray',
@@ -176,13 +176,13 @@ export default {
           large: progress < 0.5,
           dir: 1
         }, {
-          nodes: ['A', '↔'],
+          nodes: ['A', '⌘'],
           show: bw(1, 2) || bw(3, 4) || bw(9, 10),
           color: 'yellow',
           dir: 1,
           r: bw(1, 2) || bw(9, 10) ? 0 : 2 / 3
         }, {
-          nodes: ['E', '↔'],
+          nodes: ['E', '⌘'],
           show: bw(1, 2) || bw(3, 4),
           color: 'yellow',
           dir: 1,
@@ -202,19 +202,19 @@ export default {
           r: 1,
           dotted: true
         }, {
-          nodes: ['M', '↔'],
+          nodes: ['M', '⌘'],
           show: bw(5.4, 7),
           color: 'yellow',
           dir: 1,
           dashed: bw(5, 6)
         }, {
-          nodes: ['M', '↔'],
+          nodes: ['M', '⌘'],
           show: bw(6, 7),
           color: 'red',
           dir: 0,
           dotted: true
         }, {
-          nodes: ['B', '↔'],
+          nodes: ['B', '⌘'],
           show: bw(5.4, 7) || bw(9, 10),
           color: 'yellow',
           dashed: bw(5, 6),
@@ -315,7 +315,7 @@ export default {
       const { sp } = this
       return sp >= min && sp < max
     },
-    table (rows, limit, head = ['ID', 'MIN', 'CM']) {
+    table (rows, limit, head = ['ID', 'MIN', 'M']) {
       const th = `<tr>${
           head.map(c => `<th>${c}</th>`).join('')
         }</tr>`

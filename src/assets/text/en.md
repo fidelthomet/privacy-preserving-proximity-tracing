@@ -44,7 +44,7 @@ That is why many governments are opting for lockdown and social distancing. The 
 +++ text-tracing
 ## Proximity tracing 
 
-Ideally, only infected persons should be isolated and suspected cases should be quarantined. And this is exactly what tracing promises, i.e. the precise recording of possible transmissions. To better understand the method, let's take a closer look at a meeting of the two friends <span class="actor purple">Alice</span> and <span class="actor green">Bob:</span>
+Ideally, only infected persons should be isolated and suspected cases should be quarantined. And this is exactly what tracing promises, i.e. the precise recording of possible transmissions. To better understand the method, let's take a closer look at a meeting of the two friends <span class="actor purple">Alice</span> and <span class="actor green">Bob.</span>
 
 +++ vis-tracing 1
 

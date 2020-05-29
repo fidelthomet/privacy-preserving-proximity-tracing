@@ -64,7 +64,7 @@ export default {
           text: {
             hide: step < 11,
             offset: -48,
-            html: table([['B', '30', '150'], ['C', '15', '100']], bw(11, 11 + 1 / 3) ? 0 : bw(11, 11 + 2 / 3) ? 1 : 2)
+            html: table([['B', '30', '2'], ['C', '15', '1']], bw(11, 11 + 1 / 3) ? 0 : bw(11, 11 + 2 / 3) ? 1 : 2)
           }
         }, {
           name: 'A-Base',
@@ -88,7 +88,7 @@ export default {
           text: {
             hide: step < 11,
             offset: 48,
-            html: table([['A', '30', '150']], bw(11, 11 + 1 / 3) ? 0 : 1)
+            html: table([['A', '30', '2']], bw(11, 11 + 1 / 3) ? 0 : 1)
           }
         }, {
           name: '+',
@@ -153,7 +153,7 @@ export default {
           text: {
             hide: !bw(10, 13),
             offset: 48,
-            html: table([['A', '15', '100']], bw(11, 11 + 2 / 3) ? 0 : 1)
+            html: table([['A', '15', '1']], bw(11, 11 + 2 / 3) ? 0 : 1)
           }
         }, {
           key: 'c0',
@@ -186,7 +186,7 @@ export default {
             offset: 0
           }
         }, {
-          name: '↔',
+          name: '⌘',
           hide: sp < 12,
           class: ['invert'],
           color: 'gray',
@@ -267,19 +267,19 @@ export default {
           r: 0,
           dashed: true
         }, {
-          nodes: ['A', '↔'],
+          nodes: ['A', '⌘'],
           show: bw(12, 14),
           color: 'yellow',
           dir: 0,
           r: 0
         }, {
-          nodes: ['B', '↔'],
+          nodes: ['B', '⌘'],
           show: bw(12, 14),
           color: 'yellow',
           dir: 0,
           r: 1.2
         }, {
-          nodes: ['C', '↔'],
+          nodes: ['C', '⌘'],
           show: step === 12,
           color: 'yellow',
           dir: 1,
@@ -337,7 +337,7 @@ export default {
       const { sp } = this
       return sp >= min && sp < max
     },
-    table (rows, limit, head = ['ID', 'MIN', 'CM']) {
+    table (rows, limit, head = ['ID', 'MIN', 'M']) {
       const th = `<tr>${
           head.map(c => `<th>${c}</th>`).join('')
         }</tr>`
