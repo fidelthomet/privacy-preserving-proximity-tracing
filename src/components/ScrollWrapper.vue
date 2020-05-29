@@ -110,6 +110,7 @@ export default {
 <style scoped lang="scss">
 @import "@/assets/style/global";
 .scroll-wrapper {
+  width: 100%;
   margin: $spacing * 1.5 0 $spacing * 1.5;
   display: flex;
   flex-direction: column;
@@ -119,14 +120,14 @@ export default {
     top: 0;
     background: $color-background;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     z-index: -1;
     display: flex;
     justify-content: center;
     align-items: center;
     figure {
       height: 100vh;
-      width: 100vw;
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -156,7 +157,7 @@ export default {
       padding: 25vh 0;
 
       .md-renderer {
-        width: 100vw;
+        width: 100%;
         max-width: 420px;
         font-size: 0.8em;
         padding: 0 $spacing / 2;

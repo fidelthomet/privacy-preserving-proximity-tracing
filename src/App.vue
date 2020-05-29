@@ -145,7 +145,9 @@ export default {
 
   article {
     width: 100%;
-    max-width: $max-width;
+    display: flex;
+      flex-direction: column;
+      align-items: center;
     > .md-renderer {
       padding: 0 $spacing / 2;
     }
