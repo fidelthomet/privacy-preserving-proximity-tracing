@@ -48,7 +48,7 @@ Idealerweise sollten also nur Infizierte isoliert und Verdachtsfälle quarantän
 
 +++ vis-tracing 1
 
-<span class="actor a">Alice</span> ist mit <span class="actor b">Bob</span> befreundet.
+<span class="actor purple">Alice</span> ist mit <span class="actor green">Bob</span> befreundet.
 
 +++ vis-tracing 2
 
@@ -112,7 +112,7 @@ Trotzdem haben solche Systeme vulnerable Stellen. Nämlich überall dort, wo Dat
 
 +++ vis-privacy 1
 
-Gehen wir dieses Mal davon aus, dass <span class="actor a">Alice</span> weder <span class="actor b">Bob</span> noch <span class="actor c">Carol</span> kennt. Welche Daten tauscht <span class="actor a">Alices</span> Smartphone mit dem der anderen aus? 
+Gehen wir dieses Mal davon aus, dass <span class="actor purple">Alice</span> weder <span class="actor green">Bob</span> noch <span class="actor green">Carol</span> kennt. Welche Daten tauscht <span class="actor purple">Alices</span> Smartphone mit dem der anderen aus? 
 
 +++ vis-privacy 2
 
@@ -143,7 +143,7 @@ Der Datenschutz steht also merklich im Fokus der App. Trotzdem gibt es Restrisik
 
 +++ vis-attacks 1
 
-<span class="actor e">Eve</span> ist eine <span class="highlight red">Angreiferin</span> und versucht, Personen zu identifizieren, die positiv auf das Virus getestet wurden. Im einfachsten Fall hatte sie selbst ausschließlich Kontakt zu <span class="actor a">Alice.</span>
+<span class="actor red">Eve</span> ist eine <span class="highlight red">Angreiferin</span> und versucht, Personen zu identifizieren, die positiv auf das Virus getestet wurden. Im einfachsten Fall hatte sie selbst ausschließlich Kontakt zu <span class="actor purple">Alice.</span>
 
 +++ vis-attacks 2
 

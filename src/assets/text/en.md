@@ -48,7 +48,7 @@ Ideally, only infected persons should be isolated and suspected cases should be 
 
 +++ vis-tracing 1
 
-<span class="actor a">Alice</span> is friends with <span class="actor b">Bob.</span>
+<span class="actor purple">Alice</span> is friends with <span class="actor green">Bob.</span>
 
 +++ vis-tracing 2
 
@@ -110,7 +110,7 @@ Nevertheless, such systems have vulnerabilities — especially wherever data is 
 
 +++ vis-privacy 1
 
-We assume that <span class="actor a">Alice</span> doesn't know <span class="actor b">Bob</span> nor <span class="actor c">Carol.</span> What data does <span class="actor a">Alice's</span> smartphone exchange with the others'?
+We assume that <span class="actor purple">Alice</span> doesn't know <span class="actor green">Bob</span> nor <span class="actor green">Carol.</span> What data does <span class="actor purple">Alice's</span> smartphone exchange with the others'?
 
 +++ vis-privacy 2
 
@@ -140,7 +140,7 @@ Data protection is the focus of the app. Still, some risks remain. They mostly a
 
 +++ vis-attacks 1
 
-<span class="actor e">Eve</span> is an <span class="highlight red">attacker</span> trying to identify people who have tested positive for the virus. In the simplest case, <span class="actor a">Alice</span> was her only contact.
+<span class="actor red">Eve</span> is an <span class="highlight red">attacker</span> trying to identify people who have tested positive for the virus. In the simplest case, <span class="actor purple">Alice</span> was her only contact.
 
 +++ vis-attacks 2
 
