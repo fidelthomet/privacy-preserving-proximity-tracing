@@ -56,35 +56,31 @@ That’s why <span class="actor a">Alice</span> visits <span class="actor b">Bob
 
 +++ vis-tracing 3
 
-A short time later, <span class="actor a">Alice</span> feels unwell and shows symptoms. She goes into quarantine and is tested.
+A short time later, <span class="actor a">Alice</span> feels unwell and shows symptoms. She goes into quarantine and is <span class="highlight pink">tested.</span>
 
 +++ vis-tracing 4
 
-<span class="actor a">Alice</span> tests positive for COVID-19, but she was already infectious before the symptoms appeared.
+<span class="actor a">Alice</span> <span class="highlight pink">tests positive</span> for COVID-19, but she was already infectious before the symptoms appeared.
 
 +++ vis-tracing 5
 
-This means that she may have infected her friend <span class="actor b">Bob.</span>
+This means that she may have <span class="highlight purple">infected</span> her friend <span class="actor b">Bob.</span>
 
 +++ vis-tracing 6
 
-If this is true, <span class="actor b">Bob</span> may have unconsciously infected others in the meantime.
+If this is true, <span class="actor b">Bob</span> may have unconsciously <span class="highlight purple">infected</span> others in the meantime.
 
 +++ vis-tracing 7
 
-If <span class="actor a">Alice's</span> contacts are traced and informed quickly, <span class="actor b">Bob</span> can also be warned and thus protect his friends.
-
-+++ vis-tracing 8
-
-In this way, chains of infection are broken, and the spread of the virus is contained.
+If <span class="actor a">Alice's</span> contacts are <span class="highlight yellow">traced</span> and informed quickly, <span class="actor b">Bob</span> can be warned and thus <span class="highlight green">protect</span> his friends. In this way, chains of infection are broken, and the spread of the virus is contained.
 
 +++ vis-tracing 9
 
-Manual tracing via telephone interviews does help, but it is not fast enough to keep up with the pace the disease spreads.
+Manual <span class="highlight yellow">tracing</span> via telephone interviews does <span class="highlight green">help,</span> but it is not fast enough to keep up with the pace the disease <span class="highlight purple">spreads.</span>
 
 +++ vis-tracing 10
 
-And with some contacts it is almost impossible to trace them manually. For example, if <span class="actor a">Alice</span> infects <span class="actor c">Carol</span> on public transport after meeting <span class="actor b">Bob.</span>
+And with some contacts it is almost impossible to <span class="highlight yellow">trace</span> them manually. For example, if <span class="actor a">Alice</span> <span class="highlight purple">infects</span> <span class="actor c">Carol</span> on public transport after meeting <span class="actor b">Bob.</span>
 
 +++ vis-tracing 11
 
@@ -92,11 +88,11 @@ And with some contacts it is almost impossible to trace them manually. For examp
 
 +++ vis-tracing 12
 
-If <span class="actor a">Alice</span> tests positive, she uploads her data to a server. <span class="actor b">Bob</span> and <span class="actor c">Carol's</span> smartphones can later reconstruct that they were in close contact with <span class="actor a">Alice</span> during the infectious period and report a warning to them.
+If <span class="actor a">Alice</span> <span class="highlight pink">tests positive,</span> she uploads her data to a server. <span class="actor b">Bob</span> and <span class="actor c">Carol's</span> smartphones can later reconstruct that they were in close contact with <span class="actor a">Alice</span> during the infectious period and report a <span class="highlight yellow">warning</span> to them.
 
 +++ vis-tracing 13
 
-Of course, this approach also has its problems. If <span class="actor c">Carol</span> has not installed the app or does not use a smartphone at all, the contact cannot be reconstructed. If the app is poorly designed, this could also endanger data protection and privacy.
+Of course, this approach also has its problems. If <span class="actor c">Carol</span> has not installed the app or does not use a smartphone at all, the contact cannot be reconstructed. If the app is poorly designed, it could also endanger data protection and privacy.
 
 +++ text-privacy
 
@@ -108,7 +104,7 @@ Tracing, therefore, means the most complete and rapid detection of infections. T
 How can a tracing app that relies on sensitive health and contact data be both compliant with the strict European data protection regulations and able to fulfil its originally intended purpose?
 
 1. **Usage is voluntary!** No person who decides against an installation has to fear any disadvantages.
-2. **App users stay anonymous.** No conclusions about the identity of any user can be drawn.
+2. **App users stay anonymous!** No conclusions about the identity of any user can be drawn.
  
 Nevertheless, such systems have vulnerabilities — especially wherever data is transferred, either between two users of the app or between user and server. Let's take a closer look.
 
@@ -134,7 +130,7 @@ Well, via a detour. <span class="actor a">Alice</span> sends only her IDs (or to
 
 +++ vis-privacy 6
 
-The app then automatically compares them with the locally stored IDs. If there is a match, it issues a warning, assuming the specific risk of transmission. This risk depends on the duration of the encounter and the estimated distance
+The app then automatically compares them with the locally stored IDs. If there is a match, it issues a <span class="highlight yellow">warning,</span> assuming the specific risk of transmission. This risk depends on the duration of the encounter and the estimated distance
 
 +++ text-attacks
 
@@ -144,11 +140,11 @@ Data protection is the focus of the app. Still, some risks remain. They mostly a
 
 +++ vis-attacks 1
 
-<span class="actor e">Eve</span> is an attacker trying to identify people who have tested positive for the virus. In the simplest case, <span class="actor a">Alice</span> was her only contact.
+<span class="actor e">Eve</span> is an <span class="highlight red">attacker</span> trying to identify people who have tested positive for the virus. In the simplest case, <span class="actor a">Alice</span> was her only contact.
 
 +++ vis-attacks 2
 
-As soon as <span class="actor a">Alice</span> tests positive and <span class="actor e">Eve</span> receives a warning, she can easily reconstruct that <span class="actor a">Alice</span> must be infected. If she modifies her app so that it also records the date and time of the contacts and notes when she was in contact with whom, <span class="actor e">Eve</span> can apply the same principle to several contacts.
+As soon as <span class="actor a">Alice</span> <span class="highlight pink">tests positive</span> and <span class="actor e">Eve</span> receives a <span class="highlight yellow">warning,</span> she can easily reconstruct that <span class="actor a">Alice</span> must be infected. If she modifies her app so that it also records the date and time of the contacts and notes when she was in contact with whom, <span class="actor e">Eve</span> can apply the same principle to several contacts.
 
 +++ vis-attacks 3
 
@@ -164,7 +160,7 @@ Meanwhile, <span class="actor m">Mallot</span> tries to trigger false warnings s
 
 +++ vis-attacks 6
 
-However, this is not so easy. To be considered infected, you need a confirmation code, which you only receive from the authorities after a positive test result.
+However, this is not so easy. To be considered infected, you need a confirmation code, which you only receive from the authorities after a <span class="highlight pink">positive test</span> result.
 
 +++ vis-attacks 7
 
@@ -180,7 +176,7 @@ When <span class="actor a">Alice</span> visits the test center, the antennas rel
 
 +++ vis-attacks 10
 
-As soon as <span class="actor a">Alice</span> reports her infection, <span class="actor b">Bob</span> is warned and goes into self-quarantine. 
+As soon as <span class="actor a">Alice</span> reports her infection, <span class="actor b">Bob</span> is <span class="highlight yellow">warned</span> and goes into self-quarantine. 
 
 +++ text-next
 

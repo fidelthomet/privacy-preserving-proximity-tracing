@@ -74,7 +74,7 @@ export default {
       font-feature-settings: "subs";
     }
     font-style: inherit;
-    &.highlight, &.actor {
+    &.highlight {
       white-space: nowrap;
       font-style: italic;
       display: inline-block;
@@ -87,32 +87,46 @@ export default {
       @include tint-light(background);
     }
     &.actor {
+      white-space: nowrap;
+      font-style: italic;
+      // font-weight: bold;
+      display: inline-block;
       padding: 0 0.5rem 0 0.25rem;
+      // border-radius: 0.7em;
+      // line-height: 1.4;
+      // background: transparentize($color-pink, 0.8);
+      // color: darken($color-pink, 10);
+      @include tint(color);
+      // @include tint-light(background);
+      padding: 0 0.1rem 0 0.1rem;
       transition: color $transition, background $transition;
       text-transform: capitalize;
       &.a {
         color: var(--actor-a);
-        background: var(--actor-a-light);
+        // background: var(--actor-a-light);
       }
       &.b {
         color: var(--actor-b);
-        background: var(--actor-b-light);
+        // background: var(--actor-b-light);
       }
       &.c {
         color: var(--actor-c);
-        background: var(--actor-c-light);
+        // background: var(--actor-c-light);
       }
       &.e {
         color: var(--actor-e);
-        background: var(--actor-e-light);
+        // background: var(--actor-e-light);
       }
       &.m {
         color: var(--actor-m);
-        background: var(--actor-m-light);
+        // background: var(--actor-m-light);
       }
       &::before {
         font-style: normal;
-        content: '● ';
+        content: '●';
+        transform: scale(0.9);
+        display: inline-block;
+        padding-right: 0.1rem;
       }
     }
   }

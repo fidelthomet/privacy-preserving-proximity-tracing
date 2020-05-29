@@ -37,6 +37,7 @@ export default {
     sp () {
       const { step, progress } = this
       let sp = step + progress
+      if (sp > 7) sp += 1
       if (sp > 8.5) sp += 0.5
       if (sp > 10.5) sp += 0.5
       if (sp > 11) sp = Math.max(sp - 0.2, 11)
@@ -53,9 +54,9 @@ export default {
         },
         actors: [{
           name: 'A',
-          color: bw(0, 2) || bw(9, 10) || bw(11, 12) ? 'purple' : 'pink',
+          color: bw(0, 3) || bw(9, 10) || bw(11, 12) ? 'purple' : 'pink',
           transmitting: step > 10,
-          isolation: step >= 2 && step <= 8,
+          isolation: bw(2, 9) || bw(10, 11) || bw(12, 13),
           transform: {
             r: 1,
             rev: step === 1 || step === 9 || step === 11 ? progress : 0,
@@ -76,10 +77,10 @@ export default {
           }
         }, {
           name: 'B',
-          color: bw(0, 4) || bw(9, 10) || bw(11, 12) ? 'green'
-            : bw(4, 5) || bw(8, 10) ? 'purple' : 'yellow',
+          color: bw(0, 4) || bw(9, 9 + 1 / 3) || bw(11, 11 + 1 / 3) ? 'green'
+            : bw(4, 6) || bw(8, 10) || bw(11, 12) ? 'purple' : 'yellow',
           transmitting: step > 10,
-          isolation: step >= 6 && step < 8,
+          isolation: bw(6, 8) || bw(10, 11) || bw(12, 14),
           transform: {
             r: 1,
             rev: sp < 9.166 ? 1 / 2 : sp < 9.333 ? 1 / 2 - ((progress - 1 / 6)) : 1 / 3,
@@ -91,7 +92,8 @@ export default {
             html: table([['A', '30', '2']], bw(11, 11 + 1 / 3) ? 0 : 1)
           }
         }, {
-          name: '+',
+          name: step < 3 ? '?' : '+',
+          key: '+',
           hide: sp < 2.1 || sp >= 5,
           color: 'pink',
           class: ['invert'],
@@ -103,7 +105,7 @@ export default {
         }, {
           key: 'b0',
           hide: sp < 5 || sp >= 9,
-          color: step < 7 || step >= 8 ? 'purple' : 'green',
+          color: step < 6 || step >= 8 ? 'purple' : 'green',
           // class: ['invert'],
           transform: {
             r: 0.8,
@@ -113,7 +115,7 @@ export default {
         }, {
           key: 'b1',
           hide: sp < 5.2 || sp >= 9,
-          color: step < 7 || sp >= 8 ? 'purple' : 'green',
+          color: step < 6 || sp >= 8 ? 'purple' : 'green',
           // class: ['invert'],
           transform: {
             r: 1,
@@ -123,7 +125,7 @@ export default {
         }, {
           key: 'b2',
           hide: sp < 5.4 || sp >= 9,
-          color: step < 7 ? 'purple' : 'green',
+          color: step < 6 ? 'purple' : 'green',
           // class: ['invert'],
           transform: {
             r: 0.2,
@@ -133,7 +135,7 @@ export default {
         }, {
           key: 'b3',
           hide: sp < 5.6 || sp >= 9,
-          color: step < 7 ? 'purple' : 'green',
+          color: step < 6 ? 'purple' : 'green',
           // class: ['invert'],
           transform: {
             r: 0.8,
@@ -143,15 +145,16 @@ export default {
         }, {
           name: 'C',
           hide: sp < 9,
-          color: sp < 10 || bw(11, 12) ? 'green' : bw(12, 13) ? 'yellow' : 'purple',
-          transmitting: bw(10, 13),
+          color: bw(0, 9 + 2 / 3) || bw(11, 11 + 2 / 3) ? 'green' : bw(12, 13) ? 'yellow' : 'purple',
+          transmitting: bw(11, 13),
+          isolation: bw(12, 13),
           transform: {
             r: 1,
             rev: 2 / 3,
             offset: 40
           },
           text: {
-            hide: !bw(10, 13),
+            show: bw(11, 13),
             offset: 48,
             html: table([['A', '15', '1']], bw(11, 11 + 2 / 3) ? 0 : 1)
           }
@@ -241,28 +244,28 @@ export default {
         }, {
           nodes: ['B', 'b0'],
           color: 'purple',
-          hide: (sp < 5 || step >= 7) && step !== 8,
+          hide: (sp < 5 || step >= 6) && step !== 8,
           dir: 1,
           r: 0,
           dashed: true
         }, {
           nodes: ['B', 'b1'],
           color: 'purple',
-          hide: (sp < 5.2 || step >= 7) && step !== 8,
+          hide: (sp < 5.2 || step >= 6) && step !== 8,
           dir: 0,
           r: 0,
           dashed: true
         }, {
           nodes: ['B', 'b2'],
           color: 'purple',
-          hide: sp < 5.4 || step >= 7,
+          hide: sp < 5.4 || step >= 6,
           dir: 1,
           r: 0,
           dashed: true
         }, {
           nodes: ['B', 'b3'],
           color: 'purple',
-          hide: sp < 5.6 || step >= 7,
+          hide: sp < 5.6 || step >= 6,
           dir: 0,
           r: 0,
           dashed: true

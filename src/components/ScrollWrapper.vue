@@ -157,7 +157,7 @@ export default {
 
       .md-renderer {
         width: 100vw;
-        max-width: 400px;
+        max-width: 420px;
         font-size: 0.8em;
         padding: 0 $spacing / 2;
         transition: opacity $transition;

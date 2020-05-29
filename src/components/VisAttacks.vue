@@ -101,7 +101,7 @@ export default {
         }, {
           name: 'E',
           show: bw(0, 4),
-          color: bw(0, 1) || bw(2, 3) ? 'red' : 'yellow',
+          color: bw(0, 1) || bw(2, 5) ? 'red' : 'yellow',
           transmitting: bw(0, 2),
           transform: {
             r: 1,

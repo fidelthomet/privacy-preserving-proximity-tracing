@@ -56,35 +56,31 @@ Also besucht <span class="actor a">Alice</span> <span class="actor b">Bob.</span
 
 +++ vis-tracing 3
 
-Kurze Zeit später fühlt sich <span class="actor a">Alice</span> unwohl und entwickelt Symptome. Sie begibt sich in Quarantäne und wird getestet.
+Kurze Zeit später fühlt sich <span class="actor a">Alice</span> unwohl und entwickelt Symptome. Sie begibt sich in Quarantäne und wird <span class="highlight pink">getestet.</span>
 
 +++ vis-tracing 4
 
-<span class="actor a">Alices</span> Test fällt positiv aus. Sie war allerdings schon infektiös, bevor die Symptome auftraten.
+<span class="actor a">Alices</span> Test fällt <span class="highlight pink">positiv</span> aus. Sie war allerdings schon infektiös, bevor die Symptome auftraten.
 
 +++ vis-tracing 5
 
-Das bedeutet, dass sie vielleicht auch ihren Freund <span class="actor b">Bob</span> angesteckt hat.
+Das bedeutet, dass sie vielleicht auch ihren Freund <span class="actor b">Bob</span> <span class="highlight purple">angesteckt</span> hat.
 
 +++ vis-tracing 6
 
-Wenn das stimmt, könnte <span class="actor b">Bob</span> in der Zwischenzeit selbst weitere Personen angesteckt haben, ohne es zu merken.
+Wenn das stimmt, könnte <span class="actor b">Bob</span> in der Zwischenzeit selbst weitere Personen <span class="highlight purple">angesteckt</span> haben, ohne es zu merken.
 
 +++ vis-tracing 7
 
-Werden <span class="actor a">Alices</span> Kontakte rasch nachverfolgt und informiert, kann auch <span class="actor b">Bob</span> gewarnt werden und seine Freunde schützen.
-
-+++ vis-tracing 8
-
-So werden Infektionsketten unterbrochen und die Ausbreitung des Virus eingedämmt.
+Werden <span class="actor a">Alices</span> Kontakte rasch <span class="highlight yellow">nachverfolgt</span> und informiert, kann auch <span class="actor b">Bob</span> gewarnt werden und seine Freunde <span class="highlight green">schützen.</span> So werden Infektionsketten unterbrochen und die Ausbreitung des Virus eingedämmt.
 
 +++ vis-tracing 9
 
-Manuelles Tracing über Telefoninterviews hilft zwar, ist aber nicht schnell genug, um mit dem Tempo der Ausbreitung Schritt zu halten. 
+Manuelles <span class="highlight yellow">Tracing</span> über Telefoninterviews <span class="highlight green">hilft</span> zwar, ist aber nicht schnell genug, um mit dem Tempo der <span class="highlight purple">Ausbreitung</span> Schritt zu halten. 
 
 +++ vis-tracing 10
 
-Und bei manchen Kontakten ist es fast unmöglich, sie manuell nachzuvollziehen. Zum Beispiel, wenn <span class="actor a">Alice</span> <span class="actor c">Carol</span> in der Bahn ansteckt, nachdem sie <span class="actor b">Bob</span> getroffen hat. 
+Und bei manchen Kontakten ist es fast unmöglich, sie manuell <span class="highlight yellow">nachzuvollziehen.</span> Zum Beispiel, wenn <span class="actor a">Alice</span> <span class="actor c">Carol</span> in der Bahn <span class="highlight purple">ansteckt,</span> nachdem sie <span class="actor b">Bob</span> getroffen hat. 
 
 +++ vis-tracing 11
 
@@ -92,7 +88,7 @@ Und bei manchen Kontakten ist es fast unmöglich, sie manuell nachzuvollziehen. 
 
 +++ vis-tracing 12
 
-Wird <span class="actor a">Alice</span> positiv getestet, übermittelt sie diese Information an einen Server. Die Smartphones von <span class="actor b">Bob</span> und <span class="actor c">Carol</span> können später rekonstruieren, dass sie innerhalb des infektiösen Zeitraums in engem Kontakt zu <span class="actor a">Alice</span> standen und melden ihnen eine Warnung. 
+Wird <span class="actor a">Alice</span> <span class="highlight pink">positiv getestet,</span> übermittelt sie diese Information an einen Server. Die Smartphones von <span class="actor b">Bob</span> und <span class="actor c">Carol</span> können später rekonstruieren, dass sie innerhalb des infektiösen Zeitraums in engem Kontakt zu <span class="actor a">Alice</span> standen und melden ihnen eine <span class="highlight yellow">Warnung.</span>
 
 +++ vis-tracing 13
 
@@ -136,7 +132,7 @@ Nun, über einen Umweg. <span class="actor a">Alice</span> sendet nämlich nur i
 
 +++ vis-privacy 6
 
-Die App gleicht sie dann automatisch mit den lokal gespeicherten IDs ab. Gibt es eine Übereinstimmung, spricht sie – abhängig vom Übertragungsrisiko, das sich aus Kontaktdauer und geschätzter Distanz ergibt – eine Warnung aus. 
+Die App gleicht sie dann automatisch mit den lokal gespeicherten IDs ab. Gibt es eine Übereinstimmung, spricht sie – abhängig vom Übertragungsrisiko, das sich aus Kontaktdauer und geschätzter Distanz ergibt – eine <span class="highlight yellow">Warnung</span> aus. 
 
 
 +++ text-attacks
@@ -147,11 +143,11 @@ Der Datenschutz steht also merklich im Fokus der App. Trotzdem gibt es Restrisik
 
 +++ vis-attacks 1
 
-<span class="actor e">Eve</span> ist eine Angreiferin und versucht, Personen zu identifizieren, die positiv auf das Virus getestet wurden. Im einfachsten Fall hatte sie selbst ausschließlich Kontakt zu <span class="actor a">Alice.</span>
+<span class="actor e">Eve</span> ist eine <span class="highlight red">Angreiferin</span> und versucht, Personen zu identifizieren, die positiv auf das Virus getestet wurden. Im einfachsten Fall hatte sie selbst ausschließlich Kontakt zu <span class="actor a">Alice.</span>
 
 +++ vis-attacks 2
 
-Sobald <span class="actor a">Alice</span> nun positiv getestet wird und <span class="actor e">Eve</span> eine Warnung erhält, kann sie einfach rekonstruieren, dass <span class="actor a">Alice</span> infiziert sein muss. Wenn sie ihre App so modifiziert, dass sie auch Datum und Uhrzeit der Kontakte erfasst und sich notiert, wann sie mit wem in Kontakt war, kann <span class="actor e">Eve</span> das gleiche Prinzip auch auf mehrere Kontakte anwenden.
+Sobald <span class="actor a">Alice</span> nun <span class="highlight pink">positiv getestet</span> wird und <span class="actor e">Eve</span> eine <span class="highlight yellow">Warnung</span> erhält, kann sie einfach rekonstruieren, dass <span class="actor a">Alice</span> infiziert sein muss. Wenn sie ihre App so modifiziert, dass sie auch Datum und Uhrzeit der Kontakte erfasst und sich notiert, wann sie mit wem in Kontakt war, kann <span class="actor e">Eve</span> das gleiche Prinzip auch auf mehrere Kontakte anwenden.
 
 +++ vis-attacks 3
 
@@ -167,7 +163,7 @@ Währenddessen versucht <span class="actor m">Mallot,</span> falsche Warnungen a
 
 +++ vis-attacks 6
 
-Das ist allerdings gar nicht so einfach. Denn um als infiziert zu gelten, benötigt man einen Bestätigungscode, den man nur nach einem positiven Testbefund von den Behörden erhält.
+Das ist allerdings gar nicht so einfach. Denn um als infiziert zu gelten, benötigt man einen Bestätigungscode, den man nur nach einem <span class="highlight pink">positiven Testbefund</span> von den Behörden erhält.
 
 +++ vis-attacks 7
 
@@ -183,7 +179,7 @@ Wenn <span class="actor a">Alice</span> das Testzentrum besucht, leiten die Ante
 
 +++ vis-attacks 10
 
-Sobald <span class="actor a">Alice</span> nun ihre Infektion meldet, wird <span class="actor b">Bob</span> gewarnt und begibt sich in Selbstquarantäne. 
+Sobald <span class="actor a">Alice</span> nun ihre Infektion meldet, wird <span class="actor b">Bob</span> <span class="highlight yellow">gewarnt</span> und begibt sich in Selbstquarantäne. 
 
 +++ text-next
 

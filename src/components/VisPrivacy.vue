@@ -76,7 +76,7 @@ export default {
         }, {
           name: 'B',
           show: bw(0, 6),
-          color: bw(0, 5) ? 'green' : 'yellow',
+          color: bw(0, 2) ? 'green' : bw(2, 5) ? 'purple' : 'yellow',
           transmitting: true,
           transform: {
             r: 1,
@@ -91,7 +91,8 @@ export default {
         }, {
           name: 'C',
           show: true,
-          color: bw(0, 5) ? 'green' : 'yellow',
+          color: bw(0, 3) ? 'green' : bw(3, 5) ? 'purple' : 'yellow',
+          transmitting: true,
           transform: {
             r: 1,
             rev: 2 / 3,
