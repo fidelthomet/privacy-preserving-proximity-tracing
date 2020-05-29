@@ -166,6 +166,10 @@ export default {
           opacity: 1;
         }
       }
+
+      &:last-of-type {
+        padding: 25vh 0 50vh;
+      }
     }
   }
 }
