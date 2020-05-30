@@ -14,6 +14,7 @@
       <router-link v-for="l in languages" :key="l.path" :to="l.path">{{ l.name }}</router-link>
     </nav>
     <article>
+      <MdRenderer el="section" v-if="getText('text-warning')" class="warning" :text="getText('text-warning')"/>
       <MdRenderer el="section" class="intro" :text="getText('text-intro')"/>
       <MdRenderer el="section" :text="getText('text-reproduction')"/>
       <ScrollWrapper :text="getText('vis-reproduction')" section="vis-reproduction">
@@ -151,6 +152,10 @@ export default {
     > .md-renderer {
       padding: 0 $spacing / 2;
     }
+  }
+
+  .warning {
+    background: $color-light-yellow;
   }
 
   .intersection-observer-fracture {
